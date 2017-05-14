@@ -1,0 +1,5 @@
+const SUBSTRIPE_COUNT = 8
+
+export {
+    SUBSTRIPE_COUNT
+}
