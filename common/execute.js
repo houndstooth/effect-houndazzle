@@ -1,7 +1,7 @@
 import { GRID_SIZE, SQUARE_SIZE } from '../../shared/common/customize'
 import { SUBSTRIPE_COUNT } from '../common/customize'
 import iterator from '../../shared/utilities/iterator'
-import houndazzleSquare from '../components/houndazzleSquare'
+import dazzleSquare from '../components/dazzleSquare'
 
 const HOUNDAZZLE_SUPERTILE = [
     [
@@ -17,7 +17,7 @@ const HOUNDAZZLE_SUPERTILE = [
 export default () => {
     iterator(GRID_SIZE).forEach(x => {
         iterator(GRID_SIZE).forEach(y => {
-            houndazzleSquare({
+            dazzleSquare({
                 origin: [ x * SQUARE_SIZE, y * SQUARE_SIZE ],
                 size: SQUARE_SIZE,
                 squareType: HOUNDAZZLE_SUPERTILE[ x % 2 ][ y % 2 ],

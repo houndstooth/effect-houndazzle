@@ -1,0 +1,1 @@
+export default ({ substripeIndex, originColor, otherColor }) => substripeIndex % 2 ? originColor : otherColor
