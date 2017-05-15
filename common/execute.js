@@ -1,7 +1,8 @@
 import { GRID_SIZE, SQUARE_SIZE } from '../../shared/common/customize'
-import { SUBSTRIPE_COUNT } from '../common/customize'
+import { DAZZLE_CONTINUUM, SUBSTRIPE_COUNT } from '../common/customize'
 import iterator from '../../shared/utilities/iterator'
 import dazzleSquare from '../components/dazzleSquare'
+import calculateSubstripeCount from '../utilities/calculateSubstripeCount'
 
 const HOUNDAZZLE_SUPERTILE = [
     [
@@ -21,7 +22,7 @@ export default () => {
                 origin: [ x * SQUARE_SIZE, y * SQUARE_SIZE ],
                 size: SQUARE_SIZE,
                 squareType: HOUNDAZZLE_SUPERTILE[ x % 2 ][ y % 2 ],
-                substripeCount: SUBSTRIPE_COUNT
+                substripeCount: DAZZLE_CONTINUUM ? calculateSubstripeCount({distanceFromOrigin: x + y}) : SUBSTRIPE_COUNT
             })
         })
     })
