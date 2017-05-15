@@ -1,4 +1,4 @@
-import drawStripedDazzleSquare from '../render/drawStripedDazzleSquare'
+import drawStripedDazzleSquare from '../render/drawStripedDazzleSquareWithoutPattern'
 import drawSolidDazzleSquare from '../render/drawSolidDazzleSquare'
 
 export default ({ origin, size, squareType, scaleFromCenter, substripeCount }) => {

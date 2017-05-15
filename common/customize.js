@@ -1,4 +1,4 @@
-const SUBSTRIPE_COUNT = 8
+const SUBSTRIPE_COUNT = 4
 
 export {
     SUBSTRIPE_COUNT

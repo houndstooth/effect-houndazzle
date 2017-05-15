@@ -1,4 +1,4 @@
-import { GRID_SIZE, COLOR_A, COLOR_B, SQUARE_SIZE } from '../../shared/common/customize'
+import { GRID_SIZE, SQUARE_SIZE } from '../../shared/common/customize'
 import { SUBSTRIPE_COUNT } from '../common/customize'
 import iterator from '../../shared/utilities/iterator'
 import houndazzleSquare from '../components/houndazzleSquare'
