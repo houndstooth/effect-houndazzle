@@ -4,20 +4,23 @@ import scaleOrigin from '../../shared/utilities/scaleOrigin'
 import iterator from '../../shared/utilities/iterator'
 import calculateSubstripeStripeUnionCoordinates from '../utilities/calculateSubstripeStripeUnionCoordinates'
 
-const STRIPE_COUNT = 16
+const STRIPE_COUNT = 4
 
 export default ({ origin, size, originSubstripeDirection, scaleFromCenter, substripeCount }) => {
 	console.log('drawing a striped dazzle square without pattern woohoo')
 	origin = scaleOrigin({ origin, scaleFromCenter })
+	// const originColor = originSubstripeDirection == 'VERTICAL' ? COLOR_A : COLOR_B
+	// const otherColor = originColor == COLOR_B ? COLOR_A : COLOR_B
 	const sizedUnit = UNIT * size
 	const stripeUnit = sizedUnit * 2 / STRIPE_COUNT
 	const substripeUnit = sizedUnit / substripeCount
+	const substripeDirectionOffset = originSubstripeDirection == 'VERTICAL' ? stripeUnit : 0
 
 	// draw underlying vertical stripes
 	iterator(substripeCount).forEach(substripeIndex => {
 		let currentSubstripePosition = substripeIndex * substripeUnit
 		let nextSubstripePosition = currentSubstripePosition + substripeUnit
-		const color = substripeIndex % 2 ? COLOR_B : COLOR_A
+		const color = substripeIndex % 2 ? COLOR_A : COLOR_B
 
 		const coordinates = [
 			[
@@ -43,12 +46,12 @@ export default ({ origin, size, originSubstripeDirection, scaleFromCenter, subst
 	// for each substripe
 	iterator(substripeCount).forEach(substripeIndex => {
 		let currentSubstripePosition = substripeIndex * substripeUnit
-		const color = substripeIndex % 2 ? COLOR_A : COLOR_B
+		const color = substripeIndex % 2 ? COLOR_B : COLOR_A
 
 		// for each stripe
 		iterator(STRIPE_COUNT).forEach(stripeIndex => {
 			// the 2 is for skipping every other parallelogram, because that's where the holes for the other substripe direction go
-			let currentStripePosition = stripeIndex * stripeUnit * 2 - currentSubstripePosition
+			let currentStripePosition = stripeIndex * stripeUnit * 2 + substripeDirectionOffset - currentSubstripePosition
 
 			// this stripe is off the right edge of the substripe
 			if (currentStripePosition - substripeUnit >= sizedUnit) return
