@@ -1,6 +1,6 @@
 import { UNIT } from '../../shared/common/customize'
 import scalePoint from '../../shared/utilities/scalePoint'
-import underlyingSubstripesHalfSmaller from './underlyingSubstripesHalfSmaller'
+import drawUnderlyingSubstripesHalfSmaller from '../render/drawUnderlyingSubstripesHalfSmaller'
 import drawSubstripes from '../render/drawSubstripes'
 import alternatingStripeOverlays from './alternatingStripeOverlays'
 import { DAZZLE_CONTINUUM } from '../common/customize'
@@ -10,7 +10,7 @@ export default ({ origin, size, originSubstripeDirection, scaleFromGridCenter, s
 	const sizedUnit = UNIT * size
 
 	if (DAZZLE_CONTINUUM) {
-		underlyingSubstripesHalfSmaller({
+		drawUnderlyingSubstripesHalfSmaller({
 			substripeCount,
 			sizedUnit,
 			origin
