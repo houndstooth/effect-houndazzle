@@ -1,8 +1,7 @@
 import iterator from '../../shared/utilities/iterator'
 import render from '../../shared/render/render'
-import calculateColor from '../utilities/calculateColor'
 
-export default ({ originSubstripeDirection, substripeCount, substripeUnit, origin, sizedUnit, originColor, otherColor }) => {
+export default ({ originSubstripeDirection, substripeCount, substripeUnit, origin, sizedUnit, colors }) => {
 	const verticalModifier = originSubstripeDirection === 'VERTICAL' ? 1 : 0
 	iterator(substripeCount * 2).forEach(substripeIndex => {
 		if (substripeIndex % 4 === 3 || substripeIndex % 4 === 0) return
@@ -27,11 +26,7 @@ export default ({ originSubstripeDirection, substripeCount, substripeUnit, origi
 			]
 		]
 
-		const color = calculateColor({
-			substripeIndex: substripeIndex % 4 === 1 ? verticalModifier : verticalModifier + 1,
-			originColor,
-			otherColor
-		})
+		const color = colors[ substripeIndex % 4 === 1 ? verticalModifier : (verticalModifier + 1 % 2) ]
 
 		render({ color, coordinates })
 	})

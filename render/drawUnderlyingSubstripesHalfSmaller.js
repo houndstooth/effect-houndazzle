@@ -1,12 +1,11 @@
 import iterator from '../../shared/utilities/iterator'
 import render from '../../shared/render/render'
 import assignOriginAndOtherColor from '../utilities/assignOriginAndOtherColor'
-import calculateColor from '../utilities/calculateColor'
 
 export default ({ substripeCount, sizedUnit, origin }) => {
 	const substripeUnit = sizedUnit / substripeCount
 
-	const { originColor, otherColor } = assignOriginAndOtherColor({ originSubstripeDirection: 'VERTICAL' })
+	const colors = assignOriginAndOtherColor({ originSubstripeDirection: 'VERTICAL' })
 
 	// top half, bigger substripes
 	iterator(substripeCount).forEach(substripeIndex => {
@@ -33,7 +32,7 @@ export default ({ substripeCount, sizedUnit, origin }) => {
 			],
 		]
 
-		const color = calculateColor({ substripeIndex, originColor, otherColor })
+		const color = colors[ substripeIndex % 2 ]
 
 		render({ color, coordinates })
 	})
@@ -63,7 +62,7 @@ export default ({ substripeCount, sizedUnit, origin }) => {
 			],
 		]
 
-		const color = calculateColor({ substripeIndex, originColor, otherColor })
+		const color = colors[ substripeIndex % 2 ]
 
 		render({ color, coordinates })
 	})

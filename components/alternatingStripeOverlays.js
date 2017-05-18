@@ -2,7 +2,6 @@ import iterator from '../../shared/utilities/iterator'
 import drawFancyPatchup from '../render/drawFancyPatchup'
 import substripeStripeUnion from './substripeStripeUnion'
 import assignOriginAndOtherColor from '../utilities/assignOriginAndOtherColor'
-import calculateColor from '../utilities/calculateColor'
 import { STRIPE_COUNT } from '../../shared/common/customize'
 import { DAZZLE_CONTINUUM } from '../common/customize'
 
@@ -13,11 +12,11 @@ export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 
 	// because whether or not the origin substripe direction is vertical,
 	// we're going to be drawing horizontal substripes here
-	const { originColor, otherColor } = assignOriginAndOtherColor({ originSubstripeDirection: 'HORIZONTAL' })
+	const colors = assignOriginAndOtherColor({ originSubstripeDirection: 'HORIZONTAL' })
 
 	iterator(substripeCount).forEach(substripeIndex => {
 		let currentSubstripePosition = substripeIndex * substripeUnit
-		const color = calculateColor({ substripeIndex, originColor, otherColor })
+		const color = colors[ substripeIndex % 2 ]
 
 		iterator(STRIPE_COUNT).forEach(stripeIndex => {
 			substripeStripeUnion({
@@ -29,8 +28,7 @@ export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 				substripeUnit,
 				color,
 				origin,
-				originColor,
-				otherColor
+				colors
 			})
 		})
 	})
@@ -42,8 +40,7 @@ export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 			substripeUnit,
 			origin,
 			sizedUnit,
-			originColor,
-			otherColor
+			colors
 		})
 	}
 }

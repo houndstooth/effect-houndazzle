@@ -1,5 +1,5 @@
 const SUBSTRIPE_COUNT = 16
-const DAZZLE_CONTINUUM = true
+const DAZZLE_CONTINUUM = false
 
 export {
     SUBSTRIPE_COUNT,

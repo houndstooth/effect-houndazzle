@@ -1,9 +1,8 @@
 import maybeDrawSubstripeStripeUnion from '../render/maybeDrawSubstripeStripeUnion'
-import calculateColor from '../utilities/calculateColor'
 import { STRIPE_COUNT } from '../../shared/common/customize'
 import { DAZZLE_CONTINUUM } from '../common/customize'
 
-export default ({stripeIndex, stripeUnit, substripeDirectionOffset, currentSubstripePosition, sizedUnit, substripeUnit, color, origin, originColor, otherColor}) => {
+export default ({ stripeIndex, stripeUnit, substripeDirectionOffset, currentSubstripePosition, sizedUnit, substripeUnit, color, origin, colors }) => {
 
 	// have to divide by 4 because this is actually a "half index" since we skip every other stripe...
 	if (!DAZZLE_CONTINUUM || stripeIndex < STRIPE_COUNT / 4) {
@@ -25,7 +24,7 @@ export default ({stripeIndex, stripeUnit, substripeDirectionOffset, currentSubst
 			currentSubstripePosition,
 			sizedUnit,
 			substripeUnit: substripeUnit / 2,
-			color: calculateColor({ substripeIndex: 0, originColor, otherColor }),
+			color: colors[ 0 ],
 			origin
 		})
 		maybeDrawSubstripeStripeUnion({
@@ -35,7 +34,7 @@ export default ({stripeIndex, stripeUnit, substripeDirectionOffset, currentSubst
 			currentSubstripePosition: currentSubstripePosition + (substripeUnit / 2),
 			sizedUnit,
 			substripeUnit: substripeUnit / 2,
-			color: calculateColor({ substripeIndex: 1, originColor, otherColor }),
+			color: colors[ 1 ],
 			origin
 		})
 	}
