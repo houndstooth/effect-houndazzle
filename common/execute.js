@@ -1,29 +1,4 @@
-import { GRID_SIZE, SQUARE_SIZE } from '../../shared/common/customize'
-import { DAZZLE_CONTINUUM, SUBSTRIPE_COUNT } from '../common/customize'
-import iterator from '../../shared/utilities/iterator'
-import dazzleSquare from '../components/dazzleSquare'
-import calculateSubstripeCount from '../utilities/calculateSubstripeCount'
+import grid from '../../shared/components/grid'
+import dazzleTile from '../components/dazzleTile'
 
-const HOUNDAZZLE_SUPERTILE = [
-    [
-        "STRIPED_A",
-        "HORIZONTAL_SUBSTRIPES"
-    ],
-    [
-        "VERTICAL_SUBSTRIPES",
-        "STRIPED_B"
-    ]
-]
-
-export default () => {
-    iterator(GRID_SIZE).forEach(x => {
-        iterator(GRID_SIZE).forEach(y => {
-            dazzleSquare({
-                origin: [ x * SQUARE_SIZE, y * SQUARE_SIZE ],
-                size: SQUARE_SIZE,
-                squareType: HOUNDAZZLE_SUPERTILE[ x % 2 ][ y % 2 ],
-                substripeCount: DAZZLE_CONTINUUM ? calculateSubstripeCount({distanceFromOrigin: x + y}) : SUBSTRIPE_COUNT
-            })
-        })
-    })
-}
+export default () => grid({ tile: dazzleTile })
