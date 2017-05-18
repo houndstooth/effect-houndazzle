@@ -1,4 +1,4 @@
 import grid from '../../shared/components/grid'
-import dazzleTile from '../components/dazzleTile'
+import dazzleSquare from '../components/dazzleSquare'
 
-export default () => grid({ tile: dazzleTile })
+export default () => grid({ tile: dazzleSquare })
