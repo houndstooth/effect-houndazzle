@@ -13,7 +13,7 @@ export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 		const nextSubstripePosition = currentSubstripePosition + substripeUnit
 
 		let coordinates
-		if (originSubstripeDirection == 'VERTICAL') {
+		if (originSubstripeDirection === 'VERTICAL') {
 			coordinates = [
 				[
 					origin[ 0 ] + currentSubstripePosition,
@@ -32,7 +32,7 @@ export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 					origin[ 1 ] + sizedUnit
 				],
 			]
-		} else if (originSubstripeDirection == 'HORIZONTAL') {
+		} else if (originSubstripeDirection === 'HORIZONTAL') {
 			coordinates = [
 				[
 					origin[ 0 ],

@@ -9,7 +9,7 @@ import { DAZZLE_CONTINUUM } from '../common/customize'
 export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection }) => {
 	const substripeUnit = sizedUnit / substripeCount
 	const stripeUnit = sizedUnit * 2 / STRIPE_COUNT
-	const substripeDirectionOffset = originSubstripeDirection == 'VERTICAL' ? stripeUnit : 0
+	const substripeDirectionOffset = originSubstripeDirection === 'VERTICAL' ? stripeUnit : 0
 
 	// because whether or not the origin substripe direction is vertical,
 	// we're going to be drawing horizontal substripes here
