@@ -15,10 +15,10 @@ const HOUNDAZZLE_SUPERTILE = [
 	]
 ]
 
-export default ({ x, y }) => {
-	const origin = [ x * SQUARE_SIZE, y * SQUARE_SIZE ]
+export default ({ origin: initialOrigin }) => {
+	const origin = [ initialOrigin[ 0 ] * SQUARE_SIZE, initialOrigin[ 1 ] * SQUARE_SIZE ]
 	const size = SQUARE_SIZE
-	const squareType = HOUNDAZZLE_SUPERTILE[ x % 2 ][ y % 2 ]
+	const squareType = HOUNDAZZLE_SUPERTILE[ initialOrigin[ 0 ] % 2 ][ initialOrigin[ 1 ] % 2 ]
 	const substripeCount = DAZZLE_CONTINUUM ? calculateSubstripeCount({distanceFromOrigin: x + y}) : SUBSTRIPE_COUNT
 
 	let originSubstripeDirection = squareType === "STRIPED_A" || squareType === "VERTICAL_SUBSTRIPES" ? "VERTICAL" : "HORIZONTAL"
