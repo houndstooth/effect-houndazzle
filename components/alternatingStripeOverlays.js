@@ -18,7 +18,7 @@ export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 		let currentSubstripePosition = substripeIndex * substripeUnit
 		const color = colors[ substripeIndex % 2 ]
 
-		iterator(STRIPE_COUNT).forEach(stripeIndex => {
+		iterator(Math.ceil(STRIPE_COUNT)).forEach(stripeIndex => {
 			substripeStripeUnion({
 				stripeIndex,
 				stripeUnit,
