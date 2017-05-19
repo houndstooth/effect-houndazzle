@@ -1,6 +1,7 @@
 import iterator from '../../shared/utilities/iterator'
 import render from '../../shared/render/render'
 import assignOriginAndOtherColor from '../utilities/assignOriginAndOtherColor'
+import calculateColor from '../../shared/utilities/calculateColor'
 
 export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection }) => {
 	const substripeUnit = sizedUnit / substripeCount
@@ -52,7 +53,7 @@ export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 			]
 		}
 
-		const color = colors[ substripeIndex % 2 ]
+		const color = calculateColor({ colors, index: substripeIndex })
 
 		render({ color, coordinates })
 	})

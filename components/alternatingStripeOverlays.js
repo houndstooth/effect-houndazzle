@@ -4,6 +4,7 @@ import substripeStripeUnion from './substripeStripeUnion'
 import assignOriginAndOtherColor from '../utilities/assignOriginAndOtherColor'
 import { STRIPE_COUNT } from '../../shared/common/customize'
 import { DAZZLE_CONTINUUM } from '../common/customize'
+import calculateColor from '../../shared/utilities/calculateColor'
 
 export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection }) => {
 	const substripeUnit = sizedUnit / substripeCount
@@ -16,7 +17,7 @@ export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 
 	iterator(substripeCount).forEach(substripeIndex => {
 		let currentSubstripePosition = substripeIndex * substripeUnit
-		const color = colors[ substripeIndex % 2 ]
+		const color = calculateColor({ colors, index: substripeIndex })
 
 		iterator(Math.ceil(STRIPE_COUNT)).forEach(stripeIndex => {
 			substripeStripeUnion({
