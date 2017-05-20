@@ -1,5 +1,4 @@
-import execute from './common/execute'
+import grid from '../shared/components/grid'
+import dazzleSquare from './components/dazzleSquare'
 
-const houndazzle = execute
-
-export { houndazzle }
+export default () => grid({ tile: dazzleSquare })
