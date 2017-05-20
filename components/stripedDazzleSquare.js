@@ -1,15 +1,14 @@
-import { UNIT } from '../../shared/common/customize'
+import state from '../../state'
 import scalePoint from '../../shared/utilities/scalePoint'
 import drawUnderlyingSubstripesHalfSmaller from '../render/drawUnderlyingSubstripesHalfSmaller'
 import drawSubstripes from '../render/drawSubstripes'
 import alternatingStripeOverlays from './alternatingStripeOverlays'
-import { DAZZLE_CONTINUUM } from '../common/customize'
 
 export default ({ origin, size, originSubstripeDirection, scaleFromGridCenter, substripeCount }) => {
 	origin = scalePoint({ point: origin, scaleFromGridCenter })
-	const sizedUnit = UNIT * size
+	const sizedUnit = state.shared.unit * size
 
-	if (DAZZLE_CONTINUUM) {
+	if (state.houndazzle.dazzleContinuum) {
 		drawUnderlyingSubstripesHalfSmaller({
 			substripeCount,
 			sizedUnit,

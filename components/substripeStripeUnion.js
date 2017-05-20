@@ -1,11 +1,22 @@
 import maybeDrawSubstripeStripeUnion from '../render/maybeDrawSubstripeStripeUnion'
-import { STRIPE_COUNT } from '../../shared/common/customize'
-import { DAZZLE_CONTINUUM } from '../common/customize'
+import state from '../../state'
 
-export default ({ stripeIndex, stripeUnit, substripeDirectionOffset, currentSubstripePosition, sizedUnit, substripeUnit, color, origin, colors }) => {
+export default ({ 
+	stripeIndex, 
+	stripeUnit, 
+	substripeDirectionOffset, 
+	currentSubstripePosition,
+	sizedUnit, 
+	substripeUnit, 
+	color, 
+	origin, 
+	colors 
+}) => {
+	const { stripeCount } = state.shared
+	const { dazzleContinuum } = state.houndazzle
 
 	// have to divide by 4 because this is actually a "half index" since we skip every other stripe...
-	if (!DAZZLE_CONTINUUM || stripeIndex < STRIPE_COUNT / 4) {
+	if (!dazzleContinuum || stripeIndex < stripeCount / 4) {
 		maybeDrawSubstripeStripeUnion({
 			stripeIndex,
 			stripeUnit,

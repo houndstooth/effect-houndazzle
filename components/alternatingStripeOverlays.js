@@ -2,13 +2,15 @@ import iterator from '../../shared/utilities/iterator'
 import drawFancyPatchup from '../render/drawFancyPatchup'
 import substripeStripeUnion from './substripeStripeUnion'
 import assignOriginAndOtherColor from '../utilities/assignOriginAndOtherColor'
-import { STRIPE_COUNT } from '../../shared/common/customize'
-import { DAZZLE_CONTINUUM } from '../common/customize'
 import calculateColor from '../../shared/utilities/calculateColor'
+import state from '../../state'
 
 export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection }) => {
+	const { stripeCount } = state.shared
+	const { dazzleContinuum } = state.houndazzle
+
 	const substripeUnit = sizedUnit / substripeCount
-	const stripeUnit = sizedUnit * 2 / STRIPE_COUNT
+	const stripeUnit = sizedUnit * 2 / stripeCount
 	const substripeDirectionOffset = originSubstripeDirection === 'VERTICAL' ? stripeUnit : 0
 
 	// because whether or not the origin substripe direction is vertical,
@@ -19,7 +21,7 @@ export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 		let currentSubstripePosition = substripeIndex * substripeUnit
 		const color = calculateColor({ colors, index: substripeIndex })
 
-		iterator(Math.ceil(STRIPE_COUNT)).forEach(stripeIndex => {
+		iterator(Math.ceil(stripeCount)).forEach(stripeIndex => {
 			substripeStripeUnion({
 				stripeIndex,
 				stripeUnit,
@@ -34,7 +36,7 @@ export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 		})
 	})
 
-	if (DAZZLE_CONTINUUM) {
+	if (dazzleContinuum) {
 		drawFancyPatchup({
 			originSubstripeDirection,
 			substripeCount,

@@ -1,9 +1,10 @@
-import { COLOR_A, COLOR_B } from '../../shared/common/customize'
+import state from '../../state'
 
 export default ({ originSubstripeDirection }) => {
+    const { colorA, colorB } = state.shared
 	let colors = []
-	colors[ 0 ] = originSubstripeDirection === 'VERTICAL' ? COLOR_B : COLOR_A
-	colors[ 1 ] = colors[ 0 ] === COLOR_A ? COLOR_B : COLOR_A
+	colors[ 0 ] = originSubstripeDirection === 'VERTICAL' ? colorB : colorA
+	colors[ 1 ] = colors[ 0 ] === colorA ? colorB : colorA
 
 	return colors
 }
