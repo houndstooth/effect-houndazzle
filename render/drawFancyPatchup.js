@@ -26,7 +26,8 @@ export default ({ originSubstripeDirection, substripeCount, substripeUnit, origi
 			]
 		]
 
-		const color = colors[ substripeIndex % 4 === 1 ? verticalModifier : (verticalModifier + 1 % 2) ]
+		const colorsIndex = substripeIndex % 4 === 1 ? verticalModifier % 2 : (verticalModifier + 1) % 2
+		const color = colors[ colorsIndex ]
 
 		render({ color, coordinates })
 	})

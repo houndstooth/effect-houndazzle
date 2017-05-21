@@ -6,7 +6,7 @@ import calculateColor from '../../shared/utilities/calculateColor'
 import state from '../../state'
 
 export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection }) => {
-	const { stripeCount } = state.shared
+	const { baseCount: stripeCount } = state.shared.stripeCount
 	const { dazzleContinuum } = state.houndazzle
 
 	const substripeUnit = sizedUnit / substripeCount

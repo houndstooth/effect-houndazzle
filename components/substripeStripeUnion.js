@@ -12,7 +12,7 @@ export default ({
 	origin, 
 	colors 
 }) => {
-	const { stripeCount } = state.shared
+	const { baseCount: stripeCount } = state.shared.stripeCount
 	const { dazzleContinuum } = state.houndazzle
 
 	// have to divide by 4 because this is actually a "half index" since we skip every other stripe...
