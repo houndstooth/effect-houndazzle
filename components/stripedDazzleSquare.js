@@ -1,4 +1,4 @@
-import state from '../../state'
+import state from '../../shared/application/state'
 import scalePoint from '../../shared/utilities/scalePoint'
 import drawUnderlyingSubstripesHalfSmaller from '../render/drawUnderlyingSubstripesHalfSmaller'
 import drawSubstripes from '../render/drawSubstripes'

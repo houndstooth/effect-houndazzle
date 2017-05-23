@@ -1,7 +1,7 @@
-import state from '../../state'
+import state from '../../shared/application/state'
 
 export default ({ originSubstripeDirection }) => {
-    const { colorA, colorB } = state.shared
+	const { colorA, colorB } = state.shared
 	let colors = []
 	colors[ 0 ] = originSubstripeDirection === 'VERTICAL' ? colorB : colorA
 	colors[ 1 ] = colors[ 0 ] === colorA ? colorB : colorA

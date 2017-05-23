@@ -1,4 +1,4 @@
-export default ({distanceFromOrigin}) => {
+export default ({ distanceFromOrigin }) => {
 	return Math.pow(
 		2,
 		Math.floor(

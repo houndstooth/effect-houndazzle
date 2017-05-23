@@ -6,7 +6,7 @@ import calculateColor from '../../shared/utilities/calculateColor'
 export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection }) => {
 	const substripeUnit = sizedUnit / substripeCount
 
-	const colors = assignOriginAndOtherColor({originSubstripeDirection})
+	const colors = assignOriginAndOtherColor({ originSubstripeDirection })
 
 	iterator(substripeCount).forEach(substripeIndex => {
 		const currentSubstripePosition = substripeIndex * substripeUnit

@@ -1,17 +1,17 @@
 import maybeDrawSubstripeStripeUnion from '../render/maybeDrawSubstripeStripeUnion'
-import state from '../../state'
+import state from '../../shared/application/state'
 
-export default ({ 
-	stripeIndex, 
-	stripeUnit, 
-	substripeDirectionOffset, 
-	currentSubstripePosition,
-	sizedUnit, 
-	substripeUnit, 
-	color, 
-	origin, 
-	colors 
-}) => {
+export default ({
+					stripeIndex,
+					stripeUnit,
+					substripeDirectionOffset,
+					currentSubstripePosition,
+					sizedUnit,
+					substripeUnit,
+					color,
+					origin,
+					colors
+				}) => {
 	const { baseCount: stripeCount } = state.shared.stripeCount
 	const { dazzleContinuum } = state.houndazzle
 

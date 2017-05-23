@@ -1,6 +1,6 @@
 import scalePoint from '../../shared/utilities/scalePoint'
 import drawSubstripes from '../render/drawSubstripes'
-import state from '../../state'
+import state from '../../shared/application/state'
 
 export default ({ origin, size, originSubstripeDirection, scaleFromGridCenter, substripeCount }) => {
 	origin = scalePoint({ point: origin, scaleFromGridCenter })

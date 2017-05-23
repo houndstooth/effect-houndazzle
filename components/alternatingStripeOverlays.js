@@ -3,7 +3,7 @@ import drawFancyPatchup from '../render/drawFancyPatchup'
 import substripeStripeUnion from './substripeStripeUnion'
 import assignOriginAndOtherColor from '../utilities/assignOriginAndOtherColor'
 import calculateColor from '../../shared/utilities/calculateColor'
-import state from '../../state'
+import state from '../../shared/application/state'
 
 export default ({ substripeCount, sizedUnit, origin, originSubstripeDirection }) => {
 	const { baseCount: stripeCount } = state.shared.stripeCount
