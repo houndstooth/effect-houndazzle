@@ -1,5 +1,3 @@
-import { WHITE } from '../shared/render/colors'
-
 export default {
 	state: {
 		shared: {

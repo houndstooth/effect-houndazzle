@@ -444,8 +444,6 @@ const dazzleTile = ({ origin: initialOrigin }) => {
 export default () => grid({ tile: dazzleTile })
 */
 
-import { WHITE } from '../shared/render/colors'
-
 export default {
 	state: {
 		shared: {
