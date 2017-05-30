@@ -1,7 +1,6 @@
 import flipXAndY from './flipXAndY'
 
-const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, currentSubstripePosition, stripeUnit, substripeUnit, sizedUnit, origin }) => {
-	const nextStripePosition = currentStripePosition + stripeUnit
+const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, currentSubstripePosition, stripeUnit, substripeUnit, sizedUnit, origin, nextStripePosition }) => {
 	const nextSubstripePosition = currentSubstripePosition + substripeUnit
 
 	const coordinates = []
@@ -86,15 +85,18 @@ const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, curre
 	return coordinates
 }
 
-export default ({ origin, sizedUnit, substripeUnit, stripeUnit, underlyingColor, substripeIndex, stripeIndex }) => {
+export default ({ origin, sizedUnit, substripeUnit, stripeUnit, underlyingColor, substripeIndex, stripeIndex, currentPositionAlongPerimeter, nextPositionAlongPerimeter }) => {
 	const currentSubstripePosition = substripeIndex * substripeUnit
 
-	let currentStripePosition = stripeIndex * stripeUnit - currentSubstripePosition
+	//so... shouldn't we just accept the stripes entry?
+	// let currentStripePosition = stripeIndex * stripeUnit - currentSubstripePosition
+	const currentStripePosition = currentPositionAlongPerimeter * stripeUnit - currentSubstripePosition
+	const nextStripePosition = nextPositionAlongPerimeter * stripeUnit - (currentSubstripePosition + substripeUnit)
 
 	// this stripe is completely off the right edge of the substripe
-	if (currentStripePosition - substripeUnit >= sizedUnit) return
+	// if (currentStripePosition - substripeUnit >= sizedUnit) return
 	// this stripe is completely off the left edge of the substripe
-	if (currentStripePosition + stripeUnit <= 0) return
+	// if (currentStripePosition + stripeUnit <= 0) return
 
 	let coordinates = calculateSubstripeStripeUnionCoordinates({
 		currentStripePosition,
@@ -103,7 +105,8 @@ export default ({ origin, sizedUnit, substripeUnit, stripeUnit, underlyingColor,
 		currentSubstripePosition,
 		sizedUnit,
 		substripeUnit,
-		origin
+		origin,
+		nextStripePosition
 	})
 
 	if ((underlyingColor + stripeIndex) % 2 === 1) coordinates = flipXAndY({ coordinates, origin })
