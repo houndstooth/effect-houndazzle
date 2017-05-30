@@ -1,3 +1,5 @@
+
+/*
 import grid from '../shared/components/grid'
 import scalePoint from '../shared/utilities/scalePoint'
 import state from '../shared/state/state'
@@ -163,12 +165,11 @@ const drawSubstripes = ({ substripeCount, sizedUnit, origin, originSubstripeDire
 			]
 		}
 
-		const color = calculateColor({ colors, index: substripeIndex })
+		const color = calculateColor({ colors, substripeIndex })
 
 		render({ color, coordinates })
 	})
 }
-
 
 const assignOriginAndOtherColor = ({ originSubstripeDirection }) => {
 	const { colorA, colorB } = state.shared.colors
@@ -201,7 +202,6 @@ const maybeDrawSubstripeStripeUnion = ({ stripeIndex, stripeUnit, substripeDirec
 	render({ color, coordinates })
 }
 
-
 const drawUnderlyingSubstripesHalfSmaller = ({ substripeCount, sizedUnit, origin }) => {
 	const substripeUnit = sizedUnit / substripeCount
 
@@ -232,7 +232,7 @@ const drawUnderlyingSubstripesHalfSmaller = ({ substripeCount, sizedUnit, origin
 			],
 		]
 
-		const color = calculateColor({ colors, index: substripeIndex })
+		const color = calculateColor({ colors, substripeIndex })
 
 		render({ color, coordinates })
 	})
@@ -262,7 +262,7 @@ const drawUnderlyingSubstripesHalfSmaller = ({ substripeCount, sizedUnit, origin
 			],
 		]
 
-		const color = calculateColor({ colors, index: substripeIndex })
+		const color = calculateColor({ colors, substripeIndex })
 
 		render({ color, coordinates })
 	})
@@ -364,7 +364,7 @@ const alternatingStripeOverlays = ({ substripeCount, sizedUnit, origin, originSu
 
 	iterator(substripeCount).forEach(substripeIndex => {
 		let currentSubstripePosition = substripeIndex * substripeUnit
-		const color = calculateColor({ colors, index: substripeIndex })
+		const color = calculateColor({ colors, substripeIndex })
 
 		iterator(stripeCount).forEach(stripeIndex => {
 			substripeStripeUnion({
@@ -442,3 +442,23 @@ const dazzleTile = ({ origin: initialOrigin }) => {
 }
 
 export default () => grid({ tile: dazzleTile })
+*/
+
+import { WHITE } from '../shared/render/colors'
+
+export default {
+	state: {
+		shared: {
+			colors: {
+				houndazzle: {
+					on: true,
+					substripeCount: 16,
+					dazzleContinuum: true // probably want to make this an object with { on, initial, delta } too
+				},
+				colorB: WHITE
+			}
+		}
+	},
+	iterations: {},
+	animations: {}
+}
