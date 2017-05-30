@@ -393,7 +393,7 @@ const alternatingStripeOverlays = ({ substripeCount, sizedUnit, origin, originSu
 	}
 }
 
-const stripedDazzleSquare = ({ origin, size, originSubstripeDirection, scaleFromGridCenter, substripeCount }) => {
+const stripedDazzleTile = ({ origin, size, originSubstripeDirection, scaleFromGridCenter, substripeCount }) => {
 	origin = scalePoint({ point: origin, scaleFromGridCenter })
 	const sizedUnit = state.shared.unit * size
 
@@ -420,25 +420,25 @@ const stripedDazzleSquare = ({ origin, size, originSubstripeDirection, scaleFrom
 	})
 }
 
-const solidDazzleSquare = ({ origin, size, originSubstripeDirection, scaleFromGridCenter, substripeCount }) => {
+const solidDazzleTile = ({ origin, size, originSubstripeDirection, scaleFromGridCenter, substripeCount }) => {
 	origin = scalePoint({ point: origin, scaleFromGridCenter })
 	const sizedUnit = state.shared.unit * size
 
 	drawSubstripes({ substripeCount, sizedUnit, origin, originSubstripeDirection })
 }
 
-const dazzleSquare = ({ origin: initialOrigin }) => {
+const dazzleTile = ({ origin: initialOrigin }) => {
 	const { tileSize } = state.shared
 	const { dazzleContinuum, substripeCount: stateSubstripeCount } = state.houndazzle
 	const origin = [ initialOrigin[ 0 ] * tileSize, initialOrigin[ 1 ] * tileSize ]
 	const size = tileSize
-	const squareType = HOUNDAZZLE_SUPERTILE[ initialOrigin[ 0 ] % 2 ][ initialOrigin[ 1 ] % 2 ]
+	const tileType = HOUNDAZZLE_SUPERTILE[ initialOrigin[ 0 ] % 2 ][ initialOrigin[ 1 ] % 2 ]
 	const substripeCount = dazzleContinuum ? calculateSubstripeCount({ distanceFromOrigin: initialOrigin[ 0 ] + initialOrigin[ 1 ] }) : stateSubstripeCount
 
-	let originSubstripeDirection = squareType === "STRIPED_A" || squareType === "VERTICAL_SUBSTRIPES" ? "VERTICAL" : "HORIZONTAL"
-	let dazzleFunction = squareType === "STRIPED_A" || squareType === "STRIPED_B" ? stripedDazzleSquare : solidDazzleSquare
+	let originSubstripeDirection = tileType === "STRIPED_A" || tileType === "VERTICAL_SUBSTRIPES" ? "VERTICAL" : "HORIZONTAL"
+	let dazzleFunction = tileType === "STRIPED_A" || tileType === "STRIPED_B" ? stripedDazzleTile : solidDazzleTile
 
 	dazzleFunction({ origin, size, originSubstripeDirection, substripeCount })
 }
 
-export default () => grid({ tile: dazzleSquare })
+export default () => grid({ tile: dazzleTile })
