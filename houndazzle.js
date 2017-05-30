@@ -171,7 +171,7 @@ const drawSubstripes = ({ substripeCount, sizedUnit, origin, originSubstripeDire
 
 
 const assignOriginAndOtherColor = ({ originSubstripeDirection }) => {
-	const { colorA, colorB } = state.shared
+	const { colorA, colorB } = state.shared.colors
 	let colors = []
 	colors[ 0 ] = originSubstripeDirection === 'VERTICAL' ? colorB : colorA
 	colors[ 1 ] = colors[ 0 ] === colorA ? colorB : colorA
