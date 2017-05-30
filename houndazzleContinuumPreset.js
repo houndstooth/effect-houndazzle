@@ -454,8 +454,7 @@ export default {
 					on: true,
 					substripeCount: 16,
 					dazzleContinuum: true // probably want to make this an object with { on, initial, delta } too
-				},
-				colorB: WHITE
+				}
 			}
 		}
 	},

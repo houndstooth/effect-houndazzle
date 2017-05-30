@@ -8,8 +8,7 @@ export default {
 					on: true,
 					substripeCount: 16,
 					dazzleContinuum: false
-				},
-				colorB: WHITE
+				}
 			}
 		}
 	},
