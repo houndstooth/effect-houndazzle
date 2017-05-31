@@ -1,8 +1,8 @@
 import flipXAndY from './flipXAndY'
 import state from '../shared/state/state'
 
-export default ({ origin, sizedUnit, substripeIndex, coordinatesFunctionArguments  }) => {
-	const { substripeUnit } = coordinatesFunctionArguments
+export default ({ origin, sizedUnit, substripeIndex, coordinatesFunctionArguments }) => {
+	const { substripeUnit, orientation } = coordinatesFunctionArguments
 	const currentSubstripePosition = substripeIndex * substripeUnit
 	const nextSubstripePosition = currentSubstripePosition + substripeUnit
 
@@ -24,9 +24,6 @@ export default ({ origin, sizedUnit, substripeIndex, coordinatesFunctionArgument
 			origin[ 1 ] + sizedUnit
 		],
 	]
-
-	const { orientations, orientationAssignments } = state.shared.color.houndazzle.orientation
-	const orientation = orientations[ Math.abs(substripeIndex % orientations.length) ]
 
 	if (orientation === "HORIZONTAL") coordinates = flipXAndY({ coordinates, origin })
 

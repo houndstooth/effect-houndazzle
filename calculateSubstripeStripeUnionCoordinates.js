@@ -88,7 +88,7 @@ const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, curre
 }
 
 export default ({ origin, sizedUnit, stripeIndex, substripeIndex, coordinatesFunctionArguments }) => {
-	const { currentPositionAlongPerimeter, nextPositionAlongPerimeter, substripeUnit, stripeUnit } = coordinatesFunctionArguments
+	const { currentPositionAlongPerimeter, nextPositionAlongPerimeter, substripeUnit, stripeUnit, orientation } = coordinatesFunctionArguments
 	const currentSubstripePosition = substripeIndex * substripeUnit
 
 	//so... shouldn't we just accept the stripes entry?
@@ -111,9 +111,6 @@ export default ({ origin, sizedUnit, stripeIndex, substripeIndex, coordinatesFun
 		origin,
 		nextStripePosition
 	})
-
-	const { orientations, orientationAssignments } = state.shared.color.houndazzle.orientation
-	const orientation = orientations[ Math.abs(substripeIndex % orientations.length) ]
 
 	if (orientation === "HORIZONTAL") coordinates = flipXAndY({ coordinates, origin })
 
