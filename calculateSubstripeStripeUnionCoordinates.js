@@ -90,13 +90,13 @@ export default ({ origin, sizedUnit, substripeUnit, stripeUnit, underlyingColor,
 
 	//so... shouldn't we just accept the stripes entry?
 	// let currentStripePosition = stripeIndex * stripeUnit - currentSubstripePosition
-	const currentStripePosition = currentPositionAlongPerimeter * stripeUnit - currentSubstripePosition
-	const nextStripePosition = nextPositionAlongPerimeter * stripeUnit - (currentSubstripePosition + substripeUnit)
+	const currentStripePosition = currentPositionAlongPerimeter * 2 * stripeUnit - currentSubstripePosition
+	const nextStripePosition = nextPositionAlongPerimeter * 2 * stripeUnit - currentSubstripePosition
 
 	// this stripe is completely off the right edge of the substripe
-	// if (currentStripePosition - substripeUnit >= sizedUnit) return
+	if (currentStripePosition - substripeUnit >= sizedUnit) return
 	// this stripe is completely off the left edge of the substripe
-	// if (currentStripePosition + stripeUnit <= 0) return
+	if (nextStripePosition <= 0) return
 
 	let coordinates = calculateSubstripeStripeUnionCoordinates({
 		currentStripePosition,
