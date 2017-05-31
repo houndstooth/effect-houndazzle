@@ -1,4 +1,5 @@
 import flipXAndY from './flipXAndY'
+import { PERIMETER_SCALAR } from '../shared/application/constants'
 
 const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, currentSubstripePosition, stripeUnit, substripeUnit, sizedUnit, origin, nextStripePosition }) => {
 	const nextSubstripePosition = currentSubstripePosition + substripeUnit
@@ -90,8 +91,8 @@ export default ({ origin, sizedUnit, substripeUnit, stripeUnit, underlyingColor,
 
 	//so... shouldn't we just accept the stripes entry?
 	// let currentStripePosition = stripeIndex * stripeUnit - currentSubstripePosition
-	const currentStripePosition = currentPositionAlongPerimeter * 2 * stripeUnit - currentSubstripePosition
-	const nextStripePosition = nextPositionAlongPerimeter * 2 * stripeUnit - currentSubstripePosition
+	const currentStripePosition = currentPositionAlongPerimeter * PERIMETER_SCALAR * stripeUnit - currentSubstripePosition
+	const nextStripePosition = nextPositionAlongPerimeter * PERIMETER_SCALAR * stripeUnit - currentSubstripePosition
 
 	// this stripe is completely off the right edge of the substripe
 	if (currentStripePosition - substripeUnit >= sizedUnit) return
