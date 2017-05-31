@@ -1,5 +1,6 @@
 import flipXAndY from './flipXAndY'
 import { PERIMETER_SCALAR } from '../shared/application/constants'
+import state from '../shared/state/state'
 
 const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, currentSubstripePosition, stripeUnit, substripeUnit, sizedUnit, origin, nextStripePosition }) => {
 	const nextSubstripePosition = currentSubstripePosition + substripeUnit
@@ -87,7 +88,7 @@ const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, curre
 }
 
 export default ({ origin, sizedUnit, stripeIndex, substripeIndex, coordinatesFunctionArguments }) => {
-	const { currentPositionAlongPerimeter, nextPositionAlongPerimeter, substripeUnit, stripeUnit, underlyingColor } = coordinatesFunctionArguments
+	const { currentPositionAlongPerimeter, nextPositionAlongPerimeter, substripeUnit, stripeUnit } = coordinatesFunctionArguments
 	const currentSubstripePosition = substripeIndex * substripeUnit
 
 	//so... shouldn't we just accept the stripes entry?
@@ -111,7 +112,10 @@ export default ({ origin, sizedUnit, stripeIndex, substripeIndex, coordinatesFun
 		nextStripePosition
 	})
 
-	if ((underlyingColor + stripeIndex) % 2 === 1) coordinates = flipXAndY({ coordinates, origin })
+	const { orientations, orientationAssignments } = state.shared.color.houndazzle.orientation
+	const orientation = orientations[ Math.abs(substripeIndex % orientations.length) ]
+
+	if (orientation === "HORIZONTAL") coordinates = flipXAndY({ coordinates, origin })
 
 	return coordinates
 }
