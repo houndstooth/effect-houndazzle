@@ -86,7 +86,8 @@ const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, curre
 	return coordinates
 }
 
-export default ({ origin, sizedUnit, substripeUnit, stripeUnit, underlyingColor, substripeIndex, stripeIndex, currentPositionAlongPerimeter, nextPositionAlongPerimeter }) => {
+export default ({ origin, sizedUnit, stripeIndex, substripeIndex, coordinatesFunctionArguments }) => {
+	const { currentPositionAlongPerimeter, nextPositionAlongPerimeter, substripeUnit, stripeUnit, underlyingColor } = coordinatesFunctionArguments
 	const currentSubstripePosition = substripeIndex * substripeUnit
 
 	//so... shouldn't we just accept the stripes entry?
