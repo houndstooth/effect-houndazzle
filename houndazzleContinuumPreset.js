@@ -172,7 +172,7 @@ const drawSubstripes = ({ substripeCount, sizedUnit, origin, originSubstripeDire
 }
 
 const assignOriginAndOtherColor = ({ originSubstripeDirection }) => {
-	const { colorA, colorB } = state.shared.colors
+	const { colorA, colorB } = state.shared.color
 	let colors = []
 	colors[ 0 ] = originSubstripeDirection === 'VERTICAL' ? colorB : colorA
 	colors[ 1 ] = colors[ 0 ] === colorA ? colorB : colorA
@@ -312,7 +312,7 @@ const substripeStripeUnion = ({
 								  colors
 							  }) => {
 	const { baseCount: stripeCount } = state.shared.stripeCount
-	const { dazzleContinuum } = state.shared.colors.houndazzle
+	const { dazzleContinuum } = state.shared.color.houndazzle
 
 	// have to divide by 4 because this is actually a "half index" since we skip every other stripe...
 	if (!dazzleContinuum || stripeIndex < stripeCount / 4) {
@@ -352,7 +352,7 @@ const substripeStripeUnion = ({
 
 const alternatingStripeOverlays = ({ substripeCount, sizedUnit, origin, originSubstripeDirection }) => {
 	const { baseCount: stripeCount } = state.shared.stripeCount
-	const { dazzleContinuum } = state.shared.colors.houndazzle
+	const { dazzleContinuum } = state.shared.color.houndazzle
 
 	const substripeUnit = sizedUnit / substripeCount
 	const stripeUnit = sizedUnit * 2 / stripeCount
@@ -397,7 +397,7 @@ const stripedDazzleTile = ({ origin, size, originSubstripeDirection, scaleFromGr
 	origin = scalePoint({ point: origin, scaleFromGridCenter })
 	const sizedUnit = state.shared.unit * size
 
-	if (state.shared.colors.houndazzle.dazzleContinuum) {
+	if (state.shared.color.houndazzle.dazzleContinuum) {
 		drawUnderlyingSubstripesHalfSmaller({
 			substripeCount,
 			sizedUnit,
@@ -429,7 +429,7 @@ const solidDazzleTile = ({ origin, size, originSubstripeDirection, scaleFromGrid
 
 const dazzleTile = ({ origin: initialOrigin }) => {
 	const { tileSize } = state.shared
-	const { dazzleContinuum, substripeCount: stateSubstripeCount } = state.shared.colors.houndazzle
+	const { dazzleContinuum, substripeCount: stateSubstripeCount } = state.shared.color.houndazzle
 	const origin = [ initialOrigin[ 0 ] * tileSize, initialOrigin[ 1 ] * tileSize ]
 	const size = tileSize
 	const tileType = HOUNDAZZLE_SUPERTILE[ initialOrigin[ 0 ] % 2 ][ initialOrigin[ 1 ] % 2 ]
@@ -447,7 +447,7 @@ export default () => grid({ tile: dazzleTile })
 export default {
 	state: {
 		shared: {
-			colors: {
+			color: {
 				houndazzle: {
 					on: true,
 					substripeCount: 16,

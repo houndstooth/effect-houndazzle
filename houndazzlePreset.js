@@ -1,7 +1,7 @@
 export default {
 	state: {
 		shared: {
-			colors: {
+			color: {
 				houndazzle: {
 					on: true,
 					substripeCount: 16,
