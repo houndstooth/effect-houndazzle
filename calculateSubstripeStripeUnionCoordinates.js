@@ -114,7 +114,7 @@ export default ({ origin, sizedUnit, stripeIndex, substripeIndex, coordinatesFun
 		nextStripePosition
 	})
 
-	if (orientation === "HORIZONTAL") coordinates = flipXAndY({ coordinates, origin })
+	if (orientation === "VERTICAL") coordinates = flipXAndY({ coordinates, origin })
 
 	return coordinates
 }
