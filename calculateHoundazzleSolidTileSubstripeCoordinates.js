@@ -1,7 +1,7 @@
 import flipXAndY from './flipXAndY'
 
-export default ({ origin, sizedUnit, substripeIndex, coordinatesFunctionArguments }) => {
-	const { substripeUnit, orientation } = coordinatesFunctionArguments
+export default ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
+	const { substripeUnit, orientation, substripeIndex } = coordinatesFunctionArguments
 	const substripeStart = substripeIndex * substripeUnit
 	const substripeEnd = substripeStart + substripeUnit
 

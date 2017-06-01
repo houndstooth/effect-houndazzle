@@ -92,8 +92,8 @@ const calculateSubstripeStripeUnionCoordinates = ({
 	return coordinates
 }
 
-export default ({ origin, sizedUnit, stripeIndex, substripeIndex, coordinatesFunctionArguments }) => {
-	const { stripeStart: initialStripeStart, stripeEnd: initialStripeEnd, substripeUnit, orientation } = coordinatesFunctionArguments
+export default ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
+	const { stripeStart: initialStripeStart, stripeEnd: initialStripeEnd, substripeUnit, orientation, substripeIndex } = coordinatesFunctionArguments
 	const substripeStart = substripeIndex * substripeUnit
 
 	const stripeStart = initialStripeStart * sizedUnit - substripeStart
@@ -106,7 +106,6 @@ export default ({ origin, sizedUnit, stripeIndex, substripeIndex, coordinatesFun
 
 	let coordinates = calculateSubstripeStripeUnionCoordinates({
 		stripeStart,
-		stripeIndex,
 		substripeStart,
 		sizedUnit,
 		substripeUnit,
