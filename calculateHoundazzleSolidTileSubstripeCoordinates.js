@@ -1,5 +1,4 @@
 import flipXAndY from './flipXAndY'
-import state from '../shared/state/state'
 
 export default ({ origin, sizedUnit, substripeIndex, coordinatesFunctionArguments }) => {
 	const { substripeUnit, orientation } = coordinatesFunctionArguments

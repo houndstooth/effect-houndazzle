@@ -1,6 +1,5 @@
 import flipXAndY from './flipXAndY'
 import { PERIMETER_SCALAR } from '../shared/application/constants'
-import state from '../shared/state/state'
 
 const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, currentSubstripePosition, stripeUnit, substripeUnit, sizedUnit, origin, nextStripePosition }) => {
 	const nextSubstripePosition = currentSubstripePosition + substripeUnit
