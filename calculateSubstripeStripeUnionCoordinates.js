@@ -1,7 +1,13 @@
 import flipXAndY from './flipXAndY'
-import { PERIMETER_SCALAR } from '../shared/application/constants'
 
-const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, currentSubstripePosition, stripeUnit, substripeUnit, sizedUnit, origin, nextStripePosition }) => {
+const calculateSubstripeStripeUnionCoordinates = ({
+	currentStripePosition,
+	nextStripePosition,
+	currentSubstripePosition,
+	substripeUnit,
+	sizedUnit,
+	origin
+}) => {
 	const nextSubstripePosition = currentSubstripePosition + substripeUnit
 
 	const coordinates = []
@@ -87,13 +93,11 @@ const calculateSubstripeStripeUnionCoordinates = ({ currentStripePosition, curre
 }
 
 export default ({ origin, sizedUnit, stripeIndex, substripeIndex, coordinatesFunctionArguments }) => {
-	const { currentPositionAlongPerimeter, nextPositionAlongPerimeter, substripeUnit, stripeUnit, orientation } = coordinatesFunctionArguments
+	const { currentPositionAlongPerimeter, nextPositionAlongPerimeter, substripeUnit, orientation } = coordinatesFunctionArguments
 	const currentSubstripePosition = substripeIndex * substripeUnit
 
-	//so... shouldn't we just accept the stripes entry?
-	// let currentStripePosition = stripeIndex * stripeUnit - currentSubstripePosition
-	const currentStripePosition = currentPositionAlongPerimeter * PERIMETER_SCALAR * stripeUnit - currentSubstripePosition
-	const nextStripePosition = nextPositionAlongPerimeter * PERIMETER_SCALAR * stripeUnit - currentSubstripePosition
+	const currentStripePosition = currentPositionAlongPerimeter * sizedUnit - currentSubstripePosition
+	const nextStripePosition = nextPositionAlongPerimeter * sizedUnit - currentSubstripePosition
 
 	// this stripe is completely off the right edge of the substripe
 	if (currentStripePosition - substripeUnit >= sizedUnit) return
@@ -103,7 +107,6 @@ export default ({ origin, sizedUnit, stripeIndex, substripeIndex, coordinatesFun
 	let coordinates = calculateSubstripeStripeUnionCoordinates({
 		currentStripePosition,
 		stripeIndex,
-		stripeUnit,
 		currentSubstripePosition,
 		sizedUnit,
 		substripeUnit,
