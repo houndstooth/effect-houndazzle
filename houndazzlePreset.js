@@ -2,8 +2,8 @@ export default {
 	state: {
 		shared: {
 			color: {
+				mode: 'HOUNDAZZLE',
 				houndazzle: {
-					on: true,
 					substripeCount: 16,
 					dazzleContinuum: false
 				}

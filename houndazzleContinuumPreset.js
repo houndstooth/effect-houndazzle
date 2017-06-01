@@ -448,8 +448,8 @@ export default {
 	state: {
 		shared: {
 			color: {
+				mode: 'HOUNDAZZLE',
 				houndazzle: {
-					on: true,
 					substripeCount: 16,
 					dazzleContinuum: true // probably want to make this an object with { on, initial, delta } too
 				}
