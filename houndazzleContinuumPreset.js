@@ -393,8 +393,8 @@ const alternatingStripeOverlays = ({ substripeCount, sizedUnit, origin, originSu
 	}
 }
 
-const stripedDazzleTile = ({ origin, size, originSubstripeDirection, scaleFromGridCenter, substripeCount }) => {
-	origin = scalePoint({ point: origin, scaleFromGridCenter })
+const stripedDazzleTile = ({ origin, size, originSubstripeDirection, substripeCount }) => {
+	origin = scalePoint({ point: origin })
 	const sizedUnit = state.shared.unit * size
 
 	if (state.shared.colorConfig.houndazzle.dazzleContinuum) {
@@ -420,8 +420,8 @@ const stripedDazzleTile = ({ origin, size, originSubstripeDirection, scaleFromGr
 	})
 }
 
-const solidDazzleTile = ({ origin, size, originSubstripeDirection, scaleFromGridCenter, substripeCount }) => {
-	origin = scalePoint({ point: origin, scaleFromGridCenter })
+const solidDazzleTile = ({ origin, size, originSubstripeDirection, substripeCount }) => {
+	origin = scalePoint({ point: origin })
 	const sizedUnit = state.shared.unit * size
 
 	drawSubstripes({ substripeCount, sizedUnit, origin, originSubstripeDirection })
