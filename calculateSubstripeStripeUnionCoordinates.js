@@ -1,16 +1,20 @@
 import flipXAndY from './flipXAndY'
 
-const calculateSubstripeStripeUnionCoordinates = ({
-	stripeStart,
-	stripeEnd,
-	substripeStart,
-	substripeUnit,
-	sizedUnit,
-	origin
-}) => {
-	const nextSubstripePosition = substripeStart + substripeUnit
+export default ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
+	let { stripeStart, stripeEnd, substripeUnit, orientation, substripeIndex } = coordinatesFunctionArguments
 
-	const coordinates = []
+	const substripeStart = substripeIndex * substripeUnit
+	const substripeEnd = substripeStart + substripeUnit
+
+	stripeStart = stripeStart * sizedUnit - substripeStart
+	stripeEnd = stripeEnd * sizedUnit - substripeStart
+
+	// this stripe is completely off the right edge of the substripe
+	if (stripeStart - substripeUnit >= sizedUnit) return
+	// this stripe is completely off the left edge of the substripe
+	if (stripeEnd <= 0) return
+
+	let coordinates = []
 
 	// top left (which may also turn out to be top right)
 	if (stripeStart > sizedUnit) {
@@ -55,12 +59,12 @@ const calculateSubstripeStripeUnionCoordinates = ({
 	if (stripeEnd - substripeUnit >= sizedUnit) {
 		coordinates.push([
 			origin[ 0 ] + sizedUnit,
-			origin[ 1 ] + nextSubstripePosition
+			origin[ 1 ] + substripeEnd
 		])
 	} else if (stripeEnd - substripeUnit >= 0) {
 		coordinates.push([
 			origin[ 0 ] + stripeEnd - substripeUnit,
-			origin[ 1 ] + nextSubstripePosition
+			origin[ 1 ] + substripeEnd
 		])
 	} else {
 		coordinates.push([
@@ -74,12 +78,12 @@ const calculateSubstripeStripeUnionCoordinates = ({
 	if (stripeStart - substripeUnit > 0) {
 		coordinates.push([
 			origin[ 0 ] + stripeStart - substripeUnit,
-			origin[ 1 ] + nextSubstripePosition
+			origin[ 1 ] + substripeEnd
 		])
 	} else {
 		coordinates.push([
 			origin[ 0 ],
-			origin[ 1 ] + nextSubstripePosition
+			origin[ 1 ] + substripeEnd
 		])
 		if (stripeStart > 0) {
 			coordinates.push([
@@ -88,30 +92,6 @@ const calculateSubstripeStripeUnionCoordinates = ({
 			])
 		}
 	}
-
-	return coordinates
-}
-
-export default ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
-	const { stripeStart: initialStripeStart, stripeEnd: initialStripeEnd, substripeUnit, orientation, substripeIndex } = coordinatesFunctionArguments
-	const substripeStart = substripeIndex * substripeUnit
-
-	const stripeStart = initialStripeStart * sizedUnit - substripeStart
-	const stripeEnd = initialStripeEnd * sizedUnit - substripeStart
-
-	// this stripe is completely off the right edge of the substripe
-	if (stripeStart - substripeUnit >= sizedUnit) return
-	// this stripe is completely off the left edge of the substripe
-	if (stripeEnd <= 0) return
-
-	let coordinates = calculateSubstripeStripeUnionCoordinates({
-		stripeStart,
-		substripeStart,
-		sizedUnit,
-		substripeUnit,
-		origin,
-		stripeEnd
-	})
 
 	if (orientation === "VERTICAL") coordinates = flipXAndY({ coordinates, origin })
 
