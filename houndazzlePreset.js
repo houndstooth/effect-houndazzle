@@ -1,7 +1,7 @@
 export default {
 	state: {
 		shared: {
-			color: {
+			colorConfig: {
 				mode: 'HOUNDAZZLE',
 				houndazzle: {
 					substripeCount: 16,

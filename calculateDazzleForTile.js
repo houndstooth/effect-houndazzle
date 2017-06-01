@@ -3,11 +3,11 @@ import gridUtilities from '../shared/utilities/gridUtilities'
 import colorUtilities from '../shared/utilities/colorUtilities'
 
 export default ({ address, initialDazzle }) => {
-	const { color, orientation } = state.shared.color.houndazzle
-	const colors = colorUtilities.calculateColors({ address, colors: initialDazzle && initialDazzle.colors, color })
+	const { colorConfig, orientationConfig } = state.shared.colorConfig.houndazzle
+	const colors = colorUtilities.calculateColors({ address, colors: initialDazzle && initialDazzle.colors, colorConfig })
 	const orientations = initialDazzle && initialDazzle.orientations || gridUtilities.calculateSetForTile({
 			address,
-			grid: orientation,
+			config: orientationConfig,
 			gccOn: state.shared.stripeCountConfig.mode === 'GINGHAM_CHEVRON_CONTINUUM'
 		})
 
