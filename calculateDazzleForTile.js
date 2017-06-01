@@ -8,7 +8,7 @@ export default ({ address, initialDazzle }) => {
 	const orientations = initialDazzle && initialDazzle.orientations || gridUtilities.calculateSetForTile({
 			address,
 			grid: orientation,
-			gccOn: state.shared.stripeCount.mode === 'GINGHAM_CHEVRON_CONTINUUM'
+			gccOn: state.shared.stripeCountConfig.mode === 'GINGHAM_CHEVRON_CONTINUUM'
 		})
 
 	return { colors, orientations }

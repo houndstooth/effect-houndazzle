@@ -311,7 +311,7 @@ const substripeStripeUnion = ({
 								  origin,
 								  colors
 							  }) => {
-	const { baseCount: stripeCount } = state.shared.stripeCount
+	const { stripeCount } = state.shared.stripeCountConfig
 	const { dazzleContinuum } = state.shared.color.houndazzle
 
 	// have to divide by 4 because this is actually a "half index" since we skip every other stripe...
@@ -351,11 +351,11 @@ const substripeStripeUnion = ({
 }
 
 const alternatingStripeOverlays = ({ substripeCount, sizedUnit, origin, originSubstripeDirection }) => {
-	const { baseCount: stripeCount } = state.shared.stripeCount
+	const { stripeCount } = state.shared.stripeCountConfig
 	const { dazzleContinuum } = state.shared.color.houndazzle
 
 	const substripeUnit = sizedUnit / substripeCount
-	const stripeUnit = sizedUnit * 2 / stripeCount
+	const stripeUnit = sizedUnit * PERIMETER_SCALAR / stripeCount
 	const substripeDirectionOffset = originSubstripeDirection === 'VERTICAL' ? stripeUnit : 0
 
 	// because whether or not the origin substripe direction is vertical,
