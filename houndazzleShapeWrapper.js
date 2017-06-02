@@ -5,12 +5,14 @@ import wrappedIndex from '../shared/utilities/wrappedIndex'
 import substripeModulus from './substripeModulus'
 import houndazzleShapes from './houndazzleShapes'
 import calculateSubstripeUnit from './calculateSubstripeUnit'
+import calculateSubstripeCount from './calculateSubstripeCount'
 
 export default ({ address, size, colors, rotation, stripeIndex, dazzle, coordinatesOptions, coordinatesFunction }) => {
 	const { substripeOfSquare, substripeOfStripe } = houndazzleShapes
 	coordinatesFunction = coordinatesOptions ? substripeOfStripe : substripeOfSquare
 
-	const { substripeCount } = state.shared.colorConfig.houndazzle
+	let { substripeCount, dazzleContinuum } = state.shared.colorConfig.houndazzle
+	substripeCount = dazzleContinuum ? calculateSubstripeCount({ address }) : substripeCount
 	coordinatesOptions = coordinatesOptions || {}
 	coordinatesOptions.substripeUnit = calculateSubstripeUnit({ substripeCount, size })
 	coordinatesOptions.orientation = wrappedIndex({ array: dazzle.orientations, index: stripeIndex })
