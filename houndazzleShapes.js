@@ -1,6 +1,6 @@
 import flipXAndY from './flipXAndY'
 
-const calculateHoundazzleSolidTileSubstripeCoordinates = ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
+const substripeOfSquare = ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
 	const { substripeUnit, orientation, substripeIndex } = coordinatesFunctionArguments
 	const substripeStart = substripeIndex * substripeUnit
 	const substripeEnd = substripeStart + substripeUnit
@@ -29,7 +29,7 @@ const calculateHoundazzleSolidTileSubstripeCoordinates = ({ origin, sizedUnit, c
 	return coordinates
 }
 
-const calculateSubstripeStripeUnionCoordinates = ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
+const substripeOfStripe = ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
 	let { stripeStart, stripeEnd, substripeUnit, orientation, substripeIndex } = coordinatesFunctionArguments
 
 	const substripeStart = substripeIndex * substripeUnit
@@ -128,6 +128,6 @@ const calculateSubstripeStripeUnionCoordinates = ({ origin, sizedUnit, coordinat
 }
 
 export default {
-	calculateSubstripeStripeUnionCoordinates,
-	calculateHoundazzleSolidTileSubstripeCoordinates
+	substripeOfSquare,
+	substripeOfStripe
 }

@@ -3,9 +3,9 @@ import iterator from '../shared/utilities/iterator'
 import substripeModulus from './substripeModulus'
 import shape from '../shared/components/shape'
 import wrappedIndex from '../shared/utilities/wrappedIndex'
-import houndazzleCoordinates from './houndazzleCoordinates'
+import houndazzleShapes from './houndazzleShapes'
 
-const solidShapeWrapper = ({ origin, colors, rotation, sizedUnit, dazzle }) => {
+const squareShapeWrapper = ({ origin, colors, rotation, sizedUnit, dazzle }) => {
 	const { substripeCount } = state.shared.colorConfig.houndazzle
 	const orientation = dazzle.orientations[ 0 ]
 	iterator(substripeCount).forEach(substripeIndex => {
@@ -14,7 +14,7 @@ const solidShapeWrapper = ({ origin, colors, rotation, sizedUnit, dazzle }) => {
 			colors: substripeModulus({ substripeIndex, nonDazzle: colors, dazzle: dazzle.colors }),
 			rotation,
 			sizedUnit,
-			coordinatesFunction: houndazzleCoordinates.calculateHoundazzleSolidTileSubstripeCoordinates,
+			coordinatesFunction: houndazzleShapes.substripeOfSquare,
 			coordinatesFunctionArguments: {
 				substripeUnit: sizedUnit / substripeCount,
 				orientation,
@@ -24,7 +24,7 @@ const solidShapeWrapper = ({ origin, colors, rotation, sizedUnit, dazzle }) => {
 	})
 }
 
-const stripedShapeWrapper = ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesFunctionArguments }) => {
+const stripeShapeWrapper = ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesFunctionArguments }) => {
 	const { substripeCount } = state.shared.colorConfig.houndazzle
 	coordinatesFunctionArguments.substripeUnit = sizedUnit / substripeCount
 	coordinatesFunctionArguments.orientation = wrappedIndex({ array: dazzle.orientations, index: stripeIndex })
@@ -36,13 +36,13 @@ const stripedShapeWrapper = ({ origin, colors, rotation, sizedUnit, stripeIndex,
 			rotation,
 			sizedUnit,
 			stripeIndex,
-			coordinatesFunction: houndazzleCoordinates.calculateSubstripeStripeUnionCoordinates,
+			coordinatesFunction: houndazzleShapes.substripeOfStripe,
 			coordinatesFunctionArguments
 		})
 	})
 }
 
 export default ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesFunctionArguments }) => {
-	const shapeWrapper = coordinatesFunctionArguments ? stripedShapeWrapper : solidShapeWrapper
+	const shapeWrapper = coordinatesFunctionArguments ? stripeShapeWrapper : squareShapeWrapper
 	shapeWrapper({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesFunctionArguments })
 }
