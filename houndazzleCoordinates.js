@@ -1,9 +1,33 @@
 import flipXAndY from './flipXAndY'
-import state from '../shared/state/state'
-import iterator from '../shared/utilities/iterator'
-import substripeModulus from './substripeModulus'
-import shape from '../shared/components/shape'
-import wrappedIndex from '../shared/utilities/wrappedIndex'
+
+const calculateHoundazzleSolidTileSubstripeCoordinates = ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
+	const { substripeUnit, orientation, substripeIndex } = coordinatesFunctionArguments
+	const substripeStart = substripeIndex * substripeUnit
+	const substripeEnd = substripeStart + substripeUnit
+
+	let coordinates = [
+		[
+			origin[ 0 ] + substripeStart,
+			origin[ 1 ]
+		],
+		[
+			origin[ 0 ] + substripeEnd,
+			origin[ 1 ]
+		],
+		[
+			origin[ 0 ] + substripeEnd,
+			origin[ 1 ] + sizedUnit
+		],
+		[
+			origin[ 0 ] + substripeStart,
+			origin[ 1 ] + sizedUnit
+		],
+	]
+
+	if (orientation === "HORIZONTAL") coordinates = flipXAndY({ coordinates, origin })
+
+	return coordinates
+}
 
 const calculateSubstripeStripeUnionCoordinates = ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
 	let { stripeStart, stripeEnd, substripeUnit, orientation, substripeIndex } = coordinatesFunctionArguments
@@ -103,20 +127,7 @@ const calculateSubstripeStripeUnionCoordinates = ({ origin, sizedUnit, coordinat
 	return coordinates
 }
 
-export default ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesFunctionArguments }) => {
-	const { substripeCount } = state.shared.colorConfig.houndazzle
-	coordinatesFunctionArguments.substripeUnit = sizedUnit / substripeCount
-	coordinatesFunctionArguments.orientation = wrappedIndex({ array: dazzle.orientations, index: stripeIndex })
-	iterator(substripeCount).forEach(substripeIndex => {
-		coordinatesFunctionArguments.substripeIndex = substripeIndex
-		shape({
-			origin,
-			colors: substripeModulus({ substripeIndex, nonDazzle: colors, dazzle: dazzle.colors }),
-			rotation,
-			sizedUnit,
-			stripeIndex,
-			coordinatesFunction: calculateSubstripeStripeUnionCoordinates,
-			coordinatesFunctionArguments
-		})
-	})
+export default {
+	calculateSubstripeStripeUnionCoordinates,
+	calculateHoundazzleSolidTileSubstripeCoordinates
 }
