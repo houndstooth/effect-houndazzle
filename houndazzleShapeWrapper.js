@@ -42,7 +42,7 @@ const stripeShapeWrapper = ({ origin, colors, rotation, sizedUnit, stripeIndex, 
 	})
 }
 
-export default ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesOptions }) => {
-	const shapeWrapper = coordinatesOptions ? stripeShapeWrapper : squareShapeWrapper
-	shapeWrapper({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesOptions })
+export default (args) => {
+	const shapeWrapper = args.coordinatesOptions ? stripeShapeWrapper : squareShapeWrapper
+	shapeWrapper(args)
 }
