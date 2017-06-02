@@ -11,7 +11,7 @@ export default ({ address, size, colors, rotation, stripeIndex, stripeCount, daz
 	const { substripeOfSquare, substripeOfStripe } = houndazzleShapes
 	coordinatesFunction = !!coordinatesOptions ? substripeOfStripe : substripeOfSquare
 
-	let { substripeCount, dazzleContinuum } = state.shared.colorConfig.houndazzle
+	let { substripeCount, dazzleContinuum } = state.colorConfig.houndazzle
 	substripeCount = dazzleContinuum ? calculateSubstripeCount({ address, stripeIndex, stripeCount }) : substripeCount
 	coordinatesOptions = coordinatesOptions || {}
 	coordinatesOptions.substripeUnit = calculateSubstripeUnit({ substripeCount, size })
