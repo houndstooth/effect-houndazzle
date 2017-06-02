@@ -1,7 +1,7 @@
 import flipXAndY from './flipXAndY'
 
-const substripeOfSquare = ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
-	const { substripeUnit, orientation, substripeIndex } = coordinatesFunctionArguments
+const substripeOfSquare = ({ origin, sizedUnit, coordinatesOptions }) => {
+	const { substripeUnit, orientation, substripeIndex } = coordinatesOptions
 	const substripeStart = substripeIndex * substripeUnit
 	const substripeEnd = substripeStart + substripeUnit
 
@@ -29,8 +29,8 @@ const substripeOfSquare = ({ origin, sizedUnit, coordinatesFunctionArguments }) 
 	return coordinates
 }
 
-const substripeOfStripe = ({ origin, sizedUnit, coordinatesFunctionArguments }) => {
-	let { stripeStart, stripeEnd, substripeUnit, orientation, substripeIndex } = coordinatesFunctionArguments
+const substripeOfStripe = ({ origin, sizedUnit, coordinatesOptions }) => {
+	let { stripeStart, stripeEnd, substripeUnit, orientation, substripeIndex } = coordinatesOptions
 
 	const substripeStart = substripeIndex * substripeUnit
 	const substripeEnd = substripeStart + substripeUnit

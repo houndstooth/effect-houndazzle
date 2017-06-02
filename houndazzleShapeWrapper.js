@@ -15,7 +15,7 @@ const squareShapeWrapper = ({ origin, colors, rotation, sizedUnit, dazzle }) => 
 			rotation,
 			sizedUnit,
 			coordinatesFunction: houndazzleShapes.substripeOfSquare,
-			coordinatesFunctionArguments: {
+			coordinatesOptions: {
 				substripeUnit: sizedUnit / substripeCount,
 				orientation,
 				substripeIndex
@@ -24,12 +24,12 @@ const squareShapeWrapper = ({ origin, colors, rotation, sizedUnit, dazzle }) => 
 	})
 }
 
-const stripeShapeWrapper = ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesFunctionArguments }) => {
+const stripeShapeWrapper = ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesOptions }) => {
 	const { substripeCount } = state.shared.colorConfig.houndazzle
-	coordinatesFunctionArguments.substripeUnit = sizedUnit / substripeCount
-	coordinatesFunctionArguments.orientation = wrappedIndex({ array: dazzle.orientations, index: stripeIndex })
+	coordinatesOptions.substripeUnit = sizedUnit / substripeCount
+	coordinatesOptions.orientation = wrappedIndex({ array: dazzle.orientations, index: stripeIndex })
 	iterator(substripeCount).forEach(substripeIndex => {
-		coordinatesFunctionArguments.substripeIndex = substripeIndex
+		coordinatesOptions.substripeIndex = substripeIndex
 		shape({
 			origin,
 			colors: substripeModulus({ substripeIndex, nonDazzle: colors, dazzle: dazzle.colors }),
@@ -37,12 +37,12 @@ const stripeShapeWrapper = ({ origin, colors, rotation, sizedUnit, stripeIndex, 
 			sizedUnit,
 			stripeIndex,
 			coordinatesFunction: houndazzleShapes.substripeOfStripe,
-			coordinatesFunctionArguments
+			coordinatesOptions
 		})
 	})
 }
 
-export default ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesFunctionArguments }) => {
-	const shapeWrapper = coordinatesFunctionArguments ? stripeShapeWrapper : squareShapeWrapper
-	shapeWrapper({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesFunctionArguments })
+export default ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesOptions }) => {
+	const shapeWrapper = coordinatesOptions ? stripeShapeWrapper : squareShapeWrapper
+	shapeWrapper({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesOptions })
 }
