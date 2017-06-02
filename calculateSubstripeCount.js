@@ -1,4 +1,5 @@
-export default ({ address }) => {
+export default ({ address, stripeIndex, stripeCount }) => {
+	const maybeDouble = stripeIndex >= stripeCount / 2 ? 2 : 1
 	return Math.pow(
 		2,
 		Math.floor(
@@ -9,5 +10,5 @@ export default ({ address }) => {
 				) + 1
 			) / 2
 		) + 1
-	)
+	) * maybeDouble
 }

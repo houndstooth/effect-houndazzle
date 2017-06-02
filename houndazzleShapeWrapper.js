@@ -7,12 +7,12 @@ import houndazzleShapes from './houndazzleShapes'
 import calculateSubstripeUnit from './calculateSubstripeUnit'
 import calculateSubstripeCount from './calculateSubstripeCount'
 
-export default ({ address, size, colors, rotation, stripeIndex, dazzle, coordinatesOptions, coordinatesFunction }) => {
+export default ({ address, size, colors, rotation, stripeIndex, stripeCount, dazzle, coordinatesOptions, coordinatesFunction }) => {
 	const { substripeOfSquare, substripeOfStripe } = houndazzleShapes
-	coordinatesFunction = coordinatesOptions ? substripeOfStripe : substripeOfSquare
+	coordinatesFunction = !!coordinatesOptions ? substripeOfStripe : substripeOfSquare
 
 	let { substripeCount, dazzleContinuum } = state.shared.colorConfig.houndazzle
-	substripeCount = dazzleContinuum ? calculateSubstripeCount({ address }) : substripeCount
+	substripeCount = dazzleContinuum ? calculateSubstripeCount({ address, stripeIndex, stripeCount }) : substripeCount
 	coordinatesOptions = coordinatesOptions || {}
 	coordinatesOptions.substripeUnit = calculateSubstripeUnit({ substripeCount, size })
 	coordinatesOptions.orientation = wrappedIndex({ array: dazzle.orientations, index: stripeIndex })
