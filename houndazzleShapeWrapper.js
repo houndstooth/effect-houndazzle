@@ -5,27 +5,9 @@ import shape from '../shared/components/shape'
 import wrappedIndex from '../shared/utilities/wrappedIndex'
 import houndazzleShapes from './houndazzleShapes'
 
-const squareShapeWrapper = ({ origin, colors, rotation, sizedUnit, dazzle }) => {
+const shapeWrapper = ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesOptions, coordinatesFunction }) => {
 	const { substripeCount } = state.shared.colorConfig.houndazzle
-	const orientation = dazzle.orientations[ 0 ]
-	iterator(substripeCount).forEach(substripeIndex => {
-		shape({
-			origin,
-			colors: substripeModulus({ substripeIndex, nonDazzle: colors, dazzle: dazzle.colors }),
-			rotation,
-			sizedUnit,
-			coordinatesFunction: houndazzleShapes.substripeOfSquare,
-			coordinatesOptions: {
-				substripeUnit: sizedUnit / substripeCount,
-				orientation,
-				substripeIndex
-			}
-		})
-	})
-}
-
-const stripeShapeWrapper = ({ origin, colors, rotation, sizedUnit, stripeIndex, dazzle, coordinatesOptions }) => {
-	const { substripeCount } = state.shared.colorConfig.houndazzle
+	coordinatesOptions = coordinatesOptions || {}
 	coordinatesOptions.substripeUnit = sizedUnit / substripeCount
 	coordinatesOptions.orientation = wrappedIndex({ array: dazzle.orientations, index: stripeIndex })
 	iterator(substripeCount).forEach(substripeIndex => {
@@ -36,13 +18,14 @@ const stripeShapeWrapper = ({ origin, colors, rotation, sizedUnit, stripeIndex, 
 			rotation,
 			sizedUnit,
 			stripeIndex,
-			coordinatesFunction: houndazzleShapes.substripeOfStripe,
+			coordinatesFunction,
 			coordinatesOptions
 		})
 	})
 }
 
 export default (args) => {
-	const shapeWrapper = args.coordinatesOptions ? stripeShapeWrapper : squareShapeWrapper
+	const { substripeOfSquare, substripeOfStripe } = houndazzleShapes
+	args.coordinatesFunction = args.coordinatesOptions ? substripeOfStripe : substripeOfSquare
 	shapeWrapper(args)
 }
