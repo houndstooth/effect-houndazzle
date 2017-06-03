@@ -7,7 +7,5 @@ export default {
 				dazzleContinuum: false
 			}
 		}
-	},
-	iterations: {},
-	animations: {}
+	}
 }
