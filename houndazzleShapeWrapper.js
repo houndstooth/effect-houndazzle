@@ -7,7 +7,7 @@ import houndazzleShapes from './houndazzleShapes'
 import calculateSubstripeUnit from './calculateSubstripeUnit'
 import calculateSubstripeCount from './calculateSubstripeCount'
 
-export default ({ address, colors, rotation, stripeIndex, stripeCount, dazzle, coordinatesOptions, coordinatesFunction }) => {
+export default ({ address, colors, stripeIndex, stripeCount, dazzle, coordinatesOptions, coordinatesFunction }) => {
 	const { substripeOfSquare, substripeOfStripe } = houndazzleShapes
 	coordinatesFunction = !!coordinatesOptions ? substripeOfStripe : substripeOfSquare
 
@@ -22,7 +22,6 @@ export default ({ address, colors, rotation, stripeIndex, stripeCount, dazzle, c
 		shape({
 			address,
 			colors: substripeModulus({ substripeIndex, nonDazzle: colors, dazzle: dazzle.colors }),
-			rotation,
 			stripeIndex,
 			coordinatesFunction,
 			coordinatesOptions
