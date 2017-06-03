@@ -4,17 +4,17 @@ import shape from '../shared/components/shape'
 import wrappedIndex from '../shared/utilities/wrappedIndex'
 import substripeModulus from './substripeModulus'
 import houndazzleShapes from './houndazzleShapes'
-import calculateSubstripeUnit from './calculateSubstripeUnit'
 import calculateSubstripeCount from './calculateSubstripeCount'
 
 export default ({ address, colors, stripeIndex, stripeCount, dazzle, coordinatesOptions, coordinatesFunction }) => {
 	const { substripeOfSquare, substripeOfStripe } = houndazzleShapes
-	coordinatesFunction = !!coordinatesOptions ? substripeOfStripe : substripeOfSquare
+	const substripeIsOfStripe = !!coordinatesOptions
+	coordinatesFunction = substripeIsOfStripe ? substripeOfStripe : substripeOfSquare
 
 	let { substripeCount, dazzleContinuum } = state.colorConfig.houndazzle
 	substripeCount = dazzleContinuum ? calculateSubstripeCount({ address, stripeIndex, stripeCount }) : substripeCount
 	coordinatesOptions = coordinatesOptions || {}
-	coordinatesOptions.substripeUnit = calculateSubstripeUnit({ substripeCount })
+	coordinatesOptions.substripeCount = substripeCount
 	coordinatesOptions.orientation = wrappedIndex({ array: dazzle.orientations, index: stripeIndex })
 
 	iterator(substripeCount).forEach(substripeIndex => {
