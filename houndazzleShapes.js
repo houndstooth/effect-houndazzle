@@ -1,25 +1,27 @@
 import flipXAndY from './flipXAndY'
 
-const substripeOfSquare = ({ origin, vector, coordinatesOptions }) => {
+const substripeOfSquare = ({ origin, sizedUnit, coordinatesOptions }) => {
 	const { orientation, substripeIndex, substripeCount } = coordinatesOptions
-	const substripeVector = [ vector[ 0 ] / substripeCount,	vector[ 1 ] / substripeCount ]
+	const substripeUnit = sizedUnit / substripeCount
+	const substripeStart = substripeIndex * substripeUnit
+	const substripeEnd = substripeStart + substripeUnit
 
 	let coordinates = [
 		[
-			origin[ 0 ] + substripeIndex * substripeVector[ 0 ],
+			origin[ 0 ] + substripeStart,
 			origin[ 1 ]
 		],
 		[
-			origin[ 0 ] + (substripeIndex + 1) * substripeVector[ 0 ],
+			origin[ 0 ] + substripeEnd,
 			origin[ 1 ]
 		],
 		[
-			origin[ 0 ] + (substripeIndex + 1) * substripeVector[ 0 ],
-			origin[ 1 ] + vector[ 1 ]
+			origin[ 0 ] + substripeEnd,
+			origin[ 1 ] + sizedUnit
 		],
 		[
-			origin[ 0 ] + substripeIndex * substripeVector[ 0 ],
-			origin[ 1 ] + vector[ 1 ]
+			origin[ 0 ] + substripeStart,
+			origin[ 1 ] + sizedUnit
 		],
 	]
 
@@ -28,39 +30,20 @@ const substripeOfSquare = ({ origin, vector, coordinatesOptions }) => {
 	return coordinates
 }
 
-const substripeOfStripe = ({ origin, vector, coordinatesOptions }) => {
+const substripeOfStripe = ({ origin, sizedUnit, coordinatesOptions }) => {
 	let { stripeStart, stripeEnd, orientation, substripeIndex, substripeCount } = coordinatesOptions
-	const substripeVector = [ 
-		vector[ 0 ] / substripeCount,
-		vector[ 1 ] / substripeCount
-	]
+	const substripeUnit = sizedUnit / substripeCount
 
-	const substripeStart = [ 
-		substripeIndex * substripeVector[ 0 ],
-		substripeIndex * substripeVector[ 1 ]
-	] 
-	const substripeEnd = [
-		(substripeIndex + 1) * substripeVector[ 0 ],
-		(substripeIndex + 1) * substripeVector[ 1 ]
-	] 
+	const substripeStart = substripeIndex * substripeUnit
+	const substripeEnd = substripeStart + substripeUnit
 
-	stripeStart = [ 
-		stripeStart * vector[ 0 ] - substripeStart[ 0 ],
-		stripeStart * vector[ 1 ] - substripeStart[ 1 ]
-	]
-	stripeEnd = [
-		stripeEnd * vector[ 0 ] - substripeStart[ 0 ],
-		stripeEnd * vector[ 1 ] - substripeStart[ 1 ]
-	]
+	stripeStart = stripeStart * sizedUnit - substripeStart
+	stripeEnd = stripeEnd * sizedUnit - substripeStart
 
 	// this stripe is completely off the right edge of the substripe
-	if (
-		stripeStart[0] - substripeVector[0] >= vector[0] && 
-		stripeStart[1] - substripeVector[1] >= vector[1]) {
-		return
-	}
+	if (stripeStart - substripeUnit >= sizedUnit) return
 	// this stripe is completely off the left edge of the substripe
-	if (stripeEnd[0] <= 0 && stripeEnd[1] <= 0) return
+	if (stripeEnd <= 0) return
 
 	let coordinates = []
 
