@@ -1,7 +1,6 @@
 import state from '../../state/state'
-import iterator from '../../utilities/iterator'
 import shape from '../../components/shape'
-import wrappedIndex from '../../utilities/wrappedIndex'
+import codeUtilities from '../../utilities/codeUtilities'
 import substripeModulus from './substripeModulus'
 import houndazzleShapes from './houndazzleShapes'
 import getSubstripeCount from './getSubstripeCount'
@@ -15,9 +14,9 @@ export default ({ address, tileColors, stripeIndex, stripeCount, tileDazzle, coo
 	substripeCount = dazzleContinuum ? getSubstripeCount({ address, stripeIndex, stripeCount }) : substripeCount
 	coordinatesOptions = coordinatesOptions || {}
 	coordinatesOptions.substripeCount = substripeCount
-	coordinatesOptions.orientation = wrappedIndex({ array: tileDazzle.tileOrientations, index: stripeIndex })
+	coordinatesOptions.orientation = codeUtilities.wrappedIndex({ array: tileDazzle.tileOrientations, index: stripeIndex })
 
-	iterator(substripeCount).forEach(substripeIndex => {
+	codeUtilities.iterator(substripeCount).forEach(substripeIndex => {
 		coordinatesOptions.substripeIndex = substripeIndex
 		shape({
 			address,
