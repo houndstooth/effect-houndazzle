@@ -4,8 +4,8 @@ import colorUtilities from '../../utilities/colorUtilities'
 
 export default ({ address }) => {
 	const { colorConfig, orientationConfig } = state.colorConfig.houndazzle
-	const tileColors = colorUtilities.calculateColorsForTile({ address, colorConfig })
-	const tileOrientations = gridUtilities.calculateSetForTile({
+	const tileColors = colorUtilities.getColorsForTile({ address, colorConfig })
+	const tileOrientations = gridUtilities.getSetForTile({
 		address,
 		config: orientationConfig,
 		gccOn: state.stripeCountConfig.mode === 'GINGHAM_CHEVRON_CONTINUUM'

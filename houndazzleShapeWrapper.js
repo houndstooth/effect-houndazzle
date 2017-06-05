@@ -4,7 +4,7 @@ import shape from '../../components/shape'
 import wrappedIndex from '../../utilities/wrappedIndex'
 import substripeModulus from './substripeModulus'
 import houndazzleShapes from './houndazzleShapes'
-import calculateSubstripeCount from './calculateSubstripeCount'
+import getSubstripeCount from './getSubstripeCount'
 
 export default ({ address, tileColors, stripeIndex, stripeCount, tileDazzle, coordinatesOptions, coordinatesFunction }) => {
 	const { substripeOfSquare, substripeOfStripe } = houndazzleShapes
@@ -12,7 +12,7 @@ export default ({ address, tileColors, stripeIndex, stripeCount, tileDazzle, coo
 	coordinatesFunction = substripeIsOfStripe ? substripeOfStripe : substripeOfSquare
 
 	let { substripeCount, dazzleContinuum } = state.colorConfig.houndazzle
-	substripeCount = dazzleContinuum ? calculateSubstripeCount({ address, stripeIndex, stripeCount }) : substripeCount
+	substripeCount = dazzleContinuum ? getSubstripeCount({ address, stripeIndex, stripeCount }) : substripeCount
 	coordinatesOptions = coordinatesOptions || {}
 	coordinatesOptions.substripeCount = substripeCount
 	coordinatesOptions.orientation = wrappedIndex({ array: tileDazzle.tileOrientations, index: stripeIndex })
