@@ -1,5 +1,5 @@
 export default ({ address, stripeIndex, stripeCount }) => {
-	const maybeDouble = stripeIndex >= stripeCount / 2 ? 2 : 1
+	const houndazzleContinuumScalar = stripeIndex >= stripeCount / 2 ? 2 : 1
 	return Math.pow(
 			2,
 			Math.floor(
@@ -10,5 +10,5 @@ export default ({ address, stripeIndex, stripeCount }) => {
 					) + 1
 				) / 2
 			) + 1
-		) * maybeDouble
+		) * houndazzleContinuumScalar
 }
