@@ -1,6 +1,6 @@
-import state from '../shared/state/state'
-import gridUtilities from '../shared/utilities/gridUtilities'
-import colorUtilities from '../shared/utilities/colorUtilities'
+import state from '../../state/state'
+import gridUtilities from '../../utilities/gridUtilities'
+import colorUtilities from '../../utilities/colorUtilities'
 
 export default ({ address }) => {
 	const { colorConfig, orientationConfig } = state.colorConfig.houndazzle
