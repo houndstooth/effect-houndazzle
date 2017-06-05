@@ -6,7 +6,7 @@ import substripeModulus from './substripeModulus'
 import houndazzleShapes from './houndazzleShapes'
 import calculateSubstripeCount from './calculateSubstripeCount'
 
-export default ({ address, colors, stripeIndex, stripeCount, dazzle, coordinatesOptions, coordinatesFunction }) => {
+export default ({ address, tileColors, stripeIndex, stripeCount, tileDazzle, coordinatesOptions, coordinatesFunction }) => {
 	const { substripeOfSquare, substripeOfStripe } = houndazzleShapes
 	const substripeIsOfStripe = !!coordinatesOptions
 	coordinatesFunction = substripeIsOfStripe ? substripeOfStripe : substripeOfSquare
@@ -15,13 +15,13 @@ export default ({ address, colors, stripeIndex, stripeCount, dazzle, coordinates
 	substripeCount = dazzleContinuum ? calculateSubstripeCount({ address, stripeIndex, stripeCount }) : substripeCount
 	coordinatesOptions = coordinatesOptions || {}
 	coordinatesOptions.substripeCount = substripeCount
-	coordinatesOptions.orientation = wrappedIndex({ array: dazzle.orientations, index: stripeIndex })
+	coordinatesOptions.orientation = wrappedIndex({ array: tileDazzle.tileOrientations, index: stripeIndex })
 
 	iterator(substripeCount).forEach(substripeIndex => {
 		coordinatesOptions.substripeIndex = substripeIndex
 		shape({
 			address,
-			colors: substripeModulus({ substripeIndex, nonDazzle: colors, dazzle: dazzle.colors }),
+			tileColors: substripeModulus({ substripeIndex, nonDazzle: tileColors, dazzle: tileDazzle.tileColors }),
 			stripeIndex,
 			coordinatesFunction,
 			coordinatesOptions
