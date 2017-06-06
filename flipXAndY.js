@@ -1,7 +1,7 @@
-export default ({ coordinates, origin }) => {
+export default ({ coordinates, shapeOrigin }) => {
 	return coordinates.map(coordinate => {
-		const relativeX = coordinate[ 0 ] - origin[ 0 ]
-		const relativeY = coordinate[ 1 ] - origin[ 1 ]
-		return [ origin[ 0 ] + relativeY, origin[ 1 ] + relativeX ]
+		const relativeX = coordinate[ 0 ] - shapeOrigin[ 0 ]
+		const relativeY = coordinate[ 1 ] - shapeOrigin[ 1 ]
+		return [ shapeOrigin[ 0 ] + relativeY, shapeOrigin[ 1 ] + relativeX ]
 	})
 }

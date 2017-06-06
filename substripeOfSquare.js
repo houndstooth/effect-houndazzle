@@ -1,6 +1,9 @@
 import flipXAndY from './flipXAndY'
 
-export default ({ origin, sizedUnit, coordinatesOptions }) => {
+export default ({ shapeOrigin, sizedUnit, coordinatesOptions }) => {
+	const x = shapeOrigin[ 0 ]
+	const y = shapeOrigin[ 1 ]
+
 	const { orientation, substripeIndex, substripeCount } = coordinatesOptions
 	const substripeUnit = sizedUnit / substripeCount
 	const substripeStart = substripeIndex * substripeUnit
@@ -8,24 +11,24 @@ export default ({ origin, sizedUnit, coordinatesOptions }) => {
 
 	let coordinates = [
 		[
-			origin[ 0 ] + substripeStart,
-			origin[ 1 ]
+			x + substripeStart,
+			y
 		],
 		[
-			origin[ 0 ] + substripeEnd,
-			origin[ 1 ]
+			x + substripeEnd,
+			y
 		],
 		[
-			origin[ 0 ] + substripeEnd,
-			origin[ 1 ] + sizedUnit
+			x + substripeEnd,
+			y + sizedUnit
 		],
 		[
-			origin[ 0 ] + substripeStart,
-			origin[ 1 ] + sizedUnit
+			x + substripeStart,
+			y + sizedUnit
 		],
 	]
 
-	if (orientation === "HORIZONTAL") coordinates = flipXAndY({ coordinates, origin })
+	if (orientation === "HORIZONTAL") coordinates = flipXAndY({ coordinates, shapeOrigin })
 
 	return coordinates
 }

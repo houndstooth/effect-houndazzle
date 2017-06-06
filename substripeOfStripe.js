@@ -1,6 +1,9 @@
 import flipXAndY from './flipXAndY'
 
-export default ({ origin, sizedUnit, coordinatesOptions }) => {
+export default ({ shapeOrigin, sizedUnit, coordinatesOptions }) => {
+	const x = shapeOrigin[ 0 ]
+	const y = shapeOrigin[ 1 ]
+
 	let { stripeStart, stripeEnd, orientation, substripeIndex, substripeCount } = coordinatesOptions
 	const substripeUnit = sizedUnit / substripeCount
 
@@ -20,38 +23,38 @@ export default ({ origin, sizedUnit, coordinatesOptions }) => {
 	// top left (which may also turn out to be top right)
 	if (stripeStart > sizedUnit) {
 		coordinates.push([
-			origin[ 0 ] + sizedUnit,
-			origin[ 1 ] + substripeStart + stripeStart - sizedUnit
+			x + sizedUnit,
+			y + substripeStart + stripeStart - sizedUnit
 		])
 	} else if (stripeStart >= 0) {
 		coordinates.push([
-			origin[ 0 ] + stripeStart,
-			origin[ 1 ] + substripeStart
+			x + stripeStart,
+			y + substripeStart
 		])
 	} else {
 		coordinates.push([
-			origin[ 0 ],
-			origin[ 1 ] + substripeStart
+			x,
+			y + substripeStart
 		])
 	}
 
 	// possibly top right, and possibly middle right
 	if (stripeEnd <= sizedUnit) {
 		coordinates.push([
-			origin[ 0 ] + stripeEnd,
-			origin[ 1 ] + substripeStart
+			x + stripeEnd,
+			y + substripeStart
 		])
 	} else {
 		if (stripeStart < sizedUnit) {
 			coordinates.push([
-				origin[ 0 ] + sizedUnit,
-				origin[ 1 ] + substripeStart
+				x + sizedUnit,
+				y + substripeStart
 			])
 		}
 		if (stripeEnd < sizedUnit + substripeUnit) {
 			coordinates.push([
-				origin[ 0 ] + sizedUnit,
-				origin[ 1 ] + substripeStart + stripeEnd - sizedUnit
+				x + sizedUnit,
+				y + substripeStart + stripeEnd - sizedUnit
 			])
 		}
 	}
@@ -59,18 +62,18 @@ export default ({ origin, sizedUnit, coordinatesOptions }) => {
 	// bottom right, and potentially early return to skip last section
 	if (stripeEnd - substripeUnit >= sizedUnit) {
 		coordinates.push([
-			origin[ 0 ] + sizedUnit,
-			origin[ 1 ] + substripeEnd
+			x + sizedUnit,
+			y + substripeEnd
 		])
 	} else if (stripeEnd - substripeUnit >= 0) {
 		coordinates.push([
-			origin[ 0 ] + stripeEnd - substripeUnit,
-			origin[ 1 ] + substripeEnd
+			x + stripeEnd - substripeUnit,
+			y + substripeEnd
 		])
 	} else {
 		coordinates.push([
-			origin[ 0 ],
-			origin[ 1 ] + substripeStart + stripeEnd
+			x,
+			y + substripeStart + stripeEnd
 		])
 		return coordinates
 	}
@@ -78,23 +81,23 @@ export default ({ origin, sizedUnit, coordinatesOptions }) => {
 	// if not skipping this section due to early return, bottom left, and possibly middle left
 	if (stripeStart - substripeUnit > 0) {
 		coordinates.push([
-			origin[ 0 ] + stripeStart - substripeUnit,
-			origin[ 1 ] + substripeEnd
+			x + stripeStart - substripeUnit,
+			y + substripeEnd
 		])
 	} else {
 		coordinates.push([
-			origin[ 0 ],
-			origin[ 1 ] + substripeEnd
+			x,
+			y + substripeEnd
 		])
 		if (stripeStart > 0) {
 			coordinates.push([
-				origin[ 0 ],
-				origin[ 1 ] + substripeStart + stripeStart
+				x,
+				y + substripeStart + stripeStart
 			])
 		}
 	}
 
-	if (orientation === "VERTICAL") coordinates = flipXAndY({ coordinates, origin })
+	if (orientation === "VERTICAL") coordinates = flipXAndY({ coordinates, shapeOrigin })
 
 	return coordinates
 }
