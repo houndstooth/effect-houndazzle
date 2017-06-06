@@ -4,7 +4,12 @@ export default {
 			mode: 'HOUNDAZZLE',
 			houndazzle: {
 				substripeCount: 16,
-				dazzleContinuum: false
+				dazzleContinuum: false,
+				colorConfig: {
+					assignment: {
+						offsetSetForGridIndex: () => 1
+					}
+				}
 			}
 		}
 	}
