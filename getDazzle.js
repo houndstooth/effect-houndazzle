@@ -7,8 +7,7 @@ export default ({ address }) => {
 	const tileColors = colorUtilities.getColorsForTile({ address, colorConfig })
 	const tileOrientations = gridUtilities.getSetForTile({
 		address,
-		config: orientationConfig,
-		gccOn: state.stripeCountConfig.mode === 'GINGHAM_CHEVRON_CONTINUUM'
+		config: orientationConfig
 	})
 
 	return { tileColors, tileOrientations }
