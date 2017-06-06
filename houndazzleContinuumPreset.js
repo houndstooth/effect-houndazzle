@@ -1,7 +1,9 @@
 export default {
 	state: {
 		gridSize: 8,
-		tileSize: 100,
+		tile: {
+			tileSize: 100,
+		},
 		colorConfig: {
 			mode: 'HOUNDAZZLE',
 			houndazzle: {
