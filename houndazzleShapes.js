@@ -6,9 +6,9 @@ import getSubstripeCount from './getSubstripeCount'
 import substripeOfSquare from './substripeOfSquare'
 import substripeOfStripe from './substripeOfStripe'
 
-export default ({ address, tileColors, stripeIndex, stripeCount, tileDazzle, coordinatesOptions, coordinatesFunction }) => {
+export default ({ address, tileColors, stripeIndex, stripeCount, tileDazzle, coordinatesOptions, getCoordinates }) => {
 	const substripeIsOfStripe = !!coordinatesOptions
-	coordinatesFunction = substripeIsOfStripe ? substripeOfStripe : substripeOfSquare
+	getCoordinates = substripeIsOfStripe ? substripeOfStripe : substripeOfSquare
 
 	let { substripeCount, dazzleContinuum } = state.colorConfig.houndazzle
 	substripeCount = dazzleContinuum ? getSubstripeCount({ address, stripeIndex, stripeCount }) : substripeCount
@@ -22,7 +22,7 @@ export default ({ address, tileColors, stripeIndex, stripeCount, tileDazzle, coo
 			address,
 			tileColors: substripeModulus({ substripeIndex, nonDazzle: tileColors, dazzle: tileDazzle.tileColors }),
 			stripeIndex,
-			coordinatesFunction,
+			getCoordinates,
 			coordinatesOptions
 		})
 	})
