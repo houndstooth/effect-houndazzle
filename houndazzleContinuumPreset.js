@@ -1,7 +1,9 @@
 export default {
 	state: {
-		gridSize: 8,
-		tile: {
+		gridConfig: {
+			gridSize: 8,
+		},
+		tileConfig: {
 			tileSize: 100,
 		},
 		colorConfig: {
