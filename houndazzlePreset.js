@@ -5,6 +5,7 @@ export default {
 			houndazzle: {
 				substripeCount: 16,
 				dazzleContinuum: false,
+				orientationConfig: { set: [ 'HORIZONTAL', 'VERTICAL' ] },
 				colorConfig: {
 					assignment: {
 						offsetSetForGridIndex: () => 1
