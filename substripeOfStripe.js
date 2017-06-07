@@ -13,91 +13,136 @@ export default ({ shapeOrigin, sizedUnit, coordinatesOptions }) => {
 	stripeStart = stripeStart * sizedUnit - substripeStart
 	stripeEnd = stripeEnd * sizedUnit - substripeStart
 
-	// this stripe is completely off the right edge of the substripe
-	if (stripeStart - substripeUnit >= sizedUnit) return
-	// this stripe is completely off the left edge of the substripe
-	if (stripeEnd <= 0) return
+	if (stripeIsOutsideSubstripe({ stripeStart, stripeEnd, substripeUnit, sizedUnit })) return
 
 	let coordinates = []
 
-	// top left (which may also turn out to be top right)
+	coordinates = coordinates.concat(
+		topLeftCornerWhichMayAlsoBeTopRight({ x, y, stripeStart, sizedUnit, substripeStart })
+	)
+	coordinates = coordinates.concat(
+		topRightCornerAndPossiblyAlsoAMiddleRightCorner({ x, y, stripeStart, stripeEnd, sizedUnit, substripeStart, substripeUnit })
+	)
+	coordinates = coordinates.concat(
+		bottomRightCorner({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, sizedUnit })
+	)
+
+	if (stripeEnd - substripeUnit >= sizedUnit || stripeEnd - substripeUnit >= 0) {
+		coordinates = coordinates.concat(
+			bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner({ x, y, stripeStart, substripeUnit, substripeEnd, substripeStart })
+		)
+	}
+
+	if (orientation === "VERTICAL") coordinates = flipXAndY({ coordinates, shapeOrigin })
+	return coordinates
+}
+
+const topLeftCornerWhichMayAlsoBeTopRight = ({ x, y, stripeStart, sizedUnit, substripeStart }) => {
+	let newCoordinates = []
+
 	if (stripeStart > sizedUnit) {
-		coordinates.push([
+		newCoordinates.push([
 			x + sizedUnit,
 			y + substripeStart + stripeStart - sizedUnit
 		])
 	} else if (stripeStart >= 0) {
-		coordinates.push([
+		newCoordinates.push([
 			x + stripeStart,
 			y + substripeStart
 		])
 	} else {
-		coordinates.push([
+		newCoordinates.push([
 			x,
 			y + substripeStart
 		])
 	}
 
-	// possibly top right, and possibly middle right
+	return newCoordinates
+}
+
+const topRightCornerAndPossiblyAlsoAMiddleRightCorner = ({ x, y, stripeStart, stripeEnd, sizedUnit, substripeStart, substripeUnit }) => {
+	let newCoordinates = []
+
 	if (stripeEnd <= sizedUnit) {
-		coordinates.push([
+		newCoordinates.push([
 			x + stripeEnd,
 			y + substripeStart
 		])
 	} else {
 		if (stripeStart < sizedUnit) {
-			coordinates.push([
+			newCoordinates.push([
 				x + sizedUnit,
 				y + substripeStart
 			])
 		}
 		if (stripeEnd < sizedUnit + substripeUnit) {
-			coordinates.push([
+			newCoordinates.push([
 				x + sizedUnit,
 				y + substripeStart + stripeEnd - sizedUnit
 			])
 		}
 	}
 
-	// bottom right, and potentially early return to skip last section
+	return newCoordinates
+}
+
+const bottomRightCorner = ({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, sizedUnit }) => {
+	let newCoordinates = []
+
 	if (stripeEnd - substripeUnit >= sizedUnit) {
-		coordinates.push([
+		newCoordinates.push([
 			x + sizedUnit,
 			y + substripeEnd
 		])
 	} else if (stripeEnd - substripeUnit >= 0) {
-		coordinates.push([
+		newCoordinates.push([
 			x + stripeEnd - substripeUnit,
 			y + substripeEnd
 		])
 	} else {
-		coordinates.push([
+		newCoordinates.push([
 			x,
 			y + substripeStart + stripeEnd
 		])
-		return coordinates
 	}
 
-	// if not skipping this section due to early return, bottom left, and possibly middle left
+	return newCoordinates
+}
+
+const bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner = ({ x, y, stripeStart, substripeUnit, substripeEnd, substripeStart }) => {
+	let newCoordinates = []
+
 	if (stripeStart - substripeUnit > 0) {
-		coordinates.push([
+		newCoordinates.push([
 			x + stripeStart - substripeUnit,
 			y + substripeEnd
 		])
 	} else {
-		coordinates.push([
+		newCoordinates.push([
 			x,
 			y + substripeEnd
 		])
 		if (stripeStart > 0) {
-			coordinates.push([
+			newCoordinates.push([
 				x,
 				y + substripeStart + stripeStart
 			])
 		}
 	}
 
-	if (orientation === "VERTICAL") coordinates = flipXAndY({ coordinates, shapeOrigin })
+	return newCoordinates
+}
 
-	return coordinates
+const stripeIsOutsideSubstripe = ({ stripeStart, stripeEnd, substripeUnit, sizedUnit }) => {
+	if (stripeIsOutsideRightExtremeOfSubstripe({ stripeStart, substripeUnit, sizedUnit })) return true
+	if (stripeIsOutsideLeftExtremeOfSubstripe({ stripeEnd })) return true
+	return false
+}
+
+const stripeIsOutsideRightExtremeOfSubstripe = ({ stripeStart, substripeUnit, sizedUnit }) => {
+	return stripeStart - substripeUnit >= sizedUnit
+}
+
+const stripeIsOutsideLeftExtremeOfSubstripe = ({ stripeEnd }) => {
+	return stripeEnd <= 0
 }
