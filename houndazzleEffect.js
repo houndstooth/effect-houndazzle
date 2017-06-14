@@ -1,3 +1,5 @@
+import houndazzleTile from './houndazzleTile'
+
 export default {
 	state: {
 		colorConfig: {
@@ -12,6 +14,7 @@ export default {
 					}
 				}
 			}
-		}
+		},
+		tileFunction: houndazzleTile
 	}
 }

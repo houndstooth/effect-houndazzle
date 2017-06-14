@@ -1,3 +1,5 @@
+import houndazzleTile from './houndazzleTile'
+
 export default {
 	state: {
 		gridConfig: {
@@ -18,6 +20,7 @@ export default {
 					}
 				}
 			}
-		}
+		},
+		tileFunction: houndazzleTile
 	}
 }
