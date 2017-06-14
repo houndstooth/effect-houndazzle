@@ -1,4 +1,4 @@
-import houndazzleTile from './houndazzleTile'
+import houndazzleShapes from './houndazzleShapes'
 
 export default {
 	state: {
@@ -15,6 +15,6 @@ export default {
 				}
 			}
 		},
-		tileFunction: houndazzleTile
+		shapes: houndazzleShapes
 	}
 }
