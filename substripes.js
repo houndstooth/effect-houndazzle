@@ -6,7 +6,7 @@ import getSubstripeCount from './getSubstripeCount'
 import substripeOfSquare from './substripeOfSquare'
 import substripeOfStripe from './substripeOfStripe'
 
-export default ({ address, tileColors, tileOrigin, sizedUnit, stripeIndex, stripeCount, tileDazzle, coordinatesOptions, getCoordinates }) => {
+export default ({ address, tileColors, tileOrigin, sizedUnit, stripeIndex, colorsIndex, stripeCount, tileDazzle, coordinatesOptions, getCoordinates }) => {
 	const substripeIsOfStripe = !!coordinatesOptions
 	getCoordinates = substripeIsOfStripe ? substripeOfStripe : substripeOfSquare
 
@@ -21,7 +21,7 @@ export default ({ address, tileColors, tileOrigin, sizedUnit, stripeIndex, strip
 		shape({
 			address,
 			tileColors: substripeModulus({ substripeIndex, nonDazzle: tileColors, dazzle: tileDazzle.tileColors }),
-			stripeIndex,
+			colorsIndex,
 			getCoordinates,
 			coordinatesOptions,
 			tileOrigin,
