@@ -1,8 +1,8 @@
 import flipXAndY from './flipXAndY'
 
-export default ({ shapeOrigin, sizedUnit, coordinatesOptions }) => {
-	const x = shapeOrigin[ 0 ]
-	const y = shapeOrigin[ 1 ]
+export default ({ tileOrigin, sizedUnit, coordinatesOptions }) => {
+	const x = tileOrigin[ 0 ]
+	const y = tileOrigin[ 1 ]
 
 	let { stripeStart, stripeEnd, orientation, substripeIndex, substripeCount } = coordinatesOptions
 	const substripeUnit = sizedUnit / substripeCount
@@ -33,7 +33,7 @@ export default ({ shapeOrigin, sizedUnit, coordinatesOptions }) => {
 		)
 	}
 
-	if (orientation === "VERTICAL") coordinates = flipXAndY({ coordinates, shapeOrigin })
+	if (orientation === "VERTICAL") coordinates = flipXAndY({ coordinates, tileOrigin })
 	return coordinates
 }
 
