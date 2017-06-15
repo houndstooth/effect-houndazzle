@@ -5,14 +5,8 @@ import substripeModulus from './substripeModulus'
 import getSubstripeCount from './getSubstripeCount'
 import substripeOfSquare from './substripeOfSquare'
 import substripeOfStripe from './substripeOfStripe'
-import getDazzle from '../../effects/houndazzle/getDazzle'
-import squareOrStripes from '../../components/squareOrStripes'
 
-export default ({ address, tileColors }) => {
-	squareOrStripes({ address, tileColors, shape: substripe, tileDazzle: getDazzle({ address }) })
-}
-
-const substripe = ({ address, tileColors, stripeIndex, stripeCount, tileDazzle, coordinatesOptions, getCoordinates }) => {
+export default ({ address, tileColors, stripeIndex, stripeCount, tileDazzle, coordinatesOptions, getCoordinates }) => {
 	const substripeIsOfStripe = !!coordinatesOptions
 	getCoordinates = substripeIsOfStripe ? substripeOfStripe : substripeOfSquare
 

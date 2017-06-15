@@ -1,10 +1,11 @@
-import houndazzleShapes from './houndazzleShapes'
+import tileToHoundazzleShapes from './tileToHoundazzleShapes'
 import isHoundazzleTileUniform from './isHoundazzleTileUniform'
 
 export default {
 	state: {
 		tileConfig: {
-			isTileUniform: isHoundazzleTileUniform
+			isTileUniform: isHoundazzleTileUniform,
+			tileToShapes: tileToHoundazzleShapes
 		},
 		colorConfig: {
 			mode: 'HOUNDAZZLE',
@@ -18,7 +19,6 @@ export default {
 					}
 				}
 			}
-		},
-		shapes: houndazzleShapes
+		}
 	}
 }
