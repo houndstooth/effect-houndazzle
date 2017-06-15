@@ -10,5 +10,5 @@ export default ({ address }) => {
 		config: orientationConfig
 	})
 
-	return { tileColors, tileOrientations }
+	return { tileDazzle: { tileColors, tileOrientations } }
 }

@@ -1,15 +1,17 @@
-import tileToHoundazzleShapes from './tileToHoundazzleShapes'
+import substripes from './substripes'
 import isHoundazzleTileUniform from './isHoundazzleTileUniform'
+import getDazzle from './getDazzle'
 
 export default {
 	state: {
 		gridConfig: {
 			gridSize: 8,
 		},
+		gatherOptions: getDazzle,
 		tileConfig: {
 			tileSize: 100,
 			isTileUniform: isHoundazzleTileUniform,
-			tileToShapes: tileToHoundazzleShapes
+			tileToShapes: substripes
 		},
 		colorConfig: {
 			mode: 'HOUNDAZZLE',
