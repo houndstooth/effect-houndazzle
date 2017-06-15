@@ -1,7 +1,11 @@
 import houndazzleShapes from './houndazzleShapes'
+import isHoundazzleTileUniform from './isHoundazzleTileUniform'
 
 export default {
 	state: {
+		tileConfig: {
+			isTileUniform: isHoundazzleTileUniform
+		},
 		colorConfig: {
 			mode: 'HOUNDAZZLE',
 			houndazzle: {
