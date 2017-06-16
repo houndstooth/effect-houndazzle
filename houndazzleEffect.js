@@ -8,7 +8,9 @@ export default {
 			isTileUniform: isHoundazzleTileUniform,
 			tileToShapes: substripes
 		},
-		gatherOptions: getDazzle,
+		gatherOptions: {
+			getDazzle
+		},
 		colorConfig: {
 			mode: 'HOUNDAZZLE',
 			houndazzle: {
