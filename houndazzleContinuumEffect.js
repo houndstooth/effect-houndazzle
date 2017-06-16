@@ -1,8 +1,8 @@
 import substripes from './substripes'
 import isHoundazzleTileUniform from './isHoundazzleTileUniform'
 import getDazzle from './getDazzle'
-import substripeOfSquare from './substripeOfSquare'
-import substripeOfStripe from './substripeOfStripe'
+import substripeOfSquareCoordinates from './substripeOfSquareCoordinates'
+import substripeOfStripeCoordinates from './substripeOfStripeCoordinates'
 
 export default {
 	state: {
@@ -17,8 +17,8 @@ export default {
 			isTileUniform: isHoundazzleTileUniform,
 			tileToShapes: substripes,
 			getCoordinates: {
-				whenTileIsUniform: substripeOfSquare,
-				whenTileIsMultiform: substripeOfStripe
+				whenTileIsUniform: substripeOfSquareCoordinates,
+				whenTileIsMultiform: substripeOfStripeCoordinates
 			}
 		},
 		colorConfig: {
