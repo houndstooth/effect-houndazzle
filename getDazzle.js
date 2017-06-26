@@ -1,4 +1,3 @@
-import state from '../../state/state'
 import gridUtilities from '../../utilities/gridUtilities'
 import colorUtilities from '../../utilities/colorUtilities'
 
