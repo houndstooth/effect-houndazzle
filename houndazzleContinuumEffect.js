@@ -5,7 +5,7 @@ import substripeOfSquareCoordinates from './substripeOfSquareCoordinates'
 import substripeOfStripeCoordinates from './substripeOfStripeCoordinates'
 
 export default {
-	state: {
+	initial: {
 		gridConfig: {
 			gridSize: 8,
 		},

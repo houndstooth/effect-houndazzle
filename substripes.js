@@ -4,7 +4,7 @@ import substripeModulus from './substripeModulus'
 import getSubstripeCount from './getSubstripeCount'
 
 export default ({ address, tileColors, tileOrigin, sizedUnit, stripeIndex, colorsIndex, stripeCount, options, coordinatesOptions, getCoordinates }) => {
-	let { substripeCount, dazzleContinuum } = state.colorConfig.houndazzle
+	let { substripeCount, dazzleContinuum } = settings.initial.colorConfig.houndazzle
 	substripeCount = dazzleContinuum ? getSubstripeCount({ address, stripeIndex, stripeCount }) : substripeCount
 	coordinatesOptions = coordinatesOptions || {}
 	coordinatesOptions.substripeCount = substripeCount
