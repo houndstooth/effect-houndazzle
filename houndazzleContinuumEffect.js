@@ -9,7 +9,9 @@ export default {
 		gridConfig: {
 			gridSize: 8,
 		},
-		gatherOptions: getDazzle,
+		gatherOptions: {
+			getDazzle
+		},
 		tileConfig: {
 			tileSize: 100,
 			isTileUniform: isHoundazzleTileUniform,

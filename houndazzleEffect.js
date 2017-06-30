@@ -14,7 +14,9 @@ export default {
 				whenTileIsMultiform: substripeOfStripeCoordinates
 			}
 		},
-		gatherOptions: getDazzle,
+		gatherOptions: {
+			getDazzle
+		},
 		colorConfig: {
 			mode: 'HOUNDAZZLE',
 			houndazzle: {
