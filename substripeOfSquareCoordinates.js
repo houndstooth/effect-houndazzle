@@ -28,7 +28,7 @@ export default ({ tileOrigin, sizedUnit, coordinatesOptions }) => {
 		],
 	]
 
-	if (orientation === "HORIZONTAL") coordinates = flipXAndY({ coordinates, tileOrigin })
+	if (orientation === 'HORIZONTAL') coordinates = flipXAndY({ coordinates, tileOrigin })
 
 	return coordinates
 }

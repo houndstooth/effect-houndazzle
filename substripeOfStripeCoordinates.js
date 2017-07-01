@@ -33,7 +33,7 @@ export default ({ tileOrigin, sizedUnit, coordinatesOptions }) => {
 		)
 	}
 
-	if (orientation === "VERTICAL") coordinates = flipXAndY({ coordinates, tileOrigin })
+	if (orientation === 'VERTICAL') coordinates = flipXAndY({ coordinates, tileOrigin })
 	return coordinates
 }
 
