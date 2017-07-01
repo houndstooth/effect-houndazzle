@@ -6,7 +6,7 @@ export default ({ address }) => {
 	const tileColors = colorUtilities.getColorsForTile({ address, colorConfig })
 	const tileOrientations = gridUtilities.getSetForTile({
 		address,
-		config: orientationConfig
+		config: orientationConfig,
 	})
 
 	return { tileDazzle: { tileColors, tileOrientations } }

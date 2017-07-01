@@ -10,7 +10,7 @@ export default ({ address, tileColors, tileOrigin, sizedUnit, stripeIndex, color
 	coordinatesOptions.substripeCount = substripeCount
 	coordinatesOptions.orientation = codeUtilities.wrappedIndex({
 		array: options.tileDazzle.tileOrientations,
-		index: stripeIndex
+		index: stripeIndex,
 	})
 
 	codeUtilities.iterator(substripeCount).forEach(substripeIndex => {
@@ -20,13 +20,13 @@ export default ({ address, tileColors, tileOrigin, sizedUnit, stripeIndex, color
 			tileColors: substripeModulus({
 				substripeIndex,
 				nonDazzle: tileColors,
-				dazzle: options.tileDazzle.tileColors
+				dazzle: options.tileDazzle.tileColors,
 			}),
 			colorsIndex,
 			getCoordinates,
 			coordinatesOptions,
 			tileOrigin,
-			sizedUnit
+			sizedUnit,
 		})
 	})
 }

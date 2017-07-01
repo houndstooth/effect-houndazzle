@@ -43,17 +43,17 @@ const topLeftCornerWhichMayAlsoBeTopRight = ({ x, y, stripeStart, sizedUnit, sub
 	if (stripeStart > sizedUnit) {
 		newCoordinates.push([
 			x + sizedUnit,
-			y + substripeStart + stripeStart - sizedUnit
+			y + substripeStart + stripeStart - sizedUnit,
 		])
 	} else if (stripeStart >= 0) {
 		newCoordinates.push([
 			x + stripeStart,
-			y + substripeStart
+			y + substripeStart,
 		])
 	} else {
 		newCoordinates.push([
 			x,
-			y + substripeStart
+			y + substripeStart,
 		])
 	}
 
@@ -66,19 +66,19 @@ const topRightCornerAndPossiblyAlsoAMiddleRightCorner = ({ x, y, stripeStart, st
 	if (stripeEnd <= sizedUnit) {
 		newCoordinates.push([
 			x + stripeEnd,
-			y + substripeStart
+			y + substripeStart,
 		])
 	} else {
 		if (stripeStart < sizedUnit) {
 			newCoordinates.push([
 				x + sizedUnit,
-				y + substripeStart
+				y + substripeStart,
 			])
 		}
 		if (stripeEnd < sizedUnit + substripeUnit) {
 			newCoordinates.push([
 				x + sizedUnit,
-				y + substripeStart + stripeEnd - sizedUnit
+				y + substripeStart + stripeEnd - sizedUnit,
 			])
 		}
 	}
@@ -92,17 +92,17 @@ const bottomRightCorner = ({ x, y, stripeEnd, substripeStart, substripeEnd, subs
 	if (stripeEnd - substripeUnit >= sizedUnit) {
 		newCoordinates.push([
 			x + sizedUnit,
-			y + substripeEnd
+			y + substripeEnd,
 		])
 	} else if (stripeEnd - substripeUnit >= 0) {
 		newCoordinates.push([
 			x + stripeEnd - substripeUnit,
-			y + substripeEnd
+			y + substripeEnd,
 		])
 	} else {
 		newCoordinates.push([
 			x,
-			y + substripeStart + stripeEnd
+			y + substripeStart + stripeEnd,
 		])
 	}
 
@@ -115,17 +115,17 @@ const bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner = ({ x, y, stripeStart, su
 	if (stripeStart - substripeUnit > 0) {
 		newCoordinates.push([
 			x + stripeStart - substripeUnit,
-			y + substripeEnd
+			y + substripeEnd,
 		])
 	} else {
 		newCoordinates.push([
 			x,
-			y + substripeEnd
+			y + substripeEnd,
 		])
 		if (stripeStart > 0) {
 			newCoordinates.push([
 				x,
-				y + substripeStart + stripeStart
+				y + substripeStart + stripeStart,
 			])
 		}
 	}

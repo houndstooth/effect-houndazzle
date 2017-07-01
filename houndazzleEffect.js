@@ -11,11 +11,11 @@ export default {
 			tileToShapes: substripes,
 			getCoordinates: {
 				whenTileIsUniform: substripeOfSquareCoordinates,
-				whenTileIsMultiform: substripeOfStripeCoordinates
-			}
+				whenTileIsMultiform: substripeOfStripeCoordinates,
+			},
 		},
 		gatherOptions: {
-			getDazzle
+			getDazzle,
 		},
 		colorConfig: {
 			mode: 'HOUNDAZZLE',
@@ -25,10 +25,10 @@ export default {
 				orientationConfig: { set: [ 'HORIZONTAL', 'VERTICAL' ] },
 				colorConfig: {
 					assignment: {
-						offsetSetForGridIndex: () => 1
-					}
-				}
-			}
-		}
-	}
+						offsetSetForGridIndex: () => 1,
+					},
+				},
+			},
+		},
+	},
 }

@@ -12,19 +12,19 @@ export default ({ tileOrigin, sizedUnit, coordinatesOptions }) => {
 	let coordinates = [
 		[
 			x + substripeStart,
-			y
+			y,
 		],
 		[
 			x + substripeEnd,
-			y
+			y,
 		],
 		[
 			x + substripeEnd,
-			y + sizedUnit
+			y + sizedUnit,
 		],
 		[
 			x + substripeStart,
-			y + sizedUnit
+			y + sizedUnit,
 		],
 	]
 
