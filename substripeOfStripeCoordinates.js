@@ -45,12 +45,14 @@ const topLeftCornerWhichMayAlsoBeTopRight = ({ x, y, stripeStart, sizedUnit, sub
 			x + sizedUnit,
 			y + substripeStart + stripeStart - sizedUnit,
 		])
-	} else if (stripeStart >= 0) {
+	}
+	else if (stripeStart >= 0) {
 		newCoordinates.push([
 			x + stripeStart,
 			y + substripeStart,
 		])
-	} else {
+	}
+	else {
 		newCoordinates.push([
 			x,
 			y + substripeStart,
@@ -68,7 +70,8 @@ const topRightCornerAndPossiblyAlsoAMiddleRightCorner = ({ x, y, stripeStart, st
 			x + stripeEnd,
 			y + substripeStart,
 		])
-	} else {
+	}
+	else {
 		if (stripeStart < sizedUnit) {
 			newCoordinates.push([
 				x + sizedUnit,
@@ -94,12 +97,14 @@ const bottomRightCorner = ({ x, y, stripeEnd, substripeStart, substripeEnd, subs
 			x + sizedUnit,
 			y + substripeEnd,
 		])
-	} else if (stripeEnd - substripeUnit >= 0) {
+	}
+	else if (stripeEnd - substripeUnit >= 0) {
 		newCoordinates.push([
 			x + stripeEnd - substripeUnit,
 			y + substripeEnd,
 		])
-	} else {
+	}
+	else {
 		newCoordinates.push([
 			x,
 			y + substripeStart + stripeEnd,
@@ -117,7 +122,8 @@ const bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner = ({ x, y, stripeStart, su
 			x + stripeStart - substripeUnit,
 			y + substripeEnd,
 		])
-	} else {
+	}
+	else {
 		newCoordinates.push([
 			x,
 			y + substripeEnd,
