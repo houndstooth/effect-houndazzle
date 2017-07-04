@@ -1,4 +1,4 @@
-import colorUtilities from '../../src/utilities/colorUtilities'
+import colorUtilities from '../../../../src/utilities/colorUtilities'
 import allOrientationsAreTheSame from './allOrientationsAreTheSame'
 
 export default ({ tileColors, options }) => {

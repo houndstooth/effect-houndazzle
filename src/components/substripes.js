@@ -1,7 +1,7 @@
-import shape from '../../src/components/shape'
-import codeUtilities from '../../src/utilities/codeUtilities'
-import substripeModulus from './substripeModulus'
-import getSubstripeCount from './getSubstripeCount'
+import shape from '../../../../src/components/shape'
+import codeUtilities from '../../../../src/utilities/codeUtilities'
+import substripeModulus from '../utilities/substripeModulus'
+import getSubstripeCount from '../utilities/getSubstripeCount'
 
 export default ({ address, tileColors, tileOrigin, sizedUnit, stripeIndex, colorsIndex, stripeCount, options, coordinatesOptions, getCoordinates }) => {
 	let { substripeCount, dazzleContinuum } = settings.initial.colorConfig.houndazzle

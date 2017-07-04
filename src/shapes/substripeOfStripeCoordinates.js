@@ -1,4 +1,4 @@
-import flipXAndY from './flipXAndY'
+import flipXAndY from '../utilities/flipXAndY'
 
 export default ({ tileOrigin, sizedUnit, coordinatesOptions }) => {
 	const x = tileOrigin[ 0 ]
