@@ -1,5 +1,5 @@
-import gridUtilities from '../../utilities/gridUtilities'
-import colorUtilities from '../../utilities/colorUtilities'
+import gridUtilities from '../../src/utilities/gridUtilities'
+import colorUtilities from '../../src/utilities/colorUtilities'
 
 export default ({ address }) => {
 	const { colorConfig, orientationConfig } = settings.initial.colorConfig.houndazzle

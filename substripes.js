@@ -1,5 +1,5 @@
-import shape from '../../components/shape'
-import codeUtilities from '../../utilities/codeUtilities'
+import shape from '../../src/components/shape'
+import codeUtilities from '../../src/utilities/codeUtilities'
 import substripeModulus from './substripeModulus'
 import getSubstripeCount from './getSubstripeCount'
 
