@@ -6,7 +6,7 @@ import substripeOfStripeCoordinates from '../src/shapes/substripeOfStripeCoordin
 
 export default {
 	initial: {
-		tileConfig: {
+		tileSettings: {
 			isTileUniform: isHoundazzleTileUniform,
 			tileToShapes: substripes,
 			getCoordinates: {
@@ -17,13 +17,13 @@ export default {
 		gatherOptions: {
 			getDazzle,
 		},
-		colorConfig: {
+		colorSettings: {
 			mode: 'HOUNDAZZLE',
 			houndazzle: {
 				substripeCount: 16,
 				dazzleContinuum: false,
-				orientationConfig: { set: [ 'HORIZONTAL', 'VERTICAL' ] },
-				colorConfig: {
+				orientationSettings: { set: [ 'HORIZONTAL', 'VERTICAL' ] },
+				colorSettings: {
 					assignment: {
 						offsetSetForGridIndex: () => 1,
 					},
