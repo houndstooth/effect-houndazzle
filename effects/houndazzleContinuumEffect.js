@@ -22,7 +22,6 @@ export default {
 			},
 		},
 		colorSettings: {
-			mode: 'HOUNDAZZLE',
 			houndazzle: {
 				substripeCount: 16,
 				dazzleContinuum: true,

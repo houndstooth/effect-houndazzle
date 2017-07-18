@@ -18,7 +18,6 @@ export default {
 			getDazzle,
 		},
 		colorSettings: {
-			mode: 'HOUNDAZZLE',
 			houndazzle: {
 				substripeCount: 16,
 				dazzleContinuum: false,
