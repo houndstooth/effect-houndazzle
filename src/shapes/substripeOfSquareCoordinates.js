@@ -1,11 +1,11 @@
 import flipXAndY from '../utilities/flipXAndY'
 
-export default ({ tileOrigin, sizedUnit, coordinatesOptions }) => {
+export default ({ tileOrigin, zoomedTileSize, coordinatesOptions }) => {
 	const x = tileOrigin[ 0 ]
 	const y = tileOrigin[ 1 ]
 
 	const { orientation, substripeIndex, substripeCount } = coordinatesOptions
-	const substripeUnit = sizedUnit / substripeCount
+	const substripeUnit = zoomedTileSize / substripeCount
 	const substripeStart = substripeIndex * substripeUnit
 	const substripeEnd = substripeStart + substripeUnit
 
@@ -20,11 +20,11 @@ export default ({ tileOrigin, sizedUnit, coordinatesOptions }) => {
 		],
 		[
 			x + substripeEnd,
-			y + sizedUnit,
+			y + zoomedTileSize,
 		],
 		[
 			x + substripeStart,
-			y + sizedUnit,
+			y + zoomedTileSize,
 		],
 	]
 
