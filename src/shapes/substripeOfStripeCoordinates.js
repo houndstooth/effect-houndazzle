@@ -21,7 +21,15 @@ export default ({ tileOrigin, sizedUnit, coordinatesOptions }) => {
 		topLeftCornerWhichMayAlsoBeTopRight({ x, y, stripeStart, sizedUnit, substripeStart })
 	)
 	coordinates = coordinates.concat(
-		topRightCornerAndPossiblyAlsoAMiddleRightCorner({ x, y, stripeStart, stripeEnd, sizedUnit, substripeStart, substripeUnit })
+		topRightCornerAndPossiblyAlsoAMiddleRightCorner({
+			x,
+			y,
+			stripeStart,
+			stripeEnd,
+			sizedUnit,
+			substripeStart,
+			substripeUnit,
+		})
 	)
 	coordinates = coordinates.concat(
 		bottomRightCorner({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, sizedUnit })
@@ -29,7 +37,14 @@ export default ({ tileOrigin, sizedUnit, coordinatesOptions }) => {
 
 	if (stripeEnd - substripeUnit >= sizedUnit || stripeEnd - substripeUnit >= 0) {
 		coordinates = coordinates.concat(
-			bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner({ x, y, stripeStart, substripeUnit, substripeEnd, substripeStart })
+			bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner({
+				x,
+				y,
+				stripeStart,
+				substripeUnit,
+				substripeEnd,
+				substripeStart,
+			})
 		)
 	}
 
