@@ -5,7 +5,7 @@ import substripeOfSquareCoordinates from '../src/shapes/substripeOfSquareCoordin
 import substripeOfStripeCoordinates from '../src/shapes/substripeOfStripeCoordinates'
 
 export default {
-	initial: {
+	base: {
 		tileSettings: {
 			isTileUniform: isHoundazzleTileUniform,
 			tileToShapes: substripes,
