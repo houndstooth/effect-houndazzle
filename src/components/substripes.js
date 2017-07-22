@@ -2,9 +2,10 @@ import shape from '../../../../src/components/shape'
 import codeUtilities from '../../../../src/utilities/codeUtilities'
 import substripeModulus from '../utilities/substripeModulus'
 import getSubstripeCount from '../utilities/getSubstripeCount'
+import store from '../../../../store'
 
 export default ({ address, tileColors, tileSize, tileOrigin, stripeIndex, colorsIndex, stripeCount, options, coordinatesOptions, getCoordinates }) => {
-	let { substripeCount, dazzleContinuum } = currentState.builtPattern.base.colorSettings.houndazzle
+	let { substripeCount, dazzleContinuum } = store.currentState.builtPattern.base.colorSettings.houndazzle
 	substripeCount = dazzleContinuum ? getSubstripeCount({ address, stripeIndex, stripeCount }) : substripeCount
 	coordinatesOptions = coordinatesOptions || {}
 	coordinatesOptions.substripeCount = substripeCount
