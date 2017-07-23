@@ -1,24 +1,24 @@
 import flipXAndY from '../utilities/flipXAndY'
 
-export default ({ tileOrigin, zoomedTileSize, coordinatesOptions }) => {
+export default ({ tileOrigin, tileSize, coordinatesOptions }) => {
 	const x = tileOrigin[ 0 ]
 	const y = tileOrigin[ 1 ]
 
 	let { stripeStart, stripeEnd, orientation, substripeIndex, substripeCount } = coordinatesOptions
-	const substripeUnit = zoomedTileSize / substripeCount
+	const substripeUnit = tileSize / substripeCount
 
 	const substripeStart = substripeIndex * substripeUnit
 	const substripeEnd = substripeStart + substripeUnit
 
-	stripeStart = stripeStart * zoomedTileSize - substripeStart
-	stripeEnd = stripeEnd * zoomedTileSize - substripeStart
+	stripeStart = stripeStart * tileSize - substripeStart
+	stripeEnd = stripeEnd * tileSize - substripeStart
 
-	if (stripeIsOutsideSubstripe({ stripeStart, stripeEnd, substripeUnit, zoomedTileSize })) return
+	if (stripeIsOutsideSubstripe({ stripeStart, stripeEnd, substripeUnit, tileSize })) return
 
 	let coordinates = []
 
 	coordinates = coordinates.concat(
-		topLeftCornerWhichMayAlsoBeTopRight({ x, y, stripeStart, zoomedTileSize, substripeStart })
+		topLeftCornerWhichMayAlsoBeTopRight({ x, y, stripeStart, tileSize, substripeStart })
 	)
 	coordinates = coordinates.concat(
 		topRightCornerAndPossiblyAlsoAMiddleRightCorner({
@@ -26,16 +26,16 @@ export default ({ tileOrigin, zoomedTileSize, coordinatesOptions }) => {
 			y,
 			stripeStart,
 			stripeEnd,
-			zoomedTileSize,
+			tileSize,
 			substripeStart,
 			substripeUnit,
 		})
 	)
 	coordinates = coordinates.concat(
-		bottomRightCorner({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, zoomedTileSize })
+		bottomRightCorner({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, tileSize })
 	)
 
-	if (stripeEnd - substripeUnit >= zoomedTileSize || stripeEnd - substripeUnit >= 0) {
+	if (stripeEnd - substripeUnit >= tileSize || stripeEnd - substripeUnit >= 0) {
 		coordinates = coordinates.concat(
 			bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner({
 				x,
@@ -52,13 +52,13 @@ export default ({ tileOrigin, zoomedTileSize, coordinatesOptions }) => {
 	return coordinates
 }
 
-const topLeftCornerWhichMayAlsoBeTopRight = ({ x, y, stripeStart, zoomedTileSize, substripeStart }) => {
+const topLeftCornerWhichMayAlsoBeTopRight = ({ x, y, stripeStart, tileSize, substripeStart }) => {
 	let newCoordinates = []
 
-	if (stripeStart > zoomedTileSize) {
+	if (stripeStart > tileSize) {
 		newCoordinates.push([
-			x + zoomedTileSize,
-			y + substripeStart + stripeStart - zoomedTileSize,
+			x + tileSize,
+			y + substripeStart + stripeStart - tileSize,
 		])
 	}
 	else if (stripeStart >= 0) {
@@ -77,26 +77,26 @@ const topLeftCornerWhichMayAlsoBeTopRight = ({ x, y, stripeStart, zoomedTileSize
 	return newCoordinates
 }
 
-const topRightCornerAndPossiblyAlsoAMiddleRightCorner = ({ x, y, stripeStart, stripeEnd, zoomedTileSize, substripeStart, substripeUnit }) => {
+const topRightCornerAndPossiblyAlsoAMiddleRightCorner = ({ x, y, stripeStart, stripeEnd, tileSize, substripeStart, substripeUnit }) => {
 	let newCoordinates = []
 
-	if (stripeEnd <= zoomedTileSize) {
+	if (stripeEnd <= tileSize) {
 		newCoordinates.push([
 			x + stripeEnd,
 			y + substripeStart,
 		])
 	}
 	else {
-		if (stripeStart < zoomedTileSize) {
+		if (stripeStart < tileSize) {
 			newCoordinates.push([
-				x + zoomedTileSize,
+				x + tileSize,
 				y + substripeStart,
 			])
 		}
-		if (stripeEnd < zoomedTileSize + substripeUnit) {
+		if (stripeEnd < tileSize + substripeUnit) {
 			newCoordinates.push([
-				x + zoomedTileSize,
-				y + substripeStart + stripeEnd - zoomedTileSize,
+				x + tileSize,
+				y + substripeStart + stripeEnd - tileSize,
 			])
 		}
 	}
@@ -104,12 +104,12 @@ const topRightCornerAndPossiblyAlsoAMiddleRightCorner = ({ x, y, stripeStart, st
 	return newCoordinates
 }
 
-const bottomRightCorner = ({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, zoomedTileSize }) => {
+const bottomRightCorner = ({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, tileSize }) => {
 	let newCoordinates = []
 
-	if (stripeEnd - substripeUnit >= zoomedTileSize) {
+	if (stripeEnd - substripeUnit >= tileSize) {
 		newCoordinates.push([
-			x + zoomedTileSize,
+			x + tileSize,
 			y + substripeEnd,
 		])
 	}
@@ -154,14 +154,14 @@ const bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner = ({ x, y, stripeStart, su
 	return newCoordinates
 }
 
-const stripeIsOutsideSubstripe = ({ stripeStart, stripeEnd, substripeUnit, zoomedTileSize }) => {
-	if (stripeIsOutsideRightExtremeOfSubstripe({ stripeStart, substripeUnit, zoomedTileSize })) return true
+const stripeIsOutsideSubstripe = ({ stripeStart, stripeEnd, substripeUnit, tileSize }) => {
+	if (stripeIsOutsideRightExtremeOfSubstripe({ stripeStart, substripeUnit, tileSize })) return true
 	if (stripeIsOutsideLeftExtremeOfSubstripe({ stripeEnd })) return true
 	return false
 }
 
-const stripeIsOutsideRightExtremeOfSubstripe = ({ stripeStart, substripeUnit, zoomedTileSize }) => {
-	return stripeStart - substripeUnit >= zoomedTileSize
+const stripeIsOutsideRightExtremeOfSubstripe = ({ stripeStart, substripeUnit, tileSize }) => {
+	return stripeStart - substripeUnit >= tileSize
 }
 
 const stripeIsOutsideLeftExtremeOfSubstripe = ({ stripeEnd }) => {
