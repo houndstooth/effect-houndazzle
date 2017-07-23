@@ -13,7 +13,7 @@ export default {
 			getDazzle,
 		},
 		tileSettings: {
-			tileSize: 100,
+			tileSizeSetting: 100,
 			isTileUniform: isHoundazzleTileUniform,
 			tileToShapes: substripes,
 			getCoordinates: {
