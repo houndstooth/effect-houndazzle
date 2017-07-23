@@ -3,7 +3,7 @@ import colorUtilities from '../../../../src/utilities/colorUtilities'
 import store from '../../../../store'
 
 export default ({ address }) => {
-	const { colorSettings, orientationSettings } = store.currentState.builtPattern.base.colorSettings.houndazzle
+	const { colorSettings, orientationSettings } = store.currentState.mainHoundstooth.basePattern.colorSettings.houndazzle
 	const tileColors = colorUtilities.getColorsForTile({ address, colorSettings })
 	const tileOrientations = componentUtilities.getSetForTile({
 		address,
