@@ -4,18 +4,18 @@ import substripeModulus from '../utilities/substripeModulus'
 import getSubstripeCount from '../utilities/getSubstripeCount'
 import store from '../../../../store'
 
-export default ({ gridAddress, tileColors, tileSize, tileOrigin, stripeIndex, colorsIndex, stripeCount, options, coordinatesOptions, getCoordinates }) => {
+export default ({ gridAddress, tileColors, tileSize, tileOrigin, stripeIndex, colorsIndex, stripeCount, options, outlineOptions, getOutline }) => {
 	let { substripeCount, dazzleContinuum } = store.currentState.mainHoundstooth.basePattern.colorSettings.houndazzle
 	substripeCount = dazzleContinuum ? getSubstripeCount({ gridAddress, stripeIndex, stripeCount }) : substripeCount
-	coordinatesOptions = coordinatesOptions || {}
-	coordinatesOptions.substripeCount = substripeCount
-	coordinatesOptions.orientation = codeUtilities.wrappedIndex({
+	outlineOptions = outlineOptions || {}
+	outlineOptions.substripeCount = substripeCount
+	outlineOptions.orientation = codeUtilities.wrappedIndex({
 		array: options.tileDazzle.tileOrientations,
 		index: stripeIndex,
 	})
 
 	codeUtilities.iterator(substripeCount).forEach(substripeIndex => {
-		coordinatesOptions.substripeIndex = substripeIndex
+		outlineOptions.substripeIndex = substripeIndex
 		shape({
 			gridAddress,
 			tileColors: substripeModulus({
@@ -24,8 +24,8 @@ export default ({ gridAddress, tileColors, tileSize, tileOrigin, stripeIndex, co
 				dazzle: options.tileDazzle.tileColors,
 			}),
 			colorsIndex,
-			getCoordinates,
-			coordinatesOptions,
+			getOutline,
+			outlineOptions,
 			tileOrigin,
 			tileSize,
 		})

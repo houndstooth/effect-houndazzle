@@ -1,17 +1,17 @@
 import substripes from '../src/components/substripes'
 import isHoundazzleTileUniform from '../src/utilities/isHoundazzleTileUniform'
 import getDazzle from '../src/utilities/getDazzle'
-import substripeOfSquareCoordinates from '../src/shapes/substripeOfSquareCoordinates'
-import substripeOfStripeCoordinates from '../src/shapes/substripeOfStripeCoordinates'
+import substripeOfSquareOutline from '../src/outlines/substripeOfSquareOutline'
+import substripeOfStripeOutline from '../src/outlines/substripeOfStripeOutline'
 
 export default {
 	basePattern: {
 		tileSettings: {
 			isTileUniform: isHoundazzleTileUniform,
 			tileToShapes: substripes,
-			getCoordinates: {
-				whenTileIsUniform: substripeOfSquareCoordinates,
-				whenTileIsMultiform: substripeOfStripeCoordinates,
+			getOutline: {
+				whenTileIsUniform: substripeOfSquareOutline,
+				whenTileIsMultiform: substripeOfStripeOutline,
 			},
 		},
 		gatherOptions: {

@@ -1,10 +1,10 @@
 import flipXAndY from '../utilities/flipXAndY'
 
-export default ({ tileOrigin, tileSize, coordinatesOptions }) => {
+export default ({ tileOrigin, tileSize, outlineOptions }) => {
 	const x = tileOrigin[ 0 ]
 	const y = tileOrigin[ 1 ]
 
-	let { stripeStart, stripeEnd, orientation, substripeIndex, substripeCount } = coordinatesOptions
+	let { stripeStart, stripeEnd, orientation, substripeIndex, substripeCount } = outlineOptions
 	const substripeUnit = tileSize / substripeCount
 
 	const substripeStart = substripeIndex * substripeUnit
@@ -15,12 +15,12 @@ export default ({ tileOrigin, tileSize, coordinatesOptions }) => {
 
 	if (stripeIsOutsideSubstripe({ stripeStart, stripeEnd, substripeUnit, tileSize })) return
 
-	let coordinates = []
+	let outline = []
 
-	coordinates = coordinates.concat(
+	outline = outline.concat(
 		topLeftCornerWhichMayAlsoBeTopRight({ x, y, stripeStart, tileSize, substripeStart })
 	)
-	coordinates = coordinates.concat(
+	outline = outline.concat(
 		topRightCornerAndPossiblyAlsoAMiddleRightCorner({
 			x,
 			y,
@@ -31,12 +31,12 @@ export default ({ tileOrigin, tileSize, coordinatesOptions }) => {
 			substripeUnit,
 		})
 	)
-	coordinates = coordinates.concat(
+	outline = outline.concat(
 		bottomRightCorner({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, tileSize })
 	)
 
 	if (stripeEnd - substripeUnit >= tileSize || stripeEnd - substripeUnit >= 0) {
-		coordinates = coordinates.concat(
+		outline = outline.concat(
 			bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner({
 				x,
 				y,
@@ -48,110 +48,110 @@ export default ({ tileOrigin, tileSize, coordinatesOptions }) => {
 		)
 	}
 
-	if (orientation === 'VERTICAL') coordinates = flipXAndY({ coordinates, tileOrigin })
-	return coordinates
+	if (orientation === 'VERTICAL') outline = flipXAndY({ coordinates: outline, tileOrigin })
+	return outline
 }
 
 const topLeftCornerWhichMayAlsoBeTopRight = ({ x, y, stripeStart, tileSize, substripeStart }) => {
-	let newCoordinates = []
+	let newOutline = []
 
 	if (stripeStart > tileSize) {
-		newCoordinates.push([
+		newOutline.push([
 			x + tileSize,
 			y + substripeStart + stripeStart - tileSize,
 		])
 	}
 	else if (stripeStart >= 0) {
-		newCoordinates.push([
+		newOutline.push([
 			x + stripeStart,
 			y + substripeStart,
 		])
 	}
 	else {
-		newCoordinates.push([
+		newOutline.push([
 			x,
 			y + substripeStart,
 		])
 	}
 
-	return newCoordinates
+	return newOutline
 }
 
 const topRightCornerAndPossiblyAlsoAMiddleRightCorner = ({ x, y, stripeStart, stripeEnd, tileSize, substripeStart, substripeUnit }) => {
-	let newCoordinates = []
+	let newOutline = []
 
 	if (stripeEnd <= tileSize) {
-		newCoordinates.push([
+		newOutline.push([
 			x + stripeEnd,
 			y + substripeStart,
 		])
 	}
 	else {
 		if (stripeStart < tileSize) {
-			newCoordinates.push([
+			newOutline.push([
 				x + tileSize,
 				y + substripeStart,
 			])
 		}
 		if (stripeEnd < tileSize + substripeUnit) {
-			newCoordinates.push([
+			newOutline.push([
 				x + tileSize,
 				y + substripeStart + stripeEnd - tileSize,
 			])
 		}
 	}
 
-	return newCoordinates
+	return newOutline
 }
 
 const bottomRightCorner = ({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, tileSize }) => {
-	let newCoordinates = []
+	let newOutline = []
 
 	if (stripeEnd - substripeUnit >= tileSize) {
-		newCoordinates.push([
+		newOutline.push([
 			x + tileSize,
 			y + substripeEnd,
 		])
 	}
 	else if (stripeEnd - substripeUnit >= 0) {
-		newCoordinates.push([
+		newOutline.push([
 			x + stripeEnd - substripeUnit,
 			y + substripeEnd,
 		])
 	}
 	else {
-		newCoordinates.push([
+		newOutline.push([
 			x,
 			y + substripeStart + stripeEnd,
 		])
 	}
 
-	return newCoordinates
+	return newOutline
 }
 
 const bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner = ({ x, y, stripeStart, substripeUnit, substripeEnd, substripeStart }) => {
-	let newCoordinates = []
+	let newOutline = []
 
 	if (stripeStart - substripeUnit > 0) {
-		newCoordinates.push([
+		newOutline.push([
 			x + stripeStart - substripeUnit,
 			y + substripeEnd,
 		])
 	}
 	else {
-		newCoordinates.push([
+		newOutline.push([
 			x,
 			y + substripeEnd,
 		])
 		if (stripeStart > 0) {
-			newCoordinates.push([
+			newOutline.push([
 				x,
 				y + substripeStart + stripeStart,
 			])
 		}
 	}
 
-	return newCoordinates
+	return newOutline
 }
 
 const stripeIsOutsideSubstripe = ({ stripeStart, stripeEnd, substripeUnit, tileSize }) => {

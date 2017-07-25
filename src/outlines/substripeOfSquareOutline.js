@@ -1,15 +1,15 @@
 import flipXAndY from '../utilities/flipXAndY'
 
-export default ({ tileOrigin, tileSize, coordinatesOptions }) => {
+export default ({ tileOrigin, tileSize, outlineOptions }) => {
 	const x = tileOrigin[ 0 ]
 	const y = tileOrigin[ 1 ]
 
-	const { orientation, substripeIndex, substripeCount } = coordinatesOptions
+	const { orientation, substripeIndex, substripeCount } = outlineOptions
 	const substripeUnit = tileSize / substripeCount
 	const substripeStart = substripeIndex * substripeUnit
 	const substripeEnd = substripeStart + substripeUnit
 
-	let coordinates = [
+	let outline = [
 		[
 			x + substripeStart,
 			y,
@@ -28,7 +28,7 @@ export default ({ tileOrigin, tileSize, coordinatesOptions }) => {
 		],
 	]
 
-	if (orientation === 'HORIZONTAL') coordinates = flipXAndY({ coordinates, tileOrigin })
+	if (orientation === 'HORIZONTAL') outline = flipXAndY({ coordinates: outline, tileOrigin })
 
-	return coordinates
+	return outline
 }
