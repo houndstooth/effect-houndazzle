@@ -18,7 +18,7 @@ export default ({ tileOrigin, tileSize, outlineOptions }) => {
 	let outline = []
 
 	outline = outline.concat(
-		topLeftCornerWhichMayAlsoBeTopRight({ x, y, stripeStart, tileSize, substripeStart })
+		topLeftCornerWhichMayAlsoBeTopRight({ x, y, stripeStart, tileSize, substripeStart }),
 	)
 	outline = outline.concat(
 		topRightCornerAndPossiblyAlsoAMiddleRightCorner({
@@ -29,10 +29,10 @@ export default ({ tileOrigin, tileSize, outlineOptions }) => {
 			tileSize,
 			substripeStart,
 			substripeUnit,
-		})
+		}),
 	)
 	outline = outline.concat(
-		bottomRightCorner({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, tileSize })
+		bottomRightCorner({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, tileSize }),
 	)
 
 	if (stripeEnd - substripeUnit >= tileSize || stripeEnd - substripeUnit >= 0) {
@@ -44,7 +44,7 @@ export default ({ tileOrigin, tileSize, outlineOptions }) => {
 				substripeUnit,
 				substripeEnd,
 				substripeStart,
-			})
+			}),
 		)
 	}
 
