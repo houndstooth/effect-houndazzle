@@ -17,35 +17,31 @@ export default ({ tileOrigin, tileSize, outlineOptions }) => {
 
 	let outline = []
 
-	outline = outline.concat(
-		topLeftCornerWhichMayAlsoBeTopRight({ x, y, stripeStart, tileSize, substripeStart }),
-	)
-	outline = outline.concat(
-		topRightCornerAndPossiblyAlsoAMiddleRightCorner({
+	const tlcwmabtr = topLeftCornerWhichMayAlsoBeTopRight({ x, y, stripeStart, tileSize, substripeStart })
+	outline = outline.concat(tlcwmabtr)
+	const trcapamrc = topRightCornerAndPossiblyAlsoAMiddleRightCorner({
+		x,
+		y,
+		stripeStart,
+		stripeEnd,
+		tileSize,
+		substripeStart,
+		substripeUnit,
+	})
+	outline = outline.concat(trcapamrc)
+	let brc = bottomRightCorner({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, tileSize })
+	outline = outline.concat(brc)
+
+	if (stripeEnd - substripeUnit >= tileSize || stripeEnd - substripeUnit >= 0) {
+		const blcapamlc = bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner({
 			x,
 			y,
 			stripeStart,
-			stripeEnd,
-			tileSize,
-			substripeStart,
 			substripeUnit,
-		}),
-	)
-	outline = outline.concat(
-		bottomRightCorner({ x, y, stripeEnd, substripeStart, substripeEnd, substripeUnit, tileSize }),
-	)
-
-	if (stripeEnd - substripeUnit >= tileSize || stripeEnd - substripeUnit >= 0) {
-		outline = outline.concat(
-			bottomLeftCornerAndPossiblyAlsoMiddleLeftCorner({
-				x,
-				y,
-				stripeStart,
-				substripeUnit,
-				substripeEnd,
-				substripeStart,
-			}),
-		)
+			substripeEnd,
+			substripeStart,
+		})
+		outline = outline.concat(blcapamlc)
 	}
 
 	if (orientation === 'VERTICAL') outline = flipXAndY({ coordinates: outline, tileOrigin })
