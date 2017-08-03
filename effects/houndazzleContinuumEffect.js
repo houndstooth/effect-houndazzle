@@ -1,6 +1,6 @@
 import substripes from '../src/components/substripes'
 import isHoundazzleTileUniform from '../src/utilities/isHoundazzleTileUniform'
-import getDazzle from '../src/utilities/getDazzle'
+import getSubstripeTexture from '../src/utilities/getSubstripeTexture'
 import substripeOfSquareOutline from '../src/outlines/substripeOfSquareOutline'
 import substripeOfStripeOutline from '../src/outlines/substripeOfStripeOutline'
 
@@ -17,12 +17,12 @@ export default {
 			},
 		},
 		gatherOptions: {
-			getDazzle,
+			getSubstripeTexture,
 		},
 		colorSettings: {
-			houndazzle: {
+			substripeTextureSettings: {
 				substripeCount: 16,
-				dazzleContinuum: true,
+				substripeCountContinuumMode: true,
 				orientationSettings: { set: [ 'HORIZONTAL', 'VERTICAL' ] },
 				colorSettings: {
 					assignment: {

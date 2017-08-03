@@ -5,12 +5,12 @@ import getSubstripeCount from '../utilities/getSubstripeCount'
 import store from '../../../../store'
 
 export default ({ gridAddress, tileColors, tileSize, tileOrigin, stripeIndex, colorsIndex, stripeCount, options, outlineOptions, getOutline }) => {
-	let { substripeCount, dazzleContinuum } = store.mainHoundstooth.basePattern.colorSettings.houndazzle
-	substripeCount = dazzleContinuum ? getSubstripeCount({ gridAddress, stripeIndex, stripeCount }) : substripeCount
+	let { substripeCount, substripeCountContinuumMode } = store.mainHoundstooth.basePattern.colorSettings.substripeTextureSettings
+	substripeCount = substripeCountContinuumMode ? getSubstripeCount({ gridAddress, stripeIndex, stripeCount }) : substripeCount
 	outlineOptions = outlineOptions || {}
 	outlineOptions.substripeCount = substripeCount
 	outlineOptions.orientation = codeUtilities.wrappedIndex({
-		array: options.tileDazzle.tileOrientations,
+		array: options.substripeTexture.tileOrientations,
 		index: stripeIndex,
 	})
 
@@ -21,7 +21,7 @@ export default ({ gridAddress, tileColors, tileSize, tileOrigin, stripeIndex, co
 			tileColors: substripeModulus({
 				substripeIndex,
 				nonDazzle: tileColors,
-				dazzle: options.tileDazzle.tileColors,
+				dazzle: options.substripeTexture.tileColors,
 			}),
 			colorsIndex,
 			getOutline,
