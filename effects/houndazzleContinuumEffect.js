@@ -5,13 +5,8 @@ import substripeOfSquareOutline from '../src/outlines/substripeOfSquareOutline'
 import substripeOfStripeOutline from '../src/outlines/substripeOfStripeOutline'
 
 export default {
+	name: 'houndazzle continuum',
 	basePattern: {
-		gridSettings: {
-			gridSize: 8,
-		},
-		gatherOptions: {
-			getDazzle,
-		},
 		tileSettings: {
 			tileSizeSetting: 100,
 			isTileUniform: isHoundazzleTileUniform,
@@ -20,6 +15,9 @@ export default {
 				whenTileIsUniform: substripeOfSquareOutline,
 				whenTileIsMultiform: substripeOfStripeOutline,
 			},
+		},
+		gatherOptions: {
+			getDazzle,
 		},
 		colorSettings: {
 			houndazzle: {
@@ -32,6 +30,9 @@ export default {
 					},
 				},
 			},
+		},
+		gridSettings: {
+			gridSize: 8,
 		},
 	},
 }

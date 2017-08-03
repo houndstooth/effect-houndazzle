@@ -5,6 +5,7 @@ import substripeOfSquareOutline from '../src/outlines/substripeOfSquareOutline'
 import substripeOfStripeOutline from '../src/outlines/substripeOfStripeOutline'
 
 export default {
+	name: 'houndazzle',
 	basePattern: {
 		tileSettings: {
 			isTileUniform: isHoundazzleTileUniform,
