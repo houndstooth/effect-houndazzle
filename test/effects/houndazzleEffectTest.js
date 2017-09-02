@@ -5,7 +5,7 @@ import houndazzleEffect from '../../effects/houndazzleEffect'
 import activateTestMarkerCanvas from '../../../../test/integration/helpers/activateTestMarkerCanvas'
 import store from '../../../../store'
 
-describe('houndazzle effect', () => {
+xdescribe('houndazzle effect', () => {
 	it('portrays houndstooth using horizontal against vertical striped textures, rather than simply black against white', () => {
 		store.selectedHoundstoothEffects = [ houndazzleEffect ]
 		const tileSizeInPixels = 200
