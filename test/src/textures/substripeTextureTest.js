@@ -9,6 +9,7 @@ describe('substripe texture', () => {
 	const tileOrigin = [ 11, 17 ]
 	const tileSize = 13
 	const shapeColorIndex = 1
+	const colorsCount = 4
 
 	let renderCalls
 	let substripeOutlineCalls
@@ -28,7 +29,7 @@ describe('substripe texture', () => {
 		substripeOutlineSpy = jasmine.createSpy().and.callFake(() => outlineCallCounter++)
 		substripeTexture.__Rewire__('substripeOutline', substripeOutlineSpy)
 
-		substripeTexture({ context, tileColorIndices, tileOrigin, tileSize, shapeColorIndex })
+		substripeTexture({ context, tileColorIndices, tileOrigin, tileSize, colorsCount, shapeColorIndex })
 
 		renderCalls = renderSpy.calls.all()
 		substripeOutlineCalls = substripeOutlineSpy.calls.all()
@@ -44,8 +45,8 @@ describe('substripe texture', () => {
 			return substripeOutlineCall.args[0].tileOrigin === tileOrigin &&
 				substripeOutlineCall.args[0].tileSize === tileSize &&
 				substripeOutlineCall.args[0].substripeIndex === callIndex &&
-				substripeOutlineCall.args[0].substripeCount === minimumNecessarySubstripeCountForFullTileCoverage
-				substripeOutlineCall.args[0].colorsCount === colorsCount
+				substripeOutlineCall.args[0].substripeCount === minimumNecessarySubstripeCountForFullTileCoverage &&
+				substripeOutlineCall.args[0].colorsCount === colorsCount &&
 				substripeOutlineCall.args[0].shapeColorIndex === shapeColorIndex
 		}))
 	})
