@@ -1,9 +1,6 @@
 import substripeTexture from '../../../src/textures/substripeTexture'
-import store from '../../../../../store'
 
 describe('substripe texture', () => {
-	const set = [ 'colorOne', 'colorTwo', 'colorThree' ]
-
 	const context = {}
 	const tileColorIndices = [ 1, 0, 2 ]
 	const tileOrigin = [ 11, 17 ]
@@ -11,7 +8,7 @@ describe('substripe texture', () => {
 	const shapeColorIndex = 1
 	const colorsCount = 4
 
-	let renderCalls
+	let solidCalls
 	let substripeOutlineCalls
 
 	let outlineCallCounter = 0
@@ -21,22 +18,20 @@ describe('substripe texture', () => {
 	const minimumNecessarySubstripeCountForFullTileCoverage = 32
 
 	beforeEach(() => {
-		store.mainHoundstooth.basePattern.colorSettings = { set }
-
-		const renderSpy = jasmine.createSpy()
-		substripeTexture.__Rewire__('render', renderSpy)
+		const solidSpy = jasmine.createSpy()
+		substripeTexture.__Rewire__('solid', solidSpy)
 
 		substripeOutlineSpy = jasmine.createSpy().and.callFake(() => outlineCallCounter++)
 		substripeTexture.__Rewire__('substripeOutline', substripeOutlineSpy)
 
 		substripeTexture({ context, tileColorIndices, tileOrigin, tileSize, colorsCount, shapeColorIndex })
 
-		renderCalls = renderSpy.calls.all()
+		solidCalls = solidSpy.calls.all()
 		substripeOutlineCalls = substripeOutlineSpy.calls.all()
 	})
 
-	it('calls render and outline once for each substripe', () => {
-		expect(renderCalls.length).toBe(minimumNecessarySubstripeCountForFullTileCoverage)
+	it('calls solid and outline once for each substripe', () => {
+		expect(solidCalls.length).toBe(minimumNecessarySubstripeCountForFullTileCoverage)
 		expect(substripeOutlineCalls.length).toBe(minimumNecessarySubstripeCountForFullTileCoverage)
 	})
 
@@ -51,23 +46,19 @@ describe('substripe texture', () => {
 		}))
 	})
 
-	it('calls render with each substripe outline', () => {
-		expect(renderCalls.every((renderCall, callIndex) => {
-			return renderCall.args[0].outline === callIndex
+	it('calls solid with each substripe outline', () => {
+		expect(solidCalls.every((call, callIndex) => {
+			return call.args[0].outline === callIndex
 		}))
 	})
 
-	it('calls render with the context', () => {
-		expect(renderCalls.every(renderCall => renderCall.args[0].context === context))
+	it('calls solid with the context', () => {
+		expect(solidCalls.every(call => call.args[0].context === context))
 	})
 
 	it('cycles through the tile colors, choosing them by the substripe index', () => {
-		expect(renderCalls[0].args[0].shapeColor).toBe('colorOne')
-		expect(renderCalls[1].args[0].shapeColor).toBe('colorTwo')
-		expect(renderCalls[2].args[0].shapeColor).toBe('colorThree')
-		expect(renderCalls[3].args[0].shapeColor).toBe('colorOne')
-		expect(renderCalls[4].args[0].shapeColor).toBe('colorTwo')
-		expect(renderCalls[5].args[0].shapeColor).toBe('colorThree')
-		expect(renderCalls[6].args[0].shapeColor).toBe('colorOne')
+		expect(solidCalls.every((call, callIndex) => {
+			return call.args[0].shapeColorIndex === callIndex
+		}))
 	})
 })
