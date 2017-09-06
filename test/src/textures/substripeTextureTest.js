@@ -6,59 +6,30 @@ describe('substripe texture', () => {
 	const tileOrigin = [ 11, 17 ]
 	const tileSize = 13
 	const shapeColorIndex = 1
-	const colorsCount = 4
 
-	let solidCalls
-	let substripeOutlineCalls
-
-	let outlineCallCounter = 0
-
-	let substripeOutlineSpy
-
-	const minimumNecessarySubstripeCountForFullTileCoverage = 32
-
+	let substripeCalls
 	beforeEach(() => {
-		const solidSpy = jasmine.createSpy()
-		substripeTexture.__Rewire__('solid', solidSpy)
+		const substripeSpy = jasmine.createSpy()
+		substripeTexture.__Rewire__('substripe', substripeSpy)
 
-		substripeOutlineSpy = jasmine.createSpy().and.callFake(() => outlineCallCounter++)
-		substripeTexture.__Rewire__('substripeOutline', substripeOutlineSpy)
+		substripeTexture({ context, tileColorIndices, tileOrigin, tileSize, shapeColorIndex })
 
-		substripeTexture({ context, tileColorIndices, tileOrigin, tileSize, colorsCount, shapeColorIndex })
-
-		solidCalls = solidSpy.calls.all()
-		substripeOutlineCalls = substripeOutlineSpy.calls.all()
+		substripeCalls = substripeSpy.calls.all()
 	})
 
-	it('calls solid and outline once for each substripe', () => {
-		expect(solidCalls.length).toBe(minimumNecessarySubstripeCountForFullTileCoverage)
-		expect(substripeOutlineCalls.length).toBe(minimumNecessarySubstripeCountForFullTileCoverage)
+	it('calls substripe the minimum number of times to cover the entire tile', () => {
+		expect(substripeCalls.length).toBe(32)
 	})
 
 	it('gets the substripe outline with the tile origin, tile size, substripe index, substripe count, colors count, and shape color index', () => {
-		expect(substripeOutlineCalls.every((substripeOutlineCall, callIndex) => {
-			return substripeOutlineCall.args[0].tileOrigin === tileOrigin &&
-				substripeOutlineCall.args[0].tileSize === tileSize &&
-				substripeOutlineCall.args[0].substripeIndex === callIndex &&
-				substripeOutlineCall.args[0].substripeCount === minimumNecessarySubstripeCountForFullTileCoverage &&
-				substripeOutlineCall.args[0].colorsCount === colorsCount &&
-				substripeOutlineCall.args[0].shapeColorIndex === shapeColorIndex
-		}))
-	})
-
-	it('calls solid with each substripe outline', () => {
-		expect(solidCalls.every((call, callIndex) => {
-			return call.args[0].outline === callIndex
-		}))
-	})
-
-	it('calls solid with the context', () => {
-		expect(solidCalls.every(call => call.args[0].context === context))
-	})
-
-	it('cycles through the tile colors, choosing them by the substripe index', () => {
-		expect(solidCalls.every((call, callIndex) => {
-			return call.args[0].shapeColorIndex === callIndex
-		}))
+		substripeCalls.forEach((call, callIndex) => {
+			expect(call.args[0].context).toBe(context)
+			expect(call.args[0].tileOrigin).toBe(tileOrigin)
+			expect(call.args[0].tileSize).toBe(tileSize)
+			expect(call.args[0].shapeColorIndex).toBe(shapeColorIndex)
+			expect(call.args[0].substripeIndex).toBe(callIndex)
+			expect(call.args[0].substripeCount).toBe(32)
+			expect(call.args[0].colorsCount).toBe(3)
+		})
 	})
 })
