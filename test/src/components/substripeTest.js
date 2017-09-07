@@ -51,8 +51,6 @@ describe('substripe', () => {
 			context,
 			outline: orientedOutline,
 			shapeColorIndex: substripeIndex,
-			tileOrigin,
-			tileSize,
 		})
 	})
 })
