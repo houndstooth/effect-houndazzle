@@ -1,6 +1,6 @@
 import substripeOutline from '../outlines/substripeOutline'
 import orientSubstripeOutline from '../utilities/orientSubstripeOutline'
-import solid from '../../../../src/components/solid'
+import solid from '../../../../src/render/solid'
 
 export default ({ context, tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount, colorsCount }) => {
 	let outline = substripeOutline({ tileOrigin, tileSize, substripeIndex, substripeCount })
