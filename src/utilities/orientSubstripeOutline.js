@@ -1,12 +1,12 @@
-import rotationUtilities from '../../../../src/utilities/rotationUtilities'
+import rotateOutlineAboutPoint from '../../../../src/outlines/rotateOutlineAboutPoint'
 import components from '../../../../src/components'
 
 export default ({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize }) => {
 	const rotationUnit = Math.PI / colorsCount
 	const rotation = rotationUnit * shapeColorIndex
 
-	return rotationUtilities.rotateCoordinatesAboutPoint({
-		coordinates: outline,
+	return rotateOutlineAboutPoint({
+		outline,
 		point: components.tileCenter({ tileOrigin, tileSize }),
 		rotation,
 	})
