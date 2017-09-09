@@ -3,11 +3,11 @@ import tileSectorCenterIsColor from '../../../../test/integration/helpers/tileSe
 import { BLACK, TRANSPARENT } from '../../../../src/constants'
 import houndazzleEffect from '../../effects/houndazzleEffect'
 import activateTestMarkerCanvas from '../../../../test/integration/helpers/activateTestMarkerCanvas'
-import store from '../../../../store'
+import state from '../../../../state'
 
 describe('houndazzle effect', () => {
 	it('portrays houndstooth using horizontal against vertical striped textures, rather than simply black against white', () => {
-		store.selectedHoundstoothEffects = [ houndazzleEffect ]
+		state.selectedHoundstoothEffects = [ houndazzleEffect ]
 		const tileSizeInPixels = 200
 		const houndstoothOverrides = {
 			basePattern: {
