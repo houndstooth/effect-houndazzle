@@ -3,25 +3,28 @@ import src from '../../../../../src'
 
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {
-		const rotatedOutline = []
-		spyOn(src, 'rotateOutlineAboutPoint').and.returnValue(rotatedOutline)
+		const rotatedCoordinate = []
+		spyOn(src, 'rotateCoordinateAboutPoint').and.returnValue(rotatedCoordinate)
 		const tileCenter = []
 		spyOn(src, 'tileCenter').and.returnValue(tileCenter)
+
+		const coordinate = []
 
 		const colorsCount = Math.PI
 		const shapeColorIndex = 7
 		const tileOrigin = []
 		const tileSize = []
-		const outline = []
+		const outline = [ coordinate ]
 
 		const actualOutline = orientSubstripeOutline({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize })
 
 		expect(src.tileCenter).toHaveBeenCalledWith({ tileSize, tileOrigin })
-		expect(src.rotateOutlineAboutPoint).toHaveBeenCalledWith({
-			outline,
+		outline
+		expect(src.rotateCoordinateAboutPoint).toHaveBeenCalledWith({
+			coordinate,
 			point: tileCenter,
 			rotation: 7,
 		})
-		expect(actualOutline).toBe(rotatedOutline)
+		expect(actualOutline[ 0 ]).toBe(rotatedCoordinate)
 	})
 })
