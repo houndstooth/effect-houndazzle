@@ -1,13 +1,12 @@
-import orientSubstripeOutline from '../../../src/utilities/orientSubstripeOutline'
-import components from '../../../../../src/components'
+import orientSubstripeOutline from '../../../src/outlines/orientSubstripeOutline'
+import src from '../../../../../src'
 
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {
 		const rotatedOutline = []
-		const rotateOutlineAboutPointSpy = jasmine.createSpy().and.returnValue(rotatedOutline)
-		orientSubstripeOutline.__Rewire__('rotateOutlineAboutPoint', rotateOutlineAboutPointSpy)
+		spyOn(src, 'rotateOutlineAboutPoint').and.returnValue(rotatedOutline)
 		const tileCenter = []
-		spyOn(components, 'tileCenter').and.returnValue(tileCenter)
+		spyOn(src, 'tileCenter').and.returnValue(tileCenter)
 
 		const colorsCount = Math.PI
 		const shapeColorIndex = 7
@@ -17,8 +16,8 @@ describe('orient substripe outline', () => {
 
 		const actualOutline = orientSubstripeOutline({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize })
 
-		expect(components.tileCenter).toHaveBeenCalledWith({ tileSize, tileOrigin })
-		expect(rotateOutlineAboutPointSpy).toHaveBeenCalledWith({
+		expect(src.tileCenter).toHaveBeenCalledWith({ tileSize, tileOrigin })
+		expect(src.rotateOutlineAboutPoint).toHaveBeenCalledWith({
 			outline,
 			point: tileCenter,
 			rotation: 7,

@@ -1,4 +1,6 @@
 import substripe from '../../../src/components/substripe'
+import outlines from '../../../src/outlines'
+import src from '../../../../../src'
 
 describe('substripe', () => {
 	const context = {}
@@ -16,13 +18,9 @@ describe('substripe', () => {
 	let orientSubstripeOutlineSpy
 	let solidSpy
 	beforeEach(() => {
-		substripeOutlineSpy = jasmine.createSpy().and.returnValue(outline)
-		orientSubstripeOutlineSpy = jasmine.createSpy().and.returnValue(orientedOutline)
-		solidSpy = jasmine.createSpy()
-
-		substripe.__Rewire__('substripeOutline', substripeOutlineSpy)
-		substripe.__Rewire__('orientSubstripeOutline', orientSubstripeOutlineSpy)
-		substripe.__Rewire__('solid', solidSpy)
+		substripeOutlineSpy = spyOn(outlines, 'substripeOutline').and.returnValue(outline)
+		orientSubstripeOutlineSpy = spyOn(outlines, 'orientSubstripeOutline').and.returnValue(orientedOutline)
+		solidSpy = spyOn(src, 'solid')
 
 		substripe({ context, tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount, colorsCount })
 	})

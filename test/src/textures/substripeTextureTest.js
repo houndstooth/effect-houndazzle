@@ -1,4 +1,5 @@
 import substripeTexture from '../../../src/textures/substripeTexture'
+import components from '../../../src/components'
 
 describe('substripe texture', () => {
 	const context = {}
@@ -9,8 +10,7 @@ describe('substripe texture', () => {
 
 	let substripeCalls
 	beforeEach(() => {
-		const substripeSpy = jasmine.createSpy()
-		substripeTexture.__Rewire__('substripe', substripeSpy)
+		const substripeSpy = spyOn(components, 'substripe')
 
 		substripeTexture({ context, tileColorIndices, tileOrigin, tileSize, shapeColorIndex })
 

@@ -1,13 +1,13 @@
 import houndazzleConstants from '../houndazzleConstants'
 import codeUtilities from '../../../../src/utilities/codeUtilities'
-import substripe from '../components/substripe'
+import components from '../components'
 
 export default ({ context, tileColorIndices, tileOrigin, tileSize, shapeColorIndex }) => {
 	const substripeCount = houndazzleConstants.SUBSTRIPE_COUNT * 2
 	const colorsCount = tileColorIndices.length
 
 	codeUtilities.iterator(substripeCount).forEach(substripeIndex => {
-		substripe({
+		components.substripe({
 			context,
 			tileOrigin,
 			tileSize,
