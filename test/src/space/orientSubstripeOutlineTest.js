@@ -1,4 +1,4 @@
-import orientSubstripeOutline from '../../../src/outlines/orientSubstripeOutline'
+import orientSubstripeOutline from '../../../src/space/orientSubstripeOutline'
 import src from '../../../../../src'
 
 describe('orient substripe outline', () => {

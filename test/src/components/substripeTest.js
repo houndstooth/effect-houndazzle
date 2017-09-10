@@ -1,5 +1,5 @@
 import substripe from '../../../src/components/substripe'
-import outlines from '../../../src/outlines'
+import space from '../../../src/space'
 import src from '../../../../../src'
 
 describe('substripe', () => {
@@ -18,8 +18,8 @@ describe('substripe', () => {
 	let orientSubstripeOutlineSpy
 	let solidSpy
 	beforeEach(() => {
-		substripeOutlineSpy = spyOn(outlines, 'substripeOutline').and.returnValue(outline)
-		orientSubstripeOutlineSpy = spyOn(outlines, 'orientSubstripeOutline').and.returnValue(orientedOutline)
+		substripeOutlineSpy = spyOn(space, 'substripeOutline').and.returnValue(outline)
+		orientSubstripeOutlineSpy = spyOn(space, 'orientSubstripeOutline').and.returnValue(orientedOutline)
 		solidSpy = spyOn(src, 'solid')
 
 		substripe({ context, tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount, colorsCount })
