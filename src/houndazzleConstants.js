@@ -1,5 +1,5 @@
 const SUBSTRIPE_COUNT = 16
 
-export default {
+export {
 	SUBSTRIPE_COUNT,
 }

@@ -1,7 +1,3 @@
-import textures from './textures'
+import { substripeTexture } from './textures'
 
-const { substripeTexture } = textures
-
-export default {
-	substripeTexture,
-}
+export { substripeTexture }

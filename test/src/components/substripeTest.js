@@ -1,5 +1,5 @@
 import substripe from '../../../src/components/substripe'
-import space from '../../../src/space'
+import * as space from '../../../src/space'
 import * as src from '../../../../../src'
 
 describe('substripe', () => {

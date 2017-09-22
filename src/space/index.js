@@ -1,7 +1,7 @@
 import orientSubstripeOutline from './orientSubstripeOutline'
 import substripeOutline from './substripeOutline'
 
-export default {
+export {
 	orientSubstripeOutline,
 	substripeOutline,
 }

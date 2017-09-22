@@ -1,10 +1,10 @@
-import src from '../src'
+import { substripeTexture } from '../src'
 
 export default {
 	name: 'houndazzle',
 	basePattern: {
 		textureSettings: {
-			renderTexture: src.substripeTexture,
+			renderTexture: substripeTexture,
 		},
 	},
 }
