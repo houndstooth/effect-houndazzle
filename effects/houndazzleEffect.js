@@ -1,6 +1,6 @@
 import { substripeTexture } from '../src'
 
-export default {
+const houndazzleEffect = {
 	name: 'houndazzle',
 	basePattern: {
 		textureSettings: {
@@ -8,3 +8,5 @@ export default {
 		},
 	},
 }
+
+export default houndazzleEffect

@@ -1,4 +1,4 @@
-export default ({ tileOrigin, tileSize, substripeIndex, substripeCount }) => {
+const substripeOutline = ({ tileOrigin, tileSize, substripeIndex, substripeCount }) => {
 	const substripeWidth = tileSize * 2 / substripeCount
 	const substripeSlack = tileSize / 2
 
@@ -24,3 +24,5 @@ export default ({ tileOrigin, tileSize, substripeIndex, substripeCount }) => {
 		],
 	]
 }
+
+export default substripeOutline
