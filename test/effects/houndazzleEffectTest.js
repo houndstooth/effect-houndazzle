@@ -3,7 +3,7 @@ import tileSectorCenterIsColor from '../../../../test/integration/helpers/tileSe
 import { BLACK, TRANSPARENT } from '../../../../src/constants'
 import houndazzleEffect from '../../effects/houndazzleEffect'
 import activateTestMarkerCanvas from '../../../../test/integration/helpers/activateTestMarkerCanvas'
-import state from '../../../../state'
+import state from '../../../../src/state'
 import resetState from '../../../../src/store/resetState'
 
 describe('houndazzle effect', () => {
