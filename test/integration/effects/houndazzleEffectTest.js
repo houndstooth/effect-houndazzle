@@ -1,10 +1,10 @@
-import executeSelectedHoundstoothEffects from '../../../../src/execute/executeSelectedHoundstoothEffects'
-import tileSectorCenterIsColor from '../../../../test/integration/helpers/tileSectorCenterIsColor'
-import { BLACK, TRANSPARENT } from '../../../../src/constants'
-import houndazzleEffect from '../../effects/houndazzleEffect'
-import activateTestMarkerCanvas from '../../../../test/integration/helpers/activateTestMarkerCanvas'
-import state from '../../../../src/state'
-import resetState from '../../../../src/store/resetState'
+import executeSelectedHoundstoothEffects from '../../../../../src/execute/executeSelectedHoundstoothEffects'
+import tileSectorCenterIsColor from '../../../../../test/integration/helpers/tileSectorCenterIsColor'
+import { BLACK, TRANSPARENT } from '../../../../../src/constants'
+import houndazzleEffect from '../../../effects/houndazzleEffect'
+import activateTestMarkerCanvas from '../../../../../test/integration/helpers/activateTestMarkerCanvas'
+import state from '../../../../../src/state'
+import resetState from '../../../../../src/store/resetState'
 
 describe('houndazzle effect', () => {
 	beforeEach(() => resetState(state))

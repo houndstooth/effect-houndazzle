@@ -1,6 +1,6 @@
-import substripe from '../../../src/components/substripe'
-import * as space from '../../../src/space'
-import * as src from '../../../../../src'
+import substripe from '../../../../src/components/substripe'
+import * as space from '../../../../src/space/index'
+import * as src from '../../../../../../src/index'
 
 describe('substripe', () => {
 	const context = {}

@@ -1,5 +1,5 @@
-import substripeTexture from '../../../src/textures/substripeTexture'
-import * as components from '../../../src/components'
+import substripeTexture from '../../../../src/textures/substripeTexture'
+import * as components from '../../../../src/components/index'
 
 describe('substripe texture', () => {
 	const context = {}
