@@ -4,11 +4,8 @@ import { BLACK, TRANSPARENT } from '../../../../../src/constants'
 import houndazzleEffect from '../../../effects/houndazzleEffect'
 import activateTestMarkerCanvas from '../../../../../test/integration/helpers/activateTestMarkerCanvas'
 import state from '../../../../../src/state'
-import resetState from '../../../../../src/store/resetState'
 
 describe('houndazzle effect', () => {
-	beforeEach(() => resetState(state))
-
 	it('portrays houndstooth using horizontal against vertical striped textures, rather than simply black against white', () => {
 		state.selectedHoundstoothEffects = [ houndazzleEffect ]
 		const tileSizeInPixels = 200
