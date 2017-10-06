@@ -10,11 +10,11 @@ describe('substripe texture', () => {
 
 	let substripeCalls
 	beforeEach(() => {
-		spyOn(components, 'substripe')
+		const substripeSpy = spyOn(components, 'substripe')
 
 		substripeTexture({ context, tileColorIndices, tileOrigin, tileSize, shapeColorIndex })
 
-		substripeCalls = components.substripe.calls.all()
+		substripeCalls = substripeSpy.calls.all()
 	})
 
 	it('calls substripe the minimum number of times to cover the entire tile', () => {
