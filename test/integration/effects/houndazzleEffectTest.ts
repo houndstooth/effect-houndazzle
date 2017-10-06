@@ -451,7 +451,7 @@ const expectSector = ({ expectedSector, address, origin, tileSizeInPixels }) => 
 		minor({ origin, address, tileSizeInPixels, colors: [ sectorDefiningColor, sectorDefiningColor ] })
 	}
 	else if (sectorType === 'minor') {
-		const otherColor = sectorDefiningColor === 'black' ? TRANSPARENT : BLACK
+		const otherColor = expectedSector[1] === 'black' ? TRANSPARENT : BLACK
 		minor({ origin, address, tileSizeInPixels, colors: [ sectorDefiningColor, otherColor ] })
 	}
 }
