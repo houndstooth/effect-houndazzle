@@ -488,7 +488,7 @@ const minor = ({ origin, address, tileSizeInPixels, colors }) => {
 	})).toBe(true)
 }
 
-const calculateOriginInPixels = ({ origin, address, tileSizeInPixels }) => ([
+const calculateOriginInPixels = ({ origin, address, tileSizeInPixels }) => [
 	origin[ 0 ] * tileSizeInPixels + address[ 0 ] * tileSizeInPixels / 16,
 	origin[ 1 ] * tileSizeInPixels + address[ 1 ] * tileSizeInPixels / 16,
-])
+]
