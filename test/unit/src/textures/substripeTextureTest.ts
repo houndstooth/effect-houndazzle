@@ -21,7 +21,7 @@ describe('substripe texture', () => {
 		expect(substripeCalls.length).toBe(32)
 	})
 
-	it('gets the substripe outline with the tile origin, tile size, substripe index, substripe count, colors count, and shape color index', () => {
+	it('gets the substripe outline with the correct arguments', () => {
 		substripeCalls.forEach((call, callIndex) => {
 			expect(call.args[0].context).toBe(context)
 			expect(call.args[0].tileOrigin).toBe(tileOrigin)

@@ -6,7 +6,7 @@ import activateTestMarkerCanvas from '../../../../../test/integration/helpers/ac
 import state from '../../../../../src/state'
 
 describe('houndazzle effect', () => {
-	it('portrays houndstooth using horizontal against vertical striped textures, rather than simply black against white', () => {
+	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', () => {
 		state.selectedHoundstoothEffects = [ houndazzleEffect ]
 		const tileSizeInPixels = 200
 		const houndstoothOverrides = {
