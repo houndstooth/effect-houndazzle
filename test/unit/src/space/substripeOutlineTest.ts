@@ -8,10 +8,10 @@ describe('substripe outline', () => {
 		const substripeCount = 7
 
 		const expectedOutline = [
-			[ 11 - 13/2, 17 - 13/2 + 13/7 * 2 ],
-			[ 11 + 13 + 13/2, 17 - 13/2 + 13/7 * 2 ],
-			[ 11 + 13 + 13/2, 17 - 13/2 + 13/7 * 2 + 13/7 * 2 ],
-			[ 11 - 13/2, 17 - 13/2 + 13/7 * 2 + 13/7 * 2 ],
+			[ 11 - 13 / 2, 17 - 13 / 2 + 13 / 7 * 2 ],
+			[ 11 + 13 + 13 / 2, 17 - 13 / 2 + 13 / 7 * 2 ],
+			[ 11 + 13 + 13 / 2, 17 - 13 / 2 + 13 / 7 * 2 + 13 / 7 * 2 ],
+			[ 11 - 13 / 2, 17 - 13 / 2 + 13 / 7 * 2 + 13 / 7 * 2 ],
 		]
 
 		const outline = substripeOutline({ tileOrigin, tileSize, substripeIndex, substripeCount })
