@@ -1,10 +1,9 @@
-import { Outline } from '../../../../src'
-import Coordinate from '../../../../src/space/types/Coordinate'
+import { Outline, Coordinate, Units } from '../../../../src'
 
 type SubstripeOutline = {
 	({}: {
 		tileOrigin: Coordinate,
-		tileSize: number,
+		tileSize: Units,
 		substripeIndex: number,
 		substripeCount: number,
 	}): Outline,

@@ -1,10 +1,11 @@
 import substripe from '../../../../src/components/substripe'
 import * as space from '../../../../src/space/index'
 import * as src from '../../../../../../src/index'
+import Coordinate from '../../../../../../src/space/types/Coordinate'
 
 describe('substripe', () => {
 	const context = {} as CanvasRenderingContext2D
-	const tileOrigin = [ 11, 17 ]
+	const tileOrigin = [ 11, 17 ] as Coordinate
 	const tileSize = 13
 	const shapeColorIndex = 1
 	const substripeIndex = 5

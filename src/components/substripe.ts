@@ -1,12 +1,11 @@
 import { substripeOutline, orientSubstripeOutline } from '../space'
-import { solid } from '../../../../src'
-import { Coordinate } from '../../../../src'
+import { solid, Units, Coordinate } from '../../../../src'
 
 type Substripe = {
 	({}: {
 		context: CanvasRenderingContext2D,
 		tileOrigin: Coordinate,
-		tileSize: number,
+		tileSize: Units,
 		shapeColorIndex: number,
 		substripeIndex: number,
 		substripeCount: number,

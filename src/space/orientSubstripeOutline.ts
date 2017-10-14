@@ -1,8 +1,8 @@
-import { rotateCoordinateAboutPoint, tileCenter, Outline, Coordinate } from '../../../../src'
+import { rotateCoordinateAboutPoint, tileCenter, Outline, Coordinate, Units } from '../../../../src'
 
 type OrientSubstripeOutline = {
 	({}: {
-		colorsCount: number, shapeColorIndex: number, outline: Outline, tileOrigin: Coordinate, tileSize: number,
+		colorsCount: number, shapeColorIndex: number, outline: Outline, tileOrigin: Coordinate, tileSize: Units,
 	}): Outline,
 }
 
