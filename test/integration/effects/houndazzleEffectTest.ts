@@ -4,6 +4,7 @@ import { expectSection } from '../helpers/sectionExpections'
 import { Address, Coordinate, state, executeSelectedHoundstoothEffects } from '../../../../../src'
 import { HoundazzleFill, HoundazzleSectionExpectation } from '../helpers/types'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
+import CanvasSize from '../../../../../src/canvas/types/CanvasSize'
 
 describe('houndazzle effect', () => {
 	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', () => {
@@ -18,7 +19,7 @@ describe('houndazzle effect', () => {
 					gridSize: 4,
 				},
 				viewSettings: {
-					canvasSize: 800,
+					canvasSize: 800 as CanvasSize,
 				},
 			},
 		}
