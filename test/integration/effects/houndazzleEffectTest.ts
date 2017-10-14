@@ -477,4 +477,4 @@ type CalculateAreaOrigin = {
 const calculateAreaOrigin: CalculateAreaOrigin = ({ gridAddress, tileSize, sectionAddress, sectionResolution }) => [
 	gridAddress[ 0 ] * tileSize + sectionAddress[ 0 ] * tileSize / sectionResolution,
 	gridAddress[ 1 ] * tileSize + sectionAddress[ 1 ] * tileSize / sectionResolution,
-]
+] as Coordinate

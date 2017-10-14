@@ -21,19 +21,19 @@ const substripeOutline: SubstripeOutline = ({ tileOrigin, tileSize, substripeInd
 		[
 			x - substripeSlack,
 			y - substripeSlack + substripeIndex * substripeWidth,
-		],
+		] as Coordinate,
 		[
 			x + tileSize + substripeSlack,
 			y - substripeSlack + substripeIndex * substripeWidth,
-		],
+		] as Coordinate,
 		[
 			x + tileSize + substripeSlack,
 			y - substripeSlack + (substripeIndex + 1) * substripeWidth,
-		],
+		] as Coordinate,
 		[
 			x - substripeSlack,
 			y - substripeSlack + (substripeIndex + 1) * substripeWidth,
-		],
+		] as Coordinate,
 	]
 }
 
