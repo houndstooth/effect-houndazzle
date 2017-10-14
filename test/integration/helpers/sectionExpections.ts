@@ -6,6 +6,7 @@ import {
 	ExpectSolidSection,
 } from '../../../../../test/integration/helpers/types'
 import { HoundazzleExpectSection, HoundazzleFill } from './types'
+import { Address } from '../../../../../src'
 
 const expectSection: HoundazzleExpectSection = ({ expectedSection, areaOrigin, areaSize }) => {
 	const diagonalType = expectedSection[ 0 ]
@@ -32,7 +33,7 @@ const expectSolidSection: ExpectSolidSection = ({ areaOrigin, areaSize, color })
 		areaOrigin,
 		areaSize: areaSize / 16,
 		sectionResolution: 1,
-		sectionAddress: [ 0, 0 ],
+		sectionAddress: [ 0, 0 ] as Address,
 		color,
 	})).toBe(true)
 }
@@ -42,14 +43,14 @@ const expectMinorDiagonalDividedSection: ExpectDiagonalDividedSection = ({ areaO
 		areaOrigin,
 		areaSize: areaSize / 16,
 		sectionResolution: 2,
-		sectionAddress: [ 0, 0 ],
+		sectionAddress: [ 0, 0 ] as Address,
 		color: colors[ 0 ],
 	})).toBe(true)
 	expect(sectionCenterIsColor({
 		areaOrigin,
 		areaSize: areaSize / 16,
 		sectionResolution: 2,
-		sectionAddress: [ 1, 1 ],
+		sectionAddress: [ 1, 1 ] as Address,
 		color: colors[ 1 ],
 	})).toBe(true)
 }

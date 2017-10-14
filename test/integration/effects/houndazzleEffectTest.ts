@@ -418,9 +418,9 @@ describe('houndazzle effect', () => {
 		topLeftTile.forEach((expectedSectionRows, row) => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
-					gridAddress: [ 0, 0 ],
+					gridAddress: [ 0, 0 ] as Address,
 					tileSize,
-					sectionAddress: [ col, row ],
+					sectionAddress: [ col, row ] as Address,
 					sectionResolution: 16,
 				})
 
@@ -431,9 +431,9 @@ describe('houndazzle effect', () => {
 		topRightTile.forEach((expectedSectionRows, row) => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
-					gridAddress: [ 1, 0 ],
+					gridAddress: [ 1, 0 ] as Address,
 					tileSize,
-					sectionAddress: [ col, row ],
+					sectionAddress: [ col, row ] as Address,
 					sectionResolution: 16,
 				})
 
@@ -444,9 +444,9 @@ describe('houndazzle effect', () => {
 		bottomLeftTile.forEach((expectedSectionRows, row) => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
-					gridAddress: [ 0, 1 ],
+					gridAddress: [ 0, 1 ] as Address,
 					tileSize,
-					sectionAddress: [ col, row ],
+					sectionAddress: [ col, row ] as Address,
 					sectionResolution: 16,
 				})
 
@@ -457,9 +457,9 @@ describe('houndazzle effect', () => {
 		bottomRightTile.forEach((expectedSectionRows, row) => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
-					gridAddress: [ 1, 1 ],
+					gridAddress: [ 1, 1 ] as Address,
 					tileSize,
-					sectionAddress: [ col, row ],
+					sectionAddress: [ col, row ] as Address,
 					sectionResolution: 16,
 				})
 
