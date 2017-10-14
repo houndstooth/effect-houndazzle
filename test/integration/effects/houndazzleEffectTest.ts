@@ -1,10 +1,7 @@
-import executeSelectedHoundstoothEffects from '../../../../../src/execute/executeSelectedHoundstoothEffects'
 import houndazzleEffect from '../../../effects/houndazzleEffect'
 import activateTestMarkerCanvas from '../../../../../test/integration/helpers/activateTestMarkerCanvas'
-import state from '../../../../../src/state'
 import { expectSection } from '../helpers/sectionExpections'
-import Address from '../../../../../src/components/types/Address'
-import Coordinate from '../../../../../src/space/types/Coordinate'
+import { Address, Coordinate, state, executeSelectedHoundstoothEffects } from '../../../../../src'
 import { HoundazzleFill, HoundazzleSectionExpectation } from '../helpers/types'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
 

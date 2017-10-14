@@ -1,6 +1,13 @@
-import { rotateCoordinateAboutPoint, tileCenter } from '../../../../src'
+import { rotateCoordinateAboutPoint, tileCenter, Outline, Coordinate } from '../../../../src'
 
-const orientSubstripeOutline = ({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize }) => {
+type OrientSubstripeOutline = {
+	({}: {
+		colorsCount: number, shapeColorIndex: number, outline: Outline, tileOrigin: Coordinate, tileSize: number,
+	}): Outline,
+}
+
+const orientSubstripeOutline: OrientSubstripeOutline = params => {
+	const { colorsCount, shapeColorIndex, outline, tileOrigin, tileSize } = params
 	const rotationUnit = Math.PI / colorsCount
 	const rotation = rotationUnit * shapeColorIndex
 

@@ -1,4 +1,4 @@
-const SUBSTRIPE_COUNT = 16
+const SUBSTRIPE_COUNT: number = 16
 
 export {
 	SUBSTRIPE_COUNT,

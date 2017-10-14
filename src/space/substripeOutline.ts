@@ -1,4 +1,16 @@
-const substripeOutline = ({ tileOrigin, tileSize, substripeIndex, substripeCount }) => {
+import { Outline } from '../../../../src'
+import Coordinate from '../../../../src/space/types/Coordinate'
+
+type SubstripeOutline = {
+	({}: {
+		tileOrigin: Coordinate,
+		tileSize: number,
+		substripeIndex: number,
+		substripeCount: number,
+	}): Outline,
+}
+
+const substripeOutline: SubstripeOutline = ({ tileOrigin, tileSize, substripeIndex, substripeCount }) => {
 	const substripeWidth = tileSize * 2 / substripeCount
 	const substripeSlack = tileSize / 2
 

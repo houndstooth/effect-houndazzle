@@ -1,8 +1,19 @@
 import { SUBSTRIPE_COUNT } from '../houndazzleConstants'
 import { iterator } from '../../../../src/utilities/codeUtilities'
 import { substripe } from '../components'
+import { TileColorIndices, Coordinate } from '../../../../src'
 
-export default ({ context, tileColorIndices, tileOrigin, tileSize, shapeColorIndex }) => {
+type SubstripeTexture = {
+	({}: {
+		context: CanvasRenderingContext2D,
+		tileColorIndices: TileColorIndices,
+		tileOrigin: Coordinate,
+		tileSize: number,
+		shapeColorIndex: number,
+	}): void,
+}
+
+const substripeTexture: SubstripeTexture = ({ context, tileColorIndices, tileOrigin, tileSize, shapeColorIndex }) => {
 	const substripeCount = SUBSTRIPE_COUNT * 2
 	const colorsCount = tileColorIndices.length
 
@@ -18,3 +29,5 @@ export default ({ context, tileColorIndices, tileOrigin, tileSize, shapeColorInd
 		})
 	})
 }
+
+export default substripeTexture

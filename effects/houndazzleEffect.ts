@@ -1,6 +1,7 @@
 import { substripeTexture } from '../src'
+import { Houndstooth } from '../../../src/store'
 
-const houndazzleEffect = {
+const houndazzleEffect: Houndstooth = {
 	name: 'houndazzle',
 	basePattern: {
 		textureSettings: {

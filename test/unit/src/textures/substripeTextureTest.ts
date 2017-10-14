@@ -2,7 +2,7 @@ import substripeTexture from '../../../../src/textures/substripeTexture'
 import * as components from '../../../../src/components/index'
 
 describe('substripe texture', () => {
-	const context = {}
+	const context = {} as CanvasRenderingContext2D
 	const tileColorIndices = [ 1, 0, 2 ]
 	const tileOrigin = [ 11, 17 ]
 	const tileSize = 13

@@ -3,7 +3,7 @@ import * as space from '../../../../src/space/index'
 import * as src from '../../../../../../src/index'
 
 describe('substripe', () => {
-	const context = {}
+	const context = {} as CanvasRenderingContext2D
 	const tileOrigin = [ 11, 17 ]
 	const tileSize = 13
 	const shapeColorIndex = 1
