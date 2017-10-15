@@ -9,10 +9,10 @@ import { HoundazzleExpectSection, HoundazzleFill } from './types'
 import { Address } from '../../../../../src'
 
 const expectByDiagonal = {
-	[Diagonal.Solid]: ({ areaOrigin, areaSize, sectionDefiningColor, otherColor }) => {
+	[Diagonal.Solid]: ({ areaOrigin, areaSize, sectionDefiningColor }) => {
 		expectSolidSection({ areaOrigin, areaSize, color: sectionDefiningColor })
 	},
-	[Diagonal.SolidButTestMinorToAvoidSeam]: ({ areaOrigin, areaSize, sectionDefiningColor, otherColor }) => {
+	[Diagonal.SolidButTestMinorToAvoidSeam]: ({ areaOrigin, areaSize, sectionDefiningColor }) => {
 		expectMinorDiagonalDividedSection({
 			areaOrigin,
 			areaSize,
@@ -28,8 +28,8 @@ const expectSection: HoundazzleExpectSection = ({ expectedSection, areaOrigin, a
 	const diagonalType = expectedSection[ 0 ]
 	const sectionDefiningColor = expectedSection[ 1 ] === HoundazzleFill.Black ? BLACK : TRANSPARENT
 	const otherColor = expectedSection[ 1 ] === HoundazzleFill.Black ? BLACK : TRANSPARENT
-
-	expectByDiagonal[diagonalType]({ areaOrigin, areaSize, sectionDefiningColor, otherColor })
+	const args = { areaOrigin, areaSize, sectionDefiningColor, otherColor }
+	expectByDiagonal[diagonalType](args)
 }
 
 const expectSolidSection: ExpectSolidSection = ({ areaOrigin, areaSize, color }) => {

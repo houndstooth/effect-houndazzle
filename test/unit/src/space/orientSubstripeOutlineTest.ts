@@ -1,7 +1,5 @@
 import orientSubstripeOutline from '../../../../src/space/orientSubstripeOutline'
 import * as src from '../../../../../../src/index'
-import Coordinate from '../../../../../../src/space/types/Coordinate'
-import Outline from '../../../../../../src/space/types/Outline'
 
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {
@@ -14,9 +12,9 @@ describe('orient substripe outline', () => {
 
 		const colorsCount = Math.PI
 		const shapeColorIndex = 7
-		const tileOrigin = [] as Coordinate
+		const tileOrigin = [] as any
 		const tileSize = 42 as any
-		const outline = [ coordinate ] as Outline
+		const outline = [ coordinate ] as any
 
 		const actualOutline = orientSubstripeOutline({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize })
 
