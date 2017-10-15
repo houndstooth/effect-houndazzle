@@ -4,7 +4,7 @@ import * as src from '../../../../../../src/index'
 import Coordinate from '../../../../../../src/space/types/Coordinate'
 
 describe('substripe', () => {
-	const context = {} as CanvasRenderingContext2D
+	const context = {}
 	const tileOrigin = [ 11 as any, 17 as any ] as Coordinate
 	const tileSize = 13 as any
 	const shapeColorIndex = 1

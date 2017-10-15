@@ -1,9 +1,9 @@
 import { substripeOutline, orientSubstripeOutline } from '../space'
-import { solid, Units, Coordinate } from '../../../../src'
+import { solid, Units, Coordinate, Context } from '../../../../src'
 
-type Substripe = {
+const substripe: {
 	({}: {
-		context: CanvasRenderingContext2D,
+		context: Context,
 		tileOrigin: Coordinate,
 		tileSize: Units,
 		shapeColorIndex: number,
@@ -11,10 +11,7 @@ type Substripe = {
 		substripeCount: number,
 		colorsCount: number,
 	}): void,
-}
-
-const substripe: Substripe = params => {
-	const { context, tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount, colorsCount } = params
+} = ({ context, tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount, colorsCount }) => {
 	let outline = substripeOutline({ tileOrigin, tileSize, substripeIndex, substripeCount })
 	outline = orientSubstripeOutline({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize })
 	solid({ context, outline, shapeColorIndex: substripeIndex })

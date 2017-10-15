@@ -4,7 +4,7 @@ import TileColorIndices from '../../../../../../src/components/types/TileColorIn
 import Coordinate from '../../../../../../src/space/types/Coordinate'
 
 describe('substripe texture', () => {
-	const context = {} as CanvasRenderingContext2D
+	const context = {}
 	const tileColorIndices = [ 1, 0, 2 ] as TileColorIndices
 	const tileOrigin = [ 11 as any, 17 as any ] as Coordinate
 	const tileSize = 13 as any

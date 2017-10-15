@@ -469,11 +469,9 @@ describe('houndazzle effect', () => {
 	})
 })
 
-type CalculateAreaOrigin = {
+const calculateAreaOrigin: {
 	({}: { gridAddress: Address, tileSize: Units, sectionAddress: Address, sectionResolution: number }): Coordinate,
-}
-
-const calculateAreaOrigin: CalculateAreaOrigin = ({ gridAddress, tileSize, sectionAddress, sectionResolution }) => {
+} = ({ gridAddress, tileSize, sectionAddress, sectionResolution }) => {
 	const tileSizeDowncast = tileSize as any
 
 	return [
