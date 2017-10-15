@@ -8,7 +8,7 @@ import { Diagonal } from '../../../../../test/integration/helpers/types'
 describe('houndazzle effect', () => {
 	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', () => {
 		state.selectedHoundstoothEffects = [ houndazzleEffect ]
-		const tileSize = 200
+		const tileSize = 200 as any
 		const houndstoothOverrides = {
 			basePattern: {
 				tileSettings: {
@@ -473,7 +473,11 @@ type CalculateAreaOrigin = {
 	({}: { gridAddress: Address, tileSize: Units, sectionAddress: Address, sectionResolution: number }): Coordinate,
 }
 
-const calculateAreaOrigin: CalculateAreaOrigin = ({ gridAddress, tileSize, sectionAddress, sectionResolution }) => [
-	gridAddress[ 0 ] * tileSize + sectionAddress[ 0 ] * tileSize / sectionResolution,
-	gridAddress[ 1 ] * tileSize + sectionAddress[ 1 ] * tileSize / sectionResolution,
-] as Coordinate
+const calculateAreaOrigin: CalculateAreaOrigin = ({ gridAddress, tileSize, sectionAddress, sectionResolution }) => {
+	const tileSizeDowncast = tileSize as any
+
+	return [
+		gridAddress[ 0 ] * tileSizeDowncast + sectionAddress[ 0 ] * tileSizeDowncast / sectionResolution as any,
+		gridAddress[ 1 ] * tileSizeDowncast + sectionAddress[ 1 ] * tileSizeDowncast / sectionResolution as any,
+	] as Coordinate
+}

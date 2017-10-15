@@ -35,7 +35,7 @@ const expectSection: HoundazzleExpectSection = ({ expectedSection, areaOrigin, a
 const expectSolidSection: ExpectSolidSection = ({ areaOrigin, areaSize, color }) => {
 	expect(sectionCenterIsColor({
 		areaOrigin,
-		areaSize: areaSize / 16,
+		areaSize: areaSize as any / 16 as any,
 		sectionResolution: 1,
 		sectionAddress: [ 0, 0 ] as Address,
 		color,
@@ -45,14 +45,14 @@ const expectSolidSection: ExpectSolidSection = ({ areaOrigin, areaSize, color })
 const expectMinorDiagonalDividedSection: ExpectDiagonalDividedSection = ({ areaOrigin, areaSize, colors }) => {
 	expect(sectionCenterIsColor({
 		areaOrigin,
-		areaSize: areaSize / 16,
+		areaSize: areaSize as any / 16 as any,
 		sectionResolution: 2,
 		sectionAddress: [ 0, 0 ] as Address,
 		color: colors[ 0 ],
 	})).toBe(true)
 	expect(sectionCenterIsColor({
 		areaOrigin,
-		areaSize: areaSize / 16,
+		areaSize: areaSize as any / 16 as any,
 		sectionResolution: 2,
 		sectionAddress: [ 1, 1 ] as Address,
 		color: colors[ 1 ],

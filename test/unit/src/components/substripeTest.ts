@@ -5,8 +5,8 @@ import Coordinate from '../../../../../../src/space/types/Coordinate'
 
 describe('substripe', () => {
 	const context = {} as CanvasRenderingContext2D
-	const tileOrigin = [ 11, 17 ] as Coordinate
-	const tileSize = 13
+	const tileOrigin = [ 11 as any, 17 as any ] as Coordinate
+	const tileSize = 13 as any
 	const shapeColorIndex = 1
 	const substripeIndex = 5
 	const substripeCount = 17
