@@ -10,8 +10,9 @@ type SubstripeOutline = {
 }
 
 const substripeOutline: SubstripeOutline = ({ tileOrigin, tileSize, substripeIndex, substripeCount }) => {
-	const substripeWidth = tileSize * 2 / substripeCount
-	const substripeSlack = tileSize / 2
+	const tileSizeNumber = tileSize as number
+	const substripeWidth = tileSizeNumber * 2 / substripeCount
+	const substripeSlack = tileSizeNumber / 2
 
 	const x = tileOrigin[ 0 ]
 	const y = tileOrigin[ 1 ]
@@ -22,11 +23,11 @@ const substripeOutline: SubstripeOutline = ({ tileOrigin, tileSize, substripeInd
 			y - substripeSlack + substripeIndex * substripeWidth,
 		] as Coordinate,
 		[
-			x + tileSize + substripeSlack,
+			x + tileSizeNumber + substripeSlack,
 			y - substripeSlack + substripeIndex * substripeWidth,
 		] as Coordinate,
 		[
-			x + tileSize + substripeSlack,
+			x + tileSizeNumber + substripeSlack,
 			y - substripeSlack + (substripeIndex + 1) * substripeWidth,
 		] as Coordinate,
 		[

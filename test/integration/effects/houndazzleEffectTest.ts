@@ -319,7 +319,7 @@ describe('houndazzle effect', () => {
 				[ Diagonal.Solid, HoundazzleFill.White ],
 			],
 		] as HoundazzleSectionExpectation[][]
-		const topLeftTile = partA.concat(partB) as HoundazzleSectionExpectation[][]
+		const topLeftTile = partA.concat(partB)
 
 		const alteratingRow = [
 			[ Diagonal.Solid, HoundazzleFill.White ],
