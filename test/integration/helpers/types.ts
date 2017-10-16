@@ -1,5 +1,6 @@
 import { Diagonal } from '../../../../../test/integration/helpers/types'
 import { Coordinate } from '../../../../../src/space'
+import { Units } from '../../../../../src/components'
 
 enum HoundazzleFill {
 	Black = 'black',
@@ -11,7 +12,7 @@ type HoundazzleSectionExpectation = [ Diagonal, HoundazzleFill ]
 type HoundazzleExpectSection = {
 	({}: {
 		expectedSection: [ Diagonal, HoundazzleFill ],
-		areaSize: number,
+		areaSize: Units,
 		areaOrigin: Coordinate,
 	}): void,
 }
