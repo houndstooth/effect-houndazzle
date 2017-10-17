@@ -2,12 +2,12 @@ import { Outline, Coordinate, Units } from '../../../../src'
 
 const substripeOutline: {
 	({}: {
+		substripeCount: number,
+		substripeIndex: number,
 		tileOrigin: Coordinate,
 		tileSize: Units,
-		substripeIndex: number,
-		substripeCount: number,
 	}): Outline,
-} = ({ tileOrigin, tileSize, substripeIndex, substripeCount }) => {
+} = ({ substripeCount, substripeIndex, tileOrigin, tileSize }) => {
 	const tileSizeDowncast = tileSize as any
 	const substripeWidth = tileSizeDowncast * 2 / substripeCount as any
 	const substripeSlack = tileSizeDowncast / 2 as any

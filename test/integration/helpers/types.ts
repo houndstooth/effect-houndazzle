@@ -11,9 +11,9 @@ type HoundazzleSectionExpectation = [ Diagonal, HoundazzleFill ]
 
 type HoundazzleExpectSection = {
 	({}: {
-		expectedSection: [ Diagonal, HoundazzleFill ],
-		areaSize: Units,
 		areaOrigin: Coordinate,
+		areaSize: Units,
+		expectedSection: [ Diagonal, HoundazzleFill ],
 	}): void,
 }
 

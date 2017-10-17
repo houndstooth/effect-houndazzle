@@ -6,12 +6,12 @@ import { TileColorIndices, Coordinate, Units, Context } from '../../../../src'
 const substripeTexture: {
 	({}: {
 		context: Context,
+		shapeColorIndex: number,
 		tileColorIndices: TileColorIndices,
 		tileOrigin: Coordinate,
 		tileSize: Units,
-		shapeColorIndex: number,
 	}): void,
-} = ({ context, tileColorIndices, tileOrigin, tileSize, shapeColorIndex }) => {
+} = ({ context, shapeColorIndex, tileColorIndices, tileOrigin, tileSize }) => {
 	const substripeCount = SUBSTRIPE_COUNT * 2
 	const colorsCount = tileColorIndices.length
 

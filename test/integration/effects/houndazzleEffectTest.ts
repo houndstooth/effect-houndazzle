@@ -1,9 +1,10 @@
 import houndazzleEffect from '../../../effects/houndazzleEffect'
 import activateTestMarkerCanvas from '../../../../../test/integration/helpers/activateTestMarkerCanvas'
 import { expectSection } from '../helpers/sectionExpections'
-import { Address, Coordinate, state, executeSelectedHoundstoothEffects, Units, CanvasSize } from '../../../../../src'
+import { Address, state, executeSelectedHoundstoothEffects, CanvasSize } from '../../../../../src'
 import { HoundazzleFill, HoundazzleSectionExpectation } from '../helpers/types'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
+import calculateAreaOrigin from '../helpers/calculateAreaOrigin'
 
 describe('houndazzle effect', () => {
 	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', () => {
@@ -468,14 +469,3 @@ describe('houndazzle effect', () => {
 		})
 	})
 })
-
-const calculateAreaOrigin: {
-	({}: { gridAddress: Address, tileSize: Units, sectionAddress: Address, sectionResolution: number }): Coordinate,
-} = ({ gridAddress, tileSize, sectionAddress, sectionResolution }) => {
-	const tileSizeDowncast = tileSize as any
-
-	return [
-		gridAddress[ 0 ] * tileSizeDowncast + sectionAddress[ 0 ] * tileSizeDowncast / sectionResolution as any,
-		gridAddress[ 1 ] * tileSizeDowncast + sectionAddress[ 1 ] * tileSizeDowncast / sectionResolution as any,
-	] as Coordinate
-}

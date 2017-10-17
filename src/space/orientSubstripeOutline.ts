@@ -2,9 +2,9 @@ import { rotateCoordinateAboutPoint, tileCenter, Outline, Coordinate, Units } fr
 
 const orientSubstripeOutline: {
 	({}: {
-		colorsCount: number, shapeColorIndex: number, outline: Outline, tileOrigin: Coordinate, tileSize: Units,
+		colorsCount: number, outline: Outline, shapeColorIndex: number, tileOrigin: Coordinate, tileSize: Units,
 	}): Outline,
-} = ({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize }) => {
+} = ({ colorsCount, outline, shapeColorIndex, tileOrigin, tileSize }) => {
 	const rotationUnit = Math.PI / colorsCount
 	const rotation = rotationUnit * shapeColorIndex
 
