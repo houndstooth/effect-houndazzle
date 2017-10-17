@@ -25,18 +25,18 @@ describe('substripe', () => {
 
 	it('gets the substripe outline', () => {
 		expect(space.substripeOutline).toHaveBeenCalledWith({
+			substripeCount,
+			substripeIndex,
 			tileOrigin,
 			tileSize,
-			substripeIndex,
-			substripeCount,
 		})
 	})
 
 	it('orients the outline', () => {
 		expect(space.orientSubstripeOutline).toHaveBeenCalledWith({
 			colorsCount,
-			shapeColorIndex,
 			outline,
+			shapeColorIndex,
 			tileOrigin,
 			tileSize,
 		})

@@ -17,13 +17,13 @@ const substripeTexture: {
 
 	iterator(substripeCount).forEach(substripeIndex => {
 		substripe({
+			colorsCount,
 			context,
+			shapeColorIndex,
+			substripeCount,
+			substripeIndex,
 			tileOrigin,
 			tileSize,
-			shapeColorIndex,
-			substripeIndex,
-			substripeCount,
-			colorsCount,
 		})
 	})
 }

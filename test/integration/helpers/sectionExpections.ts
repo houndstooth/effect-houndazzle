@@ -36,9 +36,9 @@ const expectSolidSection: ExpectSolidSection = ({ areaOrigin, areaSize, color })
 	expect(sectionCenterIsColor({
 		areaOrigin,
 		areaSize: areaSize as any / 16 as any,
-		sectionResolution: 1,
-		sectionAddress: [ 0, 0 ] as Address,
 		color,
+		sectionAddress: [ 0, 0 ] as Address,
+		sectionResolution: 1,
 	})).toBe(true)
 }
 
@@ -46,16 +46,16 @@ const expectMinorDiagonalDividedSection: ExpectDiagonalDividedSection = ({ areaO
 	expect(sectionCenterIsColor({
 		areaOrigin,
 		areaSize: areaSize as any / 16 as any,
-		sectionResolution: 2,
-		sectionAddress: [ 0, 0 ] as Address,
 		color: colors[ 0 ],
+		sectionAddress: [ 0, 0 ] as Address,
+		sectionResolution: 2,
 	})).toBe(true)
 	expect(sectionCenterIsColor({
 		areaOrigin,
 		areaSize: areaSize as any / 16 as any,
-		sectionResolution: 2,
-		sectionAddress: [ 1, 1 ] as Address,
 		color: colors[ 1 ],
+		sectionAddress: [ 1, 1 ] as Address,
+		sectionResolution: 2,
 	})).toBe(true)
 }
 

@@ -2,12 +2,12 @@ import { Houndstooth } from '../../../src/store'
 import { substripeTexture } from '../src'
 
 const houndazzleEffect: Houndstooth = {
-	name: 'houndazzle',
 	basePattern: {
 		textureSettings: {
 			renderTexture: substripeTexture,
 		},
 	},
+	name: 'houndazzle',
 }
 
 export default houndazzleEffect

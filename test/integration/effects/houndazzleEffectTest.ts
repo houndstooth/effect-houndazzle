@@ -12,11 +12,11 @@ describe('houndazzle effect', () => {
 		const tileSize = 200 as any
 		const houndstoothOverrides = {
 			basePattern: {
-				tileSettings: {
-					tileSizeSetting: tileSize,
-				},
 				gridSettings: {
 					gridSize: 4,
+				},
+				tileSettings: {
+					tileSizeSetting: tileSize,
 				},
 				viewSettings: {
 					canvasSize: 800 as CanvasSize,
@@ -420,9 +420,9 @@ describe('houndazzle effect', () => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
 					gridAddress: [ 0, 0 ] as Address,
-					tileSize,
 					sectionAddress: [ col, row ] as Address,
 					sectionResolution: 16,
+					tileSize,
 				})
 
 				expectSection({ expectedSection, areaOrigin, areaSize: tileSize })
@@ -433,9 +433,9 @@ describe('houndazzle effect', () => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
 					gridAddress: [ 1, 0 ] as Address,
-					tileSize,
 					sectionAddress: [ col, row ] as Address,
 					sectionResolution: 16,
+					tileSize,
 				})
 
 				expectSection({ expectedSection, areaOrigin, areaSize: tileSize })
@@ -446,9 +446,9 @@ describe('houndazzle effect', () => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
 					gridAddress: [ 0, 1 ] as Address,
-					tileSize,
 					sectionAddress: [ col, row ] as Address,
 					sectionResolution: 16,
+					tileSize,
 				})
 
 				expectSection({ expectedSection, areaOrigin, areaSize: tileSize })
@@ -459,9 +459,9 @@ describe('houndazzle effect', () => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
 					gridAddress: [ 1, 1 ] as Address,
-					tileSize,
 					sectionAddress: [ col, row ] as Address,
 					sectionResolution: 16,
+					tileSize,
 				})
 
 				expectSection({ expectedSection, areaOrigin, areaSize: tileSize })
