@@ -9,13 +9,11 @@ enum HoundazzleFill {
 
 type HoundazzleSectionExpectation = [ Diagonal, HoundazzleFill ]
 
-interface HoundazzleExpectSection {
-	({}: {
-		areaOrigin: Coordinate,
-		areaSize: Units,
-		expectedSection: [ Diagonal, HoundazzleFill ],
-	}): void,
-}
+type HoundazzleExpectSection = (_: {
+	areaOrigin: Coordinate,
+	areaSize: Units,
+	expectedSection: [ Diagonal, HoundazzleFill ],
+}) => void
 
 export {
 	HoundazzleFill,

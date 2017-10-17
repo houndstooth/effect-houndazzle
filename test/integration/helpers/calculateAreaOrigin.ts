@@ -2,9 +2,9 @@ import Address from '../../../../../src/components/types/Address'
 import Units from '../../../../../src/components/types/Units'
 import Coordinate from '../../../../../src/space/types/Coordinate'
 
-const calculateAreaOrigin: {
-	({}: { gridAddress: Address, sectionAddress: Address, sectionResolution: number, tileSize: Units }): Coordinate,
-} = ({ gridAddress, sectionAddress, sectionResolution, tileSize }) => {
+const calculateAreaOrigin: (_: {
+	gridAddress: Address, sectionAddress: Address, sectionResolution: number, tileSize: Units,
+}) => Coordinate = ({ gridAddress, sectionAddress, sectionResolution, tileSize }) => {
 	const tileSizeDowncast = tileSize as any
 
 	return [
