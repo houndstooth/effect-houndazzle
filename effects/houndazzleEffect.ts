@@ -1,5 +1,5 @@
-import { substripeTexture } from '../src'
 import { Houndstooth } from '../../../src/store'
+import { substripeTexture } from '../src'
 
 const houndazzleEffect: Houndstooth = {
 	name: 'houndazzle',

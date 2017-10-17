@@ -1,4 +1,4 @@
-import { Outline, Coordinate, Units } from '../../../../src'
+import { Coordinate, Outline, Units } from '../../../../src'
 
 const substripeOutline: {
 	({}: {

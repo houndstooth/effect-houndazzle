@@ -1,5 +1,5 @@
-import { substripeOutline, orientSubstripeOutline } from '../space'
-import { solid, Units, Coordinate, Context } from '../../../../src'
+import { Context, Coordinate, solid, Units } from '../../../../src'
+import { orientSubstripeOutline, substripeOutline } from '../space'
 
 const substripe: {
 	({}: {

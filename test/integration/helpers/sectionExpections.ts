@@ -1,12 +1,12 @@
-import sectionCenterIsColor from '../../../../../test/integration/helpers/sectionCenterIsColor'
+import { Address } from '../../../../../src'
 import { BLACK, TRANSPARENT } from '../../../../../src/constants'
+import sectionCenterIsColor from '../../../../../test/integration/helpers/sectionCenterIsColor'
 import {
 	Diagonal,
 	ExpectDiagonalDividedSection,
 	ExpectSolidSection,
 } from '../../../../../test/integration/helpers/types'
 import { HoundazzleExpectSection, HoundazzleFill } from './types'
-import { Address } from '../../../../../src'
 
 const expectByDiagonal = {
 	[Diagonal.Solid]: ({ areaOrigin, areaSize, sectionDefiningColor }) => {

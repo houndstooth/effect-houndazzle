@@ -1,10 +1,10 @@
-import houndazzleEffect from '../../../effects/houndazzleEffect'
+import { Address, CanvasSize, executeSelectedHoundstoothEffects, state } from '../../../../../src'
 import activateTestMarkerCanvas from '../../../../../test/integration/helpers/activateTestMarkerCanvas'
-import { expectSection } from '../helpers/sectionExpections'
-import { Address, state, executeSelectedHoundstoothEffects, CanvasSize } from '../../../../../src'
-import { HoundazzleFill, HoundazzleSectionExpectation } from '../helpers/types'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
+import houndazzleEffect from '../../../effects/houndazzleEffect'
 import calculateAreaOrigin from '../helpers/calculateAreaOrigin'
+import { expectSection } from '../helpers/sectionExpections'
+import { HoundazzleFill, HoundazzleSectionExpectation } from '../helpers/types'
 
 describe('houndazzle effect', () => {
 	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', () => {

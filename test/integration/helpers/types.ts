@@ -1,6 +1,6 @@
-import { Diagonal } from '../../../../../test/integration/helpers/types'
-import { Coordinate } from '../../../../../src/space'
 import { Units } from '../../../../../src/components'
+import { Coordinate } from '../../../../../src/space'
+import { Diagonal } from '../../../../../test/integration/helpers/types'
 
 enum HoundazzleFill {
 	Black = 'black',

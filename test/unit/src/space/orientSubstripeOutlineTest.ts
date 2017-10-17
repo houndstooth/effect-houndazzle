@@ -1,5 +1,5 @@
-import orientSubstripeOutline from '../../../../src/space/orientSubstripeOutline'
 import * as src from '../../../../../../src/index'
+import orientSubstripeOutline from '../../../../src/space/orientSubstripeOutline'
 
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {

@@ -1,6 +1,6 @@
-import substripeOutline from '../../../../src/space/substripeOutline'
-import Outline from '../../../../../../src/space/types/Outline'
 import Coordinate from '../../../../../../src/space/types/Coordinate'
+import Outline from '../../../../../../src/space/types/Outline'
+import substripeOutline from '../../../../src/space/substripeOutline'
 
 describe('substripe outline', () => {
 	it('calculates the outline of a substripe', () => {

@@ -1,7 +1,7 @@
-import substripeTexture from '../../../../src/textures/substripeTexture'
-import * as components from '../../../../src/components/index'
 import TileColorIndices from '../../../../../../src/components/types/TileColorIndices'
 import Coordinate from '../../../../../../src/space/types/Coordinate'
+import * as components from '../../../../src/components/index'
+import substripeTexture from '../../../../src/textures/substripeTexture'
 
 describe('substripe texture', () => {
 	const context = {}

@@ -1,4 +1,4 @@
-import { rotateCoordinateAboutPoint, tileCenter, Outline, Coordinate, Units } from '../../../../src'
+import { Coordinate, Outline, rotateCoordinateAboutPoint, tileCenter, Units } from '../../../../src'
 
 const orientSubstripeOutline: {
 	({}: {

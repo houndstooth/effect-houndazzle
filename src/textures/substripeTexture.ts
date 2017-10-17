@@ -1,7 +1,7 @@
-import { SUBSTRIPE_COUNT } from '../houndazzleConstants'
+import { Context, Coordinate, TileColorIndices, Units } from '../../../../src'
 import { iterator } from '../../../../src/utilities/codeUtilities'
 import { substripe } from '../components'
-import { TileColorIndices, Coordinate, Units, Context } from '../../../../src'
+import { SUBSTRIPE_COUNT } from '../houndazzleConstants'
 
 const substripeTexture: {
 	({}: {
