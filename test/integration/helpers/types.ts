@@ -9,7 +9,7 @@ enum HoundazzleFill {
 
 type HoundazzleSectionExpectation = [ Diagonal, HoundazzleFill ]
 
-type HoundazzleExpectSection = {
+interface HoundazzleExpectSection {
 	({}: {
 		areaOrigin: Coordinate,
 		areaSize: Units,
