@@ -6,7 +6,7 @@ const orientSubstripeOutline: {
 	}): Outline,
 } = ({ colorsCount, outline, shapeColorIndex, tileOrigin, tileSize }) => {
 	const rotationUnit = Math.PI / colorsCount
-	const rotation = rotationUnit * shapeColorIndex
+	const rotation = rotationUnit * shapeColorIndex as any
 
 	return outline.map(coordinate => rotateCoordinateAboutPoint({
 		coordinate,
