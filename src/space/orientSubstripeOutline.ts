@@ -13,4 +13,4 @@ const orientSubstripeOutline: (_: {
 	}))
 }
 
-export default orientSubstripeOutline
+export { orientSubstripeOutline }

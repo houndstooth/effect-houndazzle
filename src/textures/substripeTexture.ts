@@ -26,4 +26,4 @@ const substripeTexture: (_: {
 	})
 }
 
-export default substripeTexture
+export { substripeTexture }

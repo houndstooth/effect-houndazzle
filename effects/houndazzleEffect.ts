@@ -10,4 +10,4 @@ const houndazzleEffect: Houndstooth = {
 	name: 'houndazzle',
 }
 
-export default houndazzleEffect
+export { houndazzleEffect }

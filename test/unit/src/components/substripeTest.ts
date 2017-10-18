@@ -1,6 +1,6 @@
 import * as src from '../../../../../../src/index'
-import Coordinate from '../../../../../../src/space/types/Coordinate'
-import substripe from '../../../../src/components/substripe'
+import { Coordinate } from '../../../../../../src/space/types/Coordinate'
+import { substripe } from '../../../../src/components/substripe'
 import * as space from '../../../../src/space/index'
 
 describe('substripe', () => {

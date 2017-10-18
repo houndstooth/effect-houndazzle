@@ -38,4 +38,4 @@ const substripeOutline: (_: {
 	]
 }
 
-export default substripeOutline
+export { substripeOutline }

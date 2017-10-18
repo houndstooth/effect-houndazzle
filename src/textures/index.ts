@@ -1,3 +1,3 @@
-import substripeTexture from './substripeTexture'
+import { substripeTexture } from './substripeTexture'
 
 export { substripeTexture }

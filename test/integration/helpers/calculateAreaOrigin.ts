@@ -1,6 +1,6 @@
-import Address from '../../../../../src/components/types/Address'
-import Units from '../../../../../src/components/types/Units'
-import Coordinate from '../../../../../src/space/types/Coordinate'
+import { Address } from '../../../../../src/components/types/Address'
+import { Units } from '../../../../../src/components/types/Units'
+import { Coordinate } from '../../../../../src/space/types/Coordinate'
 
 const calculateAreaOrigin: (_: {
 	gridAddress: Address, sectionAddress: Address, sectionResolution: number, tileSize: Units,
@@ -13,4 +13,4 @@ const calculateAreaOrigin: (_: {
 	] as Coordinate
 }
 
-export default calculateAreaOrigin
+export { calculateAreaOrigin }

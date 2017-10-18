@@ -1,3 +1,3 @@
-import substripe from './substripe'
+import { substripe } from './substripe'
 
 export { substripe }

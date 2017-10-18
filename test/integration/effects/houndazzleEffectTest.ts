@@ -1,8 +1,8 @@
 import { Address, CanvasSize, executeSelectedHoundstoothEffects, state } from '../../../../../src'
-import activateTestMarkerCanvas from '../../../../../test/integration/helpers/activateTestMarkerCanvas'
+import { activateTestMarkerCanvas } from '../../../../../test/integration/helpers/activateTestMarkerCanvas'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
-import houndazzleEffect from '../../../effects/houndazzleEffect'
-import calculateAreaOrigin from '../helpers/calculateAreaOrigin'
+import { houndazzleEffect } from '../../../effects/houndazzleEffect'
+import { calculateAreaOrigin } from '../helpers/calculateAreaOrigin'
 import { expectSection } from '../helpers/sectionExpections'
 import { HoundazzleFill, HoundazzleSectionExpectation } from '../helpers/types'
 

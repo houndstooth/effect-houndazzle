@@ -15,4 +15,4 @@ const substripe: (_: {
 	solid({ context, outline, shapeColorIndex: substripeIndex })
 }
 
-export default substripe
+export { substripe }
