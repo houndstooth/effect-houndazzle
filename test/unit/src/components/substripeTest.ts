@@ -1,12 +1,12 @@
+import { to } from '../../../../../../src'
 import * as src from '../../../../../../src/index'
-import { Coordinate } from '../../../../../../src/space/types/Coordinate'
 import { substripe } from '../../../../src/components/substripe'
 import * as space from '../../../../src/space/index'
 
 describe('substripe', () => {
 	const context = {}
-	const tileOrigin = [ 11 as any, 17 as any ] as Coordinate
-	const tileSize = 13 as any
+	const tileOrigin = to.Coordinate([ 11, 17 ])
+	const tileSize = to.Units(13)
 	const shapeColorIndex = 1
 	const substripeIndex = 5
 	const substripeCount = 17

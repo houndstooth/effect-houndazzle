@@ -1,4 +1,4 @@
-import { Address, executeSelectedHoundstoothEffects, state } from '../../../../../src'
+import { executeSelectedHoundstoothEffects, state, to } from '../../../../../src'
 import { activateTestMarkerCanvas } from '../../../../../test/integration/helpers/activateTestMarkerCanvas'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
 import { houndazzleEffect } from '../../../effects/houndazzleEffect'
@@ -9,7 +9,7 @@ import { HoundazzleFill, HoundazzleSectionExpectation } from '../helpers/types'
 describe('houndazzle effect', () => {
 	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', () => {
 		state.selectedHoundstoothEffects = [ houndazzleEffect ]
-		const tileSize = 200 as any
+		const tileSize = to.Units(200)
 		const houndstoothOverrides = {
 			basePattern: {
 				gridSettings: {
@@ -19,7 +19,7 @@ describe('houndazzle effect', () => {
 					tileSizeSetting: tileSize,
 				},
 				viewSettings: {
-					canvasSize: 800 as any,
+					canvasSize: to.Dimension(800),
 				},
 			},
 		}
@@ -419,8 +419,8 @@ describe('houndazzle effect', () => {
 		topLeftTile.forEach((expectedSectionRows, row) => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
-					gridAddress: [ 0, 0 ] as Address,
-					sectionAddress: [ col, row ] as Address,
+					gridAddress: to.Address([ 0, 0 ]),
+					sectionAddress: to.Address([ col, row ]),
 					sectionResolution: 16,
 					tileSize,
 				})
@@ -432,8 +432,8 @@ describe('houndazzle effect', () => {
 		topRightTile.forEach((expectedSectionRows, row) => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
-					gridAddress: [ 1, 0 ] as Address,
-					sectionAddress: [ col, row ] as Address,
+					gridAddress: to.Address([ 1, 0 ]),
+					sectionAddress: to.Address([ col, row ]),
 					sectionResolution: 16,
 					tileSize,
 				})
@@ -445,8 +445,8 @@ describe('houndazzle effect', () => {
 		bottomLeftTile.forEach((expectedSectionRows, row) => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
-					gridAddress: [ 0, 1 ] as Address,
-					sectionAddress: [ col, row ] as Address,
+					gridAddress: to.Address([ 0, 1 ]),
+					sectionAddress: to.Address([ col, row ]),
 					sectionResolution: 16,
 					tileSize,
 				})
@@ -458,8 +458,8 @@ describe('houndazzle effect', () => {
 		bottomRightTile.forEach((expectedSectionRows, row) => {
 			expectedSectionRows.forEach((expectedSection, col) => {
 				const areaOrigin = calculateAreaOrigin({
-					gridAddress: [ 1, 1 ] as Address,
-					sectionAddress: [ col, row ] as Address,
+					gridAddress: to.Address([ 1, 1 ]),
+					sectionAddress: to.Address([ col, row ]),
 					sectionResolution: 16,
 					tileSize,
 				})

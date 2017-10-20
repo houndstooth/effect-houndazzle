@@ -1,4 +1,4 @@
-import { Coordinate, Outline, Units } from '../../../../src'
+import { Coordinate, from, Outline, to, Units } from '../../../../src'
 import { SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
 
 const DIRECTIONS_PER_DIMENSION = 2
@@ -11,31 +11,30 @@ const substripeOutline: (_: {
 	tileOrigin: Coordinate,
 	tileSize: Units,
 }) => Outline = ({ substripeCount, substripeIndex, tileOrigin, tileSize }) => {
-	const tileSizeDowncast = tileSize as any
-	const substripeWidth = tileSizeDowncast * SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE / substripeCount as any
-	const substripeSlack = tileSizeDowncast * SLACK_FACTOR as any
+	const substripeWidth = from.Units(tileSize) * SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE / substripeCount
+	const substripeSlack = from.Units(tileSize) * SLACK_FACTOR
 
-	const x = tileOrigin[ 0 ] as any
-	const y = tileOrigin[ 1 ] as any
+	const x = from.Units(tileOrigin[ 0 ])
+	const y = from.Units(tileOrigin[ 1 ])
 
-	return [
+	return to.Outline([
 		[
-			x - substripeSlack as any,
-			y - substripeSlack + substripeIndex * substripeWidth as any,
-		] as Coordinate,
+			x - substripeSlack,
+			y - substripeSlack + substripeIndex * substripeWidth,
+		],
 		[
-			x + tileSizeDowncast + substripeSlack,
-			y - substripeSlack + substripeIndex * substripeWidth as any,
-		] as Coordinate,
+			x + from.Units(tileSize) + substripeSlack,
+			y - substripeSlack + substripeIndex * substripeWidth,
+		],
 		[
-			x + tileSizeDowncast + substripeSlack,
-			y - substripeSlack + (substripeIndex + TILE_WIDTH_CONSTANT) * substripeWidth as any,
-		] as Coordinate,
+			x + from.Units(tileSize) + substripeSlack,
+			y - substripeSlack + (substripeIndex + TILE_WIDTH_CONSTANT) * substripeWidth,
+		],
 		[
-			x - substripeSlack as any,
-			y - substripeSlack + (substripeIndex + TILE_WIDTH_CONSTANT) * substripeWidth as any,
-		] as Coordinate,
-	]
+			x - substripeSlack,
+			y - substripeSlack + (substripeIndex + TILE_WIDTH_CONSTANT) * substripeWidth,
+		],
+	])
 }
 
 export { substripeOutline }

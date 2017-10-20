@@ -1,13 +1,12 @@
-import { TileColorIndices } from '../../../../../../src/components/types/TileColorIndices'
-import { Coordinate } from '../../../../../../src/space/types/Coordinate'
+import * as to from '../../../../../../src/to'
 import * as components from '../../../../src/components/index'
 import { substripeTexture } from '../../../../src/textures/substripeTexture'
 
 describe('substripe texture', () => {
 	const context = {}
-	const tileColorIndices = [ 1, 0, 2 ] as TileColorIndices
-	const tileOrigin = [ 11 as any, 17 as any ] as Coordinate
-	const tileSize = 13 as any
+	const tileColorIndices = to.TileColorIndices([ 1, 0, 2 ])
+	const tileOrigin = to.Coordinate([ 11, 17 ])
+	const tileSize = to.Units(13)
 	const shapeColorIndex = 1
 
 	let substripeCalls

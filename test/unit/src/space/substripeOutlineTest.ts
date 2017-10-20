@@ -1,20 +1,19 @@
-import { Coordinate } from '../../../../../../src/space/types/Coordinate'
-import { Outline } from '../../../../../../src/space/types/Outline'
+import { to } from '../../../../../../src'
 import { substripeOutline } from '../../../../src/space/substripeOutline'
 
 describe('substripe outline', () => {
 	it('calculates the outline of a substripe', () => {
-		const tileOrigin = [ 11 as any, 17 as any ] as Coordinate
-		const tileSize = 13 as any
+		const tileOrigin = to.Coordinate([ 11, 17 ])
+		const tileSize = to.Units(13)
 		const substripeIndex = 1
 		const substripeCount = 7
 
-		const expectedOutline = [
-			[ 11 - 13 / 2 as any, 17 - 13 / 2 + 13 / 7 * 2  as any ],
-			[ 11 + 13 + 13 / 2 as any, 17 - 13 / 2 + 13 / 7 * 2  as any ],
-			[ 11 + 13 + 13 / 2 as any, 17 - 13 / 2 + 13 / 7 * 2 + 13 / 7 * 2  as any ],
-			[ 11 - 13 / 2 as any, 17 - 13 / 2 + 13 / 7 * 2 + 13 / 7 * 2  as any ],
-		] as Outline
+		const expectedOutline = to.Outline([
+			[ 11 - 13 / 2, 17 - 13 / 2 + 13 / 7 * 2  ],
+			[ 11 + 13 + 13 / 2, 17 - 13 / 2 + 13 / 7 * 2  ],
+			[ 11 + 13 + 13 / 2, 17 - 13 / 2 + 13 / 7 * 2 + 13 / 7 * 2  ],
+			[ 11 - 13 / 2, 17 - 13 / 2 + 13 / 7 * 2 + 13 / 7 * 2  ],
+		])
 
 		const outline = substripeOutline({ tileOrigin, tileSize, substripeIndex, substripeCount })
 

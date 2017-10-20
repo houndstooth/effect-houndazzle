@@ -1,5 +1,6 @@
-import { Address } from '../../../../../src'
 import { BLACK, TRANSPARENT } from '../../../../../src/constants'
+import * as from from '../../../../../src/from'
+import * as to from '../../../../../src/to'
 import { sectionCenterIsColor } from '../../../../../test/integration/helpers/sectionCenterIsColor'
 import {
 	Diagonal,
@@ -35,9 +36,9 @@ const expectSection: HoundazzleExpectSection = ({ expectedSection, areaOrigin, a
 const expectSolidSection: ExpectSolidSection = ({ areaOrigin, areaSize, color }) => {
 	expect(sectionCenterIsColor({
 		areaOrigin,
-		areaSize: areaSize as any / 16 as any,
+		areaSize: to.Units(from.Units(areaSize) / 16),
 		color,
-		sectionAddress: [ 0, 0 ] as Address,
+		sectionAddress: to.Address([ 0, 0 ]),
 		sectionResolution: 1,
 	})).toBe(true)
 }
@@ -45,16 +46,16 @@ const expectSolidSection: ExpectSolidSection = ({ areaOrigin, areaSize, color })
 const expectMinorDiagonalDividedSection: ExpectDiagonalDividedSection = ({ areaOrigin, areaSize, colors }) => {
 	expect(sectionCenterIsColor({
 		areaOrigin,
-		areaSize: areaSize as any / 16 as any,
+		areaSize: to.Units(from.Units(areaSize) / 16),
 		color: colors[ 0 ],
-		sectionAddress: [ 0, 0 ] as Address,
+		sectionAddress: to.Address([ 0, 0 ]),
 		sectionResolution: 2,
 	})).toBe(true)
 	expect(sectionCenterIsColor({
 		areaOrigin,
-		areaSize: areaSize as any / 16 as any,
+		areaSize: to.Units(from.Units(areaSize) / 16),
 		color: colors[ 1 ],
-		sectionAddress: [ 1, 1 ] as Address,
+		sectionAddress: to.Address([ 1, 1 ]),
 		sectionResolution: 2,
 	})).toBe(true)
 }

@@ -1,4 +1,5 @@
-import * as src from '../../../../../../src/index'
+import * as src from '../../../../../../src'
+import * as to from '../../../../../../src/to'
 import { orientSubstripeOutline } from '../../../../src/space/orientSubstripeOutline'
 
 describe('orient substripe outline', () => {
@@ -12,9 +13,9 @@ describe('orient substripe outline', () => {
 
 		const colorsCount = Math.PI
 		const shapeColorIndex = 7
-		const tileOrigin = [] as any
-		const tileSize = 42 as any
-		const outline = [ coordinate ] as any
+		const tileOrigin = to.Coordinate([])
+		const tileSize = to.Units(42)
+		const outline = to.Outline([ coordinate ])
 
 		const actualOutline = orientSubstripeOutline({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize })
 
