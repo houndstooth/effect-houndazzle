@@ -1,4 +1,4 @@
-import { Address, CanvasSize, executeSelectedHoundstoothEffects, state } from '../../../../../src'
+import { Address, executeSelectedHoundstoothEffects, state } from '../../../../../src'
 import { activateTestMarkerCanvas } from '../../../../../test/integration/helpers/activateTestMarkerCanvas'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
 import { houndazzleEffect } from '../../../effects/houndazzleEffect'
@@ -19,7 +19,7 @@ describe('houndazzle effect', () => {
 					tileSizeSetting: tileSize,
 				},
 				viewSettings: {
-					canvasSize: 800 as CanvasSize,
+					canvasSize: 800 as any,
 				},
 			},
 		}
