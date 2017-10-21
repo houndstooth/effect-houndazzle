@@ -3,8 +3,8 @@ import { Coordinate } from '../../../../../src/space'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
 
 enum HoundazzleFill {
-	Black = 'black',
-	White = 'white',
+	Black,
+	White,
 }
 
 type HoundazzleSectionExpectation = [ Diagonal, HoundazzleFill ]
