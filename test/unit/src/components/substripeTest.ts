@@ -6,7 +6,7 @@ import * as space from '../../../../src/space/index'
 describe('substripe', () => {
 	const context = {}
 	const tileOrigin = to.Coordinate([ 11, 17 ])
-	const tileSize = to.Units(13)
+	const tileSize = to.Unit(13)
 	const shapeColorIndex = 1
 	const substripeIndex = 5
 	const substripeCount = 17

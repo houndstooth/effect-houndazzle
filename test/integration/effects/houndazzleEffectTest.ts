@@ -9,7 +9,7 @@ import { HoundazzleFill, HoundazzleSectionExpectation } from '../helpers/types'
 describe('houndazzle effect', () => {
 	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', () => {
 		state.selectedHoundstoothEffects = [ houndazzleEffect ]
-		const tileSize = to.Units(200)
+		const tileSize = to.Unit(200)
 		const houndstoothOverrides = {
 			basePattern: {
 				gridSettings: {

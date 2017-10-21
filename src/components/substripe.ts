@@ -1,4 +1,4 @@
-import { Context, Coordinate, solid, Units } from '../../../../src'
+import { Context, Coordinate, solid, Unit } from '../../../../src'
 import { orientSubstripeOutline, substripeOutline } from '../space'
 
 const substripe: (_: {
@@ -8,7 +8,7 @@ const substripe: (_: {
 		substripeCount: number,
 		substripeIndex: number,
 		tileOrigin: Coordinate,
-		tileSize: Units,
+		tileSize: Unit,
 	}) => void = ({ context, tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount, colorsCount }) => {
 	let outline = substripeOutline({ tileOrigin, tileSize, substripeIndex, substripeCount })
 	outline = orientSubstripeOutline({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize })

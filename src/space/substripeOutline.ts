@@ -1,4 +1,4 @@
-import { Coordinate, from, Outline, to, Units } from '../../../../src'
+import { Coordinate, from, Outline, to, Unit } from '../../../../src'
 import { SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
 
 const DIRECTIONS_PER_DIMENSION = 2
@@ -9,13 +9,13 @@ const substripeOutline: (_: {
 	substripeCount: number,
 	substripeIndex: number,
 	tileOrigin: Coordinate,
-	tileSize: Units,
+	tileSize: Unit,
 }) => Outline = ({ substripeCount, substripeIndex, tileOrigin, tileSize }) => {
-	const substripeWidth = from.Units(tileSize) * SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE / substripeCount
-	const substripeSlack = from.Units(tileSize) * SLACK_FACTOR
+	const substripeWidth = from.Unit(tileSize) * SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE / substripeCount
+	const substripeSlack = from.Unit(tileSize) * SLACK_FACTOR
 
-	const x = from.Units(tileOrigin[ 0 ])
-	const y = from.Units(tileOrigin[ 1 ])
+	const x = from.Unit(tileOrigin[ 0 ])
+	const y = from.Unit(tileOrigin[ 1 ])
 
 	return to.Outline([
 		[
@@ -23,11 +23,11 @@ const substripeOutline: (_: {
 			y - substripeSlack + substripeIndex * substripeWidth,
 		],
 		[
-			x + from.Units(tileSize) + substripeSlack,
+			x + from.Unit(tileSize) + substripeSlack,
 			y - substripeSlack + substripeIndex * substripeWidth,
 		],
 		[
-			x + from.Units(tileSize) + substripeSlack,
+			x + from.Unit(tileSize) + substripeSlack,
 			y - substripeSlack + (substripeIndex + TILE_WIDTH_CONSTANT) * substripeWidth,
 		],
 		[

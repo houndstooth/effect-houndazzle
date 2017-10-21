@@ -1,4 +1,4 @@
-import { Units } from '../../../../../src/components'
+import { Unit } from '../../../../../src/components'
 import { Coordinate } from '../../../../../src/space'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
 
@@ -11,7 +11,7 @@ type HoundazzleSectionExpectation = [ Diagonal, HoundazzleFill ]
 
 type HoundazzleExpectSection = (_: {
 	areaOrigin: Coordinate,
-	areaSize: Units,
+	areaSize: Unit,
 	expectedSection: [ Diagonal, HoundazzleFill ],
 }) => void
 

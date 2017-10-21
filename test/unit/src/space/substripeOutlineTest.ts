@@ -4,7 +4,7 @@ import { substripeOutline } from '../../../../src/space/substripeOutline'
 describe('substripe outline', () => {
 	it('calculates the outline of a substripe', () => {
 		const tileOrigin = to.Coordinate([ 11, 17 ])
-		const tileSize = to.Units(13)
+		const tileSize = to.Unit(13)
 		const substripeIndex = 1
 		const substripeCount = 7
 

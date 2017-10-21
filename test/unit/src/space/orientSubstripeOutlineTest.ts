@@ -14,7 +14,7 @@ describe('orient substripe outline', () => {
 		const colorsCount = Math.PI
 		const shapeColorIndex = 7
 		const tileOrigin = to.Coordinate([])
-		const tileSize = to.Units(42)
+		const tileSize = to.Unit(42)
 		const outline = to.Outline([ coordinate ])
 
 		const actualOutline = orientSubstripeOutline({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize })
