@@ -4,16 +4,16 @@ import { substripeTexture } from '../../../../src/textures/substripeTexture'
 
 describe('substripe texture', () => {
 	const context = {}
-	const tileColorIndices = to.TileColorIndices([ 1, 0, 2 ])
+	const shapeColorIndices = to.ShapeColorIndices([ 1, 0, 2 ])
 	const tileOrigin = to.Coordinate([ 11, 17 ])
 	const tileSize = to.Unit(13)
-	const shapeColorIndex = to.TileColorIndex(1)
+	const shapeColorIndex = to.ShapeColorIndex(1)
 
 	let substripeCalls
 	beforeEach(() => {
 		const substripeSpy = spyOn(components, 'substripe')
 
-		substripeTexture({ context, tileColorIndices, tileOrigin, tileSize, shapeColorIndex })
+		substripeTexture({ context, shapeColorIndices, tileOrigin, tileSize, shapeColorIndex })
 
 		substripeCalls = substripeSpy.calls.all()
 	})
