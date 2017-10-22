@@ -5,10 +5,16 @@ import * as from from '../../../../../src/utilities/from'
 import * as to from '../../../../../src/utilities/to'
 
 const calculateAreaOrigin: (_: {
-	gridAddress: Address, sectionAddress: Address, sectionResolution: number, tileSize: Unit,
-}) => Coordinate = ({ gridAddress, sectionAddress, sectionResolution, tileSize }) => to.Coordinate([
-	gridAddress[ 0 ] * from.Unit(tileSize) + sectionAddress[ 0 ] * from.Unit(tileSize) / sectionResolution,
-	gridAddress[ 1 ] * from.Unit(tileSize) + sectionAddress[ 1 ] * from.Unit(tileSize) / sectionResolution,
-])
+	gridAddress: Address[], sectionAddress: Address[], sectionResolution: number, tileSize: Unit,
+}) => Coordinate = ({ gridAddress, sectionAddress, sectionResolution, tileSize }) => {
+	const [ gridX, gridY ] = from.Address(gridAddress)
+	const [ sectionX, sectionY ] = from.Address(sectionAddress)
+	const size = from.Unit(tileSize)
+
+	return to.Coordinate([
+		gridX * size + sectionX * size / sectionResolution,
+		gridY * size + sectionY * size / sectionResolution,
+	])
+}
 
 export { calculateAreaOrigin }
