@@ -15,7 +15,7 @@ describe('houndazzle effect', () => {
 					gridSize: 4,
 				},
 				tileSettings: {
-					tileSizeSetting: tileSize,
+					tileSize,
 				},
 				viewSettings: {
 					canvasSize: to.Dimension(800),
