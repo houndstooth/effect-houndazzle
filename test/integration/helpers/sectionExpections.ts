@@ -2,33 +2,29 @@ import { BLACK, TRANSPARENT } from '../../../../../src/constants'
 import * as from from '../../../../../src/utilities/from'
 import * as to from '../../../../../src/utilities/to'
 import { sectionCenterIsColor } from '../../../../../test/integration/helpers/sectionCenterIsColor'
-import {
-	Diagonal,
-	ExpectDiagonalDividedSection,
-	ExpectSolidSection,
-} from '../../../../../test/integration/helpers/types'
-import { HoundazzleExpectSection, HoundazzleFill } from './types'
+import { ExpectDiagonalDividedSection, ExpectSolidSection } from '../../../../../test/integration/helpers/types'
+import { HoundazzleExpectSection } from './types'
 
 const expectByDiagonal = {
-	[Diagonal.Solid]: ({ areaOrigin, areaSize, sectionDefiningColor }) => {
+	['solid']: ({ areaOrigin, areaSize, sectionDefiningColor }) => {
 		expectSolidSection({ areaOrigin, areaSize, color: sectionDefiningColor })
 	},
-	[Diagonal.SolidButTestMinorToAvoidSeam]: ({ areaOrigin, areaSize, sectionDefiningColor }) => {
+	['solidButTestMinorToAvoidSeam']: ({ areaOrigin, areaSize, sectionDefiningColor }) => {
 		expectMinorDiagonalDividedSection({
 			areaOrigin,
 			areaSize,
 			colors: [ sectionDefiningColor, sectionDefiningColor ],
 		})
 	},
-	[Diagonal.Minor]: ({ areaOrigin, areaSize, sectionDefiningColor, otherColor }) => {
+	['minor']: ({ areaOrigin, areaSize, sectionDefiningColor, otherColor }) => {
 		expectMinorDiagonalDividedSection({ areaOrigin, areaSize, colors: [ sectionDefiningColor, otherColor ] })
 	},
 }
 
 const expectSection: HoundazzleExpectSection = ({ expectedSection, areaOrigin, areaSize }) => {
 	const diagonalType = expectedSection[ 0 ]
-	const sectionDefiningColor = expectedSection[ 1 ] === HoundazzleFill.Black ? BLACK : TRANSPARENT
-	const otherColor = expectedSection[ 1 ] === HoundazzleFill.Black ? BLACK : TRANSPARENT
+	const sectionDefiningColor = expectedSection[ 1 ] === 'black' ? BLACK : TRANSPARENT
+	const otherColor = expectedSection[ 1 ] === 'black' ? BLACK : TRANSPARENT
 	const args = { areaOrigin, areaSize, sectionDefiningColor, otherColor }
 	expectByDiagonal[diagonalType](args)
 }

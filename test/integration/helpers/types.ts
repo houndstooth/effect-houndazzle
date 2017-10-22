@@ -2,10 +2,9 @@ import { Unit } from '../../../../../src/components'
 import { Coordinate } from '../../../../../src/space'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
 
-enum HoundazzleFill {
-	Black,
-	White,
-}
+type HoundazzleFill =
+	| 'black'
+	| 'white'
 
 type HoundazzleSectionExpectation = [ Diagonal, HoundazzleFill ]
 
@@ -16,7 +15,6 @@ type HoundazzleExpectSection = (_: {
 }) => void
 
 export {
-	HoundazzleFill,
 	HoundazzleSectionExpectation,
 	HoundazzleExpectSection,
 }
