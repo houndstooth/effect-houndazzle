@@ -11,13 +11,13 @@ describe('orient substripe outline', () => {
 
 		const coordinate = []
 
-		const colorsCount = Math.PI
+		const shapeColorCount = Math.PI
 		const shapeColorIndex = to.ShapeColorIndex(7)
 		const tileOrigin = to.Coordinate([])
 		const tileSize = to.Unit(42)
 		const outline = to.Outline([ coordinate ])
 
-		const actualOutline = orientSubstripeOutline({ colorsCount, shapeColorIndex, outline, tileOrigin, tileSize })
+		const actualOutline = orientSubstripeOutline({ shapeColorCount, shapeColorIndex, outline, tileOrigin, tileSize })
 
 		expect(src.tileCenter).toHaveBeenCalledWith({ tileSize, tileOrigin })
 		expect(src.rotateCoordinateAboutPoint).toHaveBeenCalledWith({

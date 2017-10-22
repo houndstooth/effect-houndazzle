@@ -10,9 +10,9 @@ import {
 } from '../../../../src'
 
 const orientSubstripeOutline: (_: {
-	colorsCount: number, outline: Outline, shapeColorIndex: ShapeColorIndex, tileOrigin: Coordinate, tileSize: Unit,
-}) => Outline = ({ colorsCount, outline, shapeColorIndex, tileOrigin, tileSize }) => {
-	const rotationUnit = Math.PI / colorsCount
+	shapeColorCount: number, outline: Outline, shapeColorIndex: ShapeColorIndex, tileOrigin: Coordinate, tileSize: Unit,
+}) => Outline = ({ shapeColorCount, outline, shapeColorIndex, tileOrigin, tileSize }) => {
+	const rotationUnit = Math.PI / shapeColorCount
 	const rotation = to.Radian(rotationUnit * from.ShapeColorIndex(shapeColorIndex))
 
 	return outline.map(coordinate => rotateCoordinateAboutPoint({

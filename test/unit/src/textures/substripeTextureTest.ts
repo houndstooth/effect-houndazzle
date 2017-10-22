@@ -4,7 +4,7 @@ import { substripeTexture } from '../../../../src/textures/substripeTexture'
 
 describe('substripe texture', () => {
 	const context = {}
-	const shapeColorIndices = to.ShapeColorIndices([ 1, 0, 2 ])
+	const shapeColorCount = 3
 	const tileOrigin = to.Coordinate([ 11, 17 ])
 	const tileSize = to.Unit(13)
 	const shapeColorIndex = to.ShapeColorIndex(1)
@@ -13,7 +13,7 @@ describe('substripe texture', () => {
 	beforeEach(() => {
 		const substripeSpy = spyOn(components, 'substripe')
 
-		substripeTexture({ context, shapeColorIndices, tileOrigin, tileSize, shapeColorIndex })
+		substripeTexture({ context, shapeColorCount, tileOrigin, tileSize, shapeColorIndex })
 
 		substripeCalls = substripeSpy.calls.all()
 	})
@@ -30,7 +30,7 @@ describe('substripe texture', () => {
 			expect(call.args[0].shapeColorIndex).toBe(shapeColorIndex)
 			expect(call.args[0].substripeIndex).toBe(callIndex)
 			expect(call.args[0].substripeCount).toBe(32)
-			expect(call.args[0].colorsCount).toBe(3)
+			expect(call.args[0].shapeColorCount).toBe(3)
 		})
 	})
 })

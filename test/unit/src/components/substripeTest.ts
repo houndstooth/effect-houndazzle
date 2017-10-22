@@ -10,7 +10,7 @@ describe('substripe', () => {
 	const shapeColorIndex = to.ShapeColorIndex(1)
 	const substripeIndex = 5
 	const substripeCount = 17
-	const colorsCount = 4
+	const shapeColorCount = 4
 
 	const outline = []
 	const orientedOutline = []
@@ -20,7 +20,7 @@ describe('substripe', () => {
 		spyOn(space, 'orientSubstripeOutline').and.returnValue(orientedOutline)
 		spyOn(src, 'solid')
 
-		substripe({ context, tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount, colorsCount })
+		substripe({ context, tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount, shapeColorCount })
 	})
 
 	it('gets the substripe outline', () => {
@@ -34,7 +34,7 @@ describe('substripe', () => {
 
 	it('orients the outline', () => {
 		expect(space.orientSubstripeOutline).toHaveBeenCalledWith({
-			colorsCount,
+			shapeColorCount,
 			outline,
 			shapeColorIndex,
 			tileOrigin,
