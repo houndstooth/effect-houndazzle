@@ -7,7 +7,7 @@ describe('substripe texture', () => {
 	const tileColorIndices = to.TileColorIndices([ 1, 0, 2 ])
 	const tileOrigin = to.Coordinate([ 11, 17 ])
 	const tileSize = to.Unit(13)
-	const shapeColorIndex = 1
+	const shapeColorIndex = to.TileColorIndex(1)
 
 	let substripeCalls
 	beforeEach(() => {
