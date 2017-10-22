@@ -1,9 +1,9 @@
-import { Context, Coordinate, solid, ShapeColorIndex, to, Unit } from '../../../../src'
+import { Context, Coordinate, ShapeColorIndex, solid, to, Unit } from '../../../../src'
 import { orientSubstripeOutline, substripeOutline } from '../space'
 
 const substripe: (_: {
-		shapeColorCount: number,
 		context: Context,
+		shapeColorCount: number,
 		shapeColorIndex: ShapeColorIndex,
 		substripeCount: number,
 		substripeIndex: number,

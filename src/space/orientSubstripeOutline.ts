@@ -3,15 +3,15 @@ import {
 	from,
 	Outline,
 	rotateCoordinateAboutPoint,
-	tileCenter,
 	ShapeColorIndex,
+	tileCenter,
 	to,
 	Unit,
 } from '../../../../src'
 
 const orientSubstripeOutline: (_: {
-	shapeColorCount: number, outline: Outline, shapeColorIndex: ShapeColorIndex, tileOrigin: Coordinate, tileSize: Unit,
-}) => Outline = ({ shapeColorCount, outline, shapeColorIndex, tileOrigin, tileSize }) => {
+	outline: Outline, shapeColorCount: number, shapeColorIndex: ShapeColorIndex, tileOrigin: Coordinate, tileSize: Unit,
+}) => Outline = ({ outline, shapeColorCount, shapeColorIndex, tileOrigin, tileSize }) => {
 	const rotationUnit = Math.PI / shapeColorCount
 	const rotation = to.Radian(rotationUnit * from.ShapeColorIndex(shapeColorIndex))
 

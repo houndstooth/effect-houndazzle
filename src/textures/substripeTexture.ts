@@ -8,8 +8,8 @@ const substripeTexture: RenderTexture = ({ context, shapeColorIndex, shapeColorC
 
 	iterator(substripeCount).forEach(substripeIndex => {
 		substripe({
-			shapeColorCount,
 			context,
+			shapeColorCount,
 			shapeColorIndex,
 			substripeCount,
 			substripeIndex,
