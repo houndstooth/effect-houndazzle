@@ -1,8 +1,8 @@
 import { Address } from '../../../../../src/components/types/Address'
 import { Unit } from '../../../../../src/components/types/Unit'
-import * as from from '../../../../../src/from'
 import { Coordinate } from '../../../../../src/space/types/Coordinate'
-import * as to from '../../../../../src/to'
+import * as from from '../../../../../src/utilities/from'
+import * as to from '../../../../../src/utilities/to'
 
 const calculateAreaOrigin: (_: {
 	gridAddress: Address, sectionAddress: Address, sectionResolution: number, tileSize: Unit,

@@ -1,4 +1,4 @@
-import * as to from '../../../../../../src/to'
+import * as to from '../../../../../../src/utilities/to'
 import * as components from '../../../../src/components/index'
 import { substripeTexture } from '../../../../src/textures/substripeTexture'
 

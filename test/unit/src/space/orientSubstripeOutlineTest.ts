@@ -1,5 +1,5 @@
 import * as src from '../../../../../../src'
-import * as to from '../../../../../../src/to'
+import * as to from '../../../../../../src/utilities/to'
 import { orientSubstripeOutline } from '../../../../src/space/orientSubstripeOutline'
 
 describe('orient substripe outline', () => {
