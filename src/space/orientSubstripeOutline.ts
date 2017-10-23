@@ -2,7 +2,7 @@ import {
 	Coordinate,
 	from,
 	Outline,
-	rotateCoordinateAboutPoint,
+	rotate,
 	ShapeColorIndex,
 	tileCenter,
 	to,
@@ -15,9 +15,9 @@ const orientSubstripeOutline: (_: {
 	const rotationUnit = Math.PI / shapeColorCount
 	const rotation = to.Radian(rotationUnit * from.ShapeColorIndex(shapeColorIndex))
 
-	return outline.map(coordinate => rotateCoordinateAboutPoint({
-		coordinate,
-		point: tileCenter({ tileOrigin, tileSize }),
+	return outline.map(coordinate => rotate({
+		fixedPoint: tileCenter({ tileOrigin, tileSize }),
+		point: coordinate,
 		rotation,
 	}))
 }
