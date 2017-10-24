@@ -4,7 +4,6 @@ import { substripe } from '../../../../src/components/substripe'
 import * as space from '../../../../src/space/index'
 
 describe('substripe', () => {
-	const context = {}
 	const tileOrigin = to.Coordinate([ 11, 17 ])
 	const tileSize = to.Unit(13)
 	const shapeColorIndex = to.ShapeColorIndex(1)
@@ -20,7 +19,7 @@ describe('substripe', () => {
 		spyOn(space, 'orientSubstripeOutline').and.returnValue(orientedOutline)
 		spyOn(src, 'solid')
 
-		substripe({ context, tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount, shapeColorCount })
+		substripe({ tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount, shapeColorCount })
 	})
 
 	it('gets the substripe outline', () => {
@@ -44,7 +43,6 @@ describe('substripe', () => {
 
 	it('sends the result to be rendered as a solid filled path', () => {
 		expect(src.solid).toHaveBeenCalledWith({
-			context,
 			outline: orientedOutline,
 			shapeColorIndex: substripeIndex,
 		})

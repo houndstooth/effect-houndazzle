@@ -1,9 +1,8 @@
 import * as to from '../../../../../../src/utilities/to'
-import * as components from '../../../../src/components/index'
-import { substripeTexture } from '../../../../src/textures/substripeTexture'
+import * as substripe from '../../../../src/components/substripe'
+import { substripeTexture } from '../../../../src/components/substripeTexture'
 
 describe('substripe texture', () => {
-	const context = {}
 	const shapeColorCount = 3
 	const tileOrigin = to.Coordinate([ 11, 17 ])
 	const tileSize = to.Unit(13)
@@ -11,9 +10,9 @@ describe('substripe texture', () => {
 
 	let substripeCalls
 	beforeEach(() => {
-		const substripeSpy = spyOn(components, 'substripe')
+		const substripeSpy = spyOn(substripe, 'substripe')
 
-		substripeTexture({ context, shapeColorCount, tileOrigin, tileSize, shapeColorIndex })
+		substripeTexture({ shapeColorCount, tileOrigin, tileSize, shapeColorIndex })
 
 		substripeCalls = substripeSpy.calls.all()
 	})
@@ -24,7 +23,6 @@ describe('substripe texture', () => {
 
 	it('gets the substripe outline with the correct arguments', () => {
 		substripeCalls.forEach((call, callIndex) => {
-			expect(call.args[0].context).toBe(context)
 			expect(call.args[0].tileOrigin).toBe(tileOrigin)
 			expect(call.args[0].tileSize).toBe(tileSize)
 			expect(call.args[0].shapeColorIndex).toBe(shapeColorIndex)

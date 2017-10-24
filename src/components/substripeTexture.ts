@@ -1,14 +1,13 @@
-import { RenderTexture } from '../../../../src'
+import { ExecuteTexture } from '../../../../src'
 import { iterator } from '../../../../src/utilities/codeUtilities'
-import { substripe } from '../components'
 import { SUBSTRIPE_COUNT, SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
+import { substripe } from './substripe'
 
-const substripeTexture: RenderTexture = ({ context, shapeColorIndex, shapeColorCount, tileOrigin, tileSize }) => {
+const substripeTexture: ExecuteTexture = ({ shapeColorIndex, shapeColorCount, tileOrigin, tileSize }) => {
 	const substripeCount = SUBSTRIPE_COUNT * SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE
 
 	iterator(substripeCount).forEach(substripeIndex => {
 		substripe({
-			context,
 			shapeColorCount,
 			shapeColorIndex,
 			substripeCount,
