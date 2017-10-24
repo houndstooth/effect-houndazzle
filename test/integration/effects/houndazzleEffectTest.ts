@@ -18,7 +18,7 @@ describe('houndazzle effect', () => {
 					tileSize,
 				},
 				viewSettings: {
-					canvasSize: to.Dimension(800),
+					canvasSize: to.Px(800),
 				},
 			},
 		}
