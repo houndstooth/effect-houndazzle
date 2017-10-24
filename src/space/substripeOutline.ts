@@ -6,7 +6,8 @@ const DIRECTIONS_PER_DIMENSION = 2
 const TILE_WIDTH_CONSTANT = 1
 const SLACK_FACTOR = (SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE - TILE_WIDTH_CONSTANT) / DIRECTIONS_PER_DIMENSION
 
-const substripeOutline: (_: SubstripeOutlineParams) => Outline = ({ substripeCount, substripeIndex, tileOrigin, tileSize }) => {
+const substripeOutline: (_: SubstripeOutlineParams) => Outline = params => {
+	const { substripeCount, substripeIndex, tileOrigin, tileSize } = params
 	const substripeWidth = from.Unit(tileSize) * SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE / substripeCount
 	const substripeSlack = from.Unit(tileSize) * SLACK_FACTOR
 

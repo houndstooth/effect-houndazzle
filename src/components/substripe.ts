@@ -1,10 +1,7 @@
-import { ShapeColorIndex, solid, to } from '../../../../src'
-import { orientSubstripeOutline, substripeOutline } from '../space'
-import { SubstripeOutlineParams } from '../space'
+import { ColorOptions, solid, to } from '../../../../src'
+import { orientSubstripeOutline, substripeOutline, SubstripeOutlineParams } from '../space'
 
-interface SubstripeParams extends SubstripeOutlineParams {
-	shapeColorCount: number,
-	shapeColorIndex: ShapeColorIndex,
+interface SubstripeParams extends SubstripeOutlineParams, ColorOptions {
 }
 
 const substripe: (_: SubstripeParams) => void = params => {
