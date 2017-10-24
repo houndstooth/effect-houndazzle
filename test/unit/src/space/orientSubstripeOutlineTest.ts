@@ -5,7 +5,7 @@ import { orientSubstripeOutline } from '../../../../src/space/orientSubstripeOut
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {
 		const rotatedCoordinate = []
-		spyOn(src, 'rotate').and.returnValue(rotatedCoordinate)
+		spyOn(src, 'rotateCoordinate').and.returnValue(rotatedCoordinate)
 		const tileCenter = []
 		spyOn(src, 'tileCenter').and.returnValue(tileCenter)
 
@@ -20,9 +20,9 @@ describe('orient substripe outline', () => {
 		const actualOutline = orientSubstripeOutline({ shapeColorCount, shapeColorIndex, outline, tileOrigin, tileSize })
 
 		expect(src.tileCenter).toHaveBeenCalledWith({ tileSize, tileOrigin })
-		expect(src.rotate).toHaveBeenCalledWith({
-			fixedPoint: tileCenter,
-			point: coordinate,
+		expect(src.rotateCoordinate).toHaveBeenCalledWith({
+			coordinate,
+			fixedCoordinate: tileCenter,
 			rotation: 7,
 		})
 		expect(actualOutline[ 0 ]).toBe(rotatedCoordinate)
