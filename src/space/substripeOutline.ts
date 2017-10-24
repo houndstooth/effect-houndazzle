@@ -1,16 +1,12 @@
-import { Coordinate, from, Outline, to, Unit } from '../../../../src'
+import { from, Outline, to } from '../../../../src'
 import { SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
+import { SubstripeOutlineParams } from './types'
 
 const DIRECTIONS_PER_DIMENSION = 2
 const TILE_WIDTH_CONSTANT = 1
 const SLACK_FACTOR = (SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE - TILE_WIDTH_CONSTANT) / DIRECTIONS_PER_DIMENSION
 
-const substripeOutline: (_: {
-	substripeCount: number,
-	substripeIndex: number,
-	tileOrigin: Coordinate,
-	tileSize: Unit,
-}) => Outline = ({ substripeCount, substripeIndex, tileOrigin, tileSize }) => {
+const substripeOutline: (_: SubstripeOutlineParams) => Outline = ({ substripeCount, substripeIndex, tileOrigin, tileSize }) => {
 	const substripeWidth = from.Unit(tileSize) * SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE / substripeCount
 	const substripeSlack = from.Unit(tileSize) * SLACK_FACTOR
 

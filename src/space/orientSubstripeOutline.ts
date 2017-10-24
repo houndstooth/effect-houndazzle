@@ -1,17 +1,20 @@
 import {
-	Coordinate,
 	from,
 	Outline,
 	rotateCoordinate,
 	ShapeColorIndex,
 	tileCenter,
 	to,
-	Unit,
 } from '../../../../src'
+import { TileOriginAndSize } from '../../../../src/components/types/TileOriginAndSize'
 
-const orientSubstripeOutline: (_: {
-	outline: Outline, shapeColorCount: number, shapeColorIndex: ShapeColorIndex, tileOrigin: Coordinate, tileSize: Unit,
-}) => Outline = ({ outline, shapeColorCount, shapeColorIndex, tileOrigin, tileSize }) => {
+interface OrientSubstripeOutlineParams extends TileOriginAndSize {
+	outline: Outline,
+	shapeColorCount: number,
+	shapeColorIndex: ShapeColorIndex,
+}
+
+const orientSubstripeOutline: (_: OrientSubstripeOutlineParams) => Outline = ({ outline, shapeColorCount, shapeColorIndex, tileOrigin, tileSize }) => {
 	const rotationUnit = Math.PI / shapeColorCount
 	const rotation = to.Radian(rotationUnit * from.ShapeColorIndex(shapeColorIndex))
 
