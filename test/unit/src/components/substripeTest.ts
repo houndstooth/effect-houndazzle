@@ -1,5 +1,6 @@
 import { to } from '../../../../../../src'
 import * as src from '../../../../../../src/index'
+import { Outline } from '../../../../../../src/space/types/Outline'
 import { substripe } from '../../../../src/components/substripe'
 import * as space from '../../../../src/space/index'
 
@@ -11,8 +12,8 @@ describe('substripe', () => {
 	const substripeCount = 17
 	const shapeColorCount = 4
 
-	const outline = []
-	const orientedOutline = []
+	const outline: Outline = []
+	const orientedOutline: Outline = []
 
 	beforeEach(() => {
 		spyOn(space, 'substripeOutline').and.returnValue(outline)

@@ -4,12 +4,12 @@ import { orientSubstripeOutline } from '../../../../src/space/orientSubstripeOut
 
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {
-		const rotatedCoordinate = []
+		const rotatedCoordinate = to.Coordinate([])
 		spyOn(src, 'rotateCoordinate').and.returnValue(rotatedCoordinate)
-		const tileCenter = []
+		const tileCenter = to.Coordinate([])
 		spyOn(src, 'tileCenter').and.returnValue(tileCenter)
 
-		const coordinate = []
+		const coordinate = to.Coordinate([])
 
 		const shapeColorCount = Math.PI
 		const shapeColorIndex = to.ShapeColorIndex(7)

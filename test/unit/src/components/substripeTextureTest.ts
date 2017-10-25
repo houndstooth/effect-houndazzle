@@ -1,6 +1,7 @@
 import * as to from '../../../../../../src/utilities/to'
 import * as substripe from '../../../../src/components/substripe'
 import { substripeTexture } from '../../../../src/components/substripeTexture'
+import CallInfo = jasmine.CallInfo
 
 describe('substripe texture', () => {
 	const shapeColorCount = 3
@@ -8,7 +9,7 @@ describe('substripe texture', () => {
 	const tileSize = to.Unit(13)
 	const shapeColorIndex = to.ShapeColorIndex(1)
 
-	let substripeCalls
+	let substripeCalls: CallInfo[]
 	beforeEach(() => {
 		const substripeSpy = spyOn(substripe, 'substripe')
 
