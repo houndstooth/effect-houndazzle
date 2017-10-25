@@ -1,22 +1,28 @@
+import { Unit } from '../../../../../src/components/types/Unit'
 import { BLACK, TRANSPARENT } from '../../../../../src/constants'
+import { Color } from '../../../../../src/render/types/Color'
+import { Coordinate } from '../../../../../src/space/types/Coordinate'
 import * as from from '../../../../../src/utilities/from'
 import * as to from '../../../../../src/utilities/to'
 import { sectionCenterIsColor } from '../../../../../test/integration/helpers/sectionCenterIsColor'
 import { ExpectDiagonalDividedSection, ExpectSolidSection } from '../../../../../test/integration/helpers/types'
 import { HoundazzleExpectSection } from './types'
 
-const expectByDiagonal = {
-	['solid']: ({ areaOrigin, areaSize, sectionDefiningColor }) => {
+interface ExpectSolidParams { areaOrigin: Coordinate, areaSize: Unit, sectionDefiningColor: Color }
+interface ExpectDiagonalParams extends ExpectSolidParams { otherColor: Color }
+
+const expectByDiagonal: { [index: string]: any } = {
+	['solid']: ({ areaOrigin, areaSize, sectionDefiningColor }: ExpectSolidParams) => {
 		expectSolidSection({ areaOrigin, areaSize, color: sectionDefiningColor })
 	},
-	['solidButTestMinorToAvoidSeam']: ({ areaOrigin, areaSize, sectionDefiningColor }) => {
+	['solidButTestMinorToAvoidSeam']: ({ areaOrigin, areaSize, sectionDefiningColor }: ExpectSolidParams) => {
 		expectMinorDiagonalDividedSection({
 			areaOrigin,
 			areaSize,
 			colors: [ sectionDefiningColor, sectionDefiningColor ],
 		})
 	},
-	['minor']: ({ areaOrigin, areaSize, sectionDefiningColor, otherColor }) => {
+	['minor']: ({ areaOrigin, areaSize, sectionDefiningColor, otherColor }: ExpectDiagonalParams) => {
 		expectMinorDiagonalDividedSection({ areaOrigin, areaSize, colors: [ sectionDefiningColor, otherColor ] })
 	},
 }
