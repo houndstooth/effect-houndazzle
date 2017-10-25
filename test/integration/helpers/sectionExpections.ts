@@ -11,6 +11,7 @@ import { HoundazzleExpectSection } from './types'
 interface ExpectSolidParams { areaOrigin: Coordinate, areaSize: Unit, sectionDefiningColor: Color }
 interface ExpectDiagonalParams extends ExpectSolidParams { otherColor: Color }
 
+// tslint:disable-next-line:no-any
 const expectByDiagonal: { [index: string]: any } = {
 	['solid']: ({ areaOrigin, areaSize, sectionDefiningColor }: ExpectSolidParams) => {
 		expectSolidSection({ areaOrigin, areaSize, color: sectionDefiningColor })
