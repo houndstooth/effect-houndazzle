@@ -1,6 +1,6 @@
 import { to } from '../../../../../../src'
 import * as src from '../../../../../../src/index'
-import { Outline } from '../../../../../../src/space/types/Outline'
+import { Outline } from '../../../../../../src/space'
 import { substripe } from '../../../../src/components/substripe'
 import * as space from '../../../../src/space/index'
 
