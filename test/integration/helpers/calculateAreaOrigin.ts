@@ -1,5 +1,4 @@
-import { Address } from '../../../../../src/components'
-import { Unit } from '../../../../../src/components'
+import { Address, Unit } from '../../../../../src/components'
 import { Coordinate } from '../../../../../src/space'
 import * as from from '../../../../../src/utilities/from'
 import * as to from '../../../../../src/utilities/to'
