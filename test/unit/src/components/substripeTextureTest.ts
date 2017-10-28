@@ -1,17 +1,20 @@
+import { ShapeColorIndex, Unit } from '../../../../../../src/components/types'
+import CallInfo = jasmine.CallInfo
+import { Coordinate } from '../../../../../../src/space/types'
 import * as to from '../../../../../../src/utilities/to'
 import * as substripe from '../../../../src/components/substripe'
 import { substripeTexture } from '../../../../src/components/substripeTexture'
-import CallInfo = jasmine.CallInfo
+import Spy = jasmine.Spy
 
 describe('substripe texture', () => {
-	const shapeColorCount = 3
-	const tileOrigin = to.Coordinate([ 11, 17 ])
-	const tileSize = to.Unit(13)
-	const shapeColorIndex = to.ShapeColorIndex(1)
+	const shapeColorCount: number = 3
+	const tileOrigin: Coordinate = to.Coordinate([ 11, 17 ])
+	const tileSize: Unit = to.Unit(13)
+	const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(1)
 
 	let substripeCalls: CallInfo[]
 	beforeEach(() => {
-		const substripeSpy = spyOn(substripe, 'substripe')
+		const substripeSpy: Spy = spyOn(substripe, 'substripe')
 
 		substripeTexture({ shapeColorCount, tileOrigin, tileSize, shapeColorIndex })
 

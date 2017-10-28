@@ -8,13 +8,13 @@ type HoundazzleFill =
 
 type HoundazzleSectionExpectation = [ Diagonal, HoundazzleFill ]
 
-type HoundazzleExpectSection = (_: {
+interface HoundazzleExpectSectionParams {
 	areaOrigin: Coordinate,
 	areaSize: Unit,
 	expectedSection: [ Diagonal, HoundazzleFill ],
-}) => void
+}
 
 export {
 	HoundazzleSectionExpectation,
-	HoundazzleExpectSection,
+	HoundazzleExpectSectionParams,
 }
