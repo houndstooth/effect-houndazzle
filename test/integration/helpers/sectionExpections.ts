@@ -11,15 +11,15 @@ import { HoundazzleExpectSectionParams } from './types'
 interface ExpectSolidParams {
 	areaOrigin: Coordinate,
 	areaSize: Unit,
-	sectionDefiningColor: Color
+	sectionDefiningColor: Color,
 }
 
 interface ExpectDiagonalParams extends ExpectSolidParams {
-	otherColor: Color
+	otherColor: Color,
 }
 
 interface ExpectParams extends ExpectSolidParams {
-	otherColor?: Color
+	otherColor?: Color,
 }
 
 interface SolidExpectation {
