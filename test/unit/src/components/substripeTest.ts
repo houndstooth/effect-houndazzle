@@ -1,16 +1,18 @@
 import { to } from '../../../../../../src'
+import { ShapeColorIndex, Unit } from '../../../../../../src/components/types'
 import * as src from '../../../../../../src/index'
 import { Outline } from '../../../../../../src/space'
+import { Coordinate } from '../../../../../../src/space/types'
 import { substripe } from '../../../../src/components/substripe'
 import * as space from '../../../../src/space/index'
 
 describe('substripe', () => {
-	const tileOrigin = to.Coordinate([ 11, 17 ])
-	const tileSize = to.Unit(13)
-	const shapeColorIndex = to.ShapeColorIndex(1)
-	const substripeIndex = 5
-	const substripeCount = 17
-	const shapeColorCount = 4
+	const tileOrigin: Coordinate = to.Coordinate([ 11, 17 ])
+	const tileSize: Unit = to.Unit(13)
+	const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(1)
+	const substripeIndex: number = 5
+	const substripeCount: number = 17
+	const shapeColorCount: number = 4
 
 	const outline: Outline = []
 	const orientedOutline: Outline = []

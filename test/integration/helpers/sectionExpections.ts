@@ -1,52 +1,31 @@
-import { Unit } from '../../../../../src/components'
 import { BLACK, TRANSPARENT } from '../../../../../src/constants'
 import { Color } from '../../../../../src/render'
-import { Coordinate } from '../../../../../src/space'
 import * as from from '../../../../../src/utilities/from'
 import * as to from '../../../../../src/utilities/to'
 import { sectionCenterIsColor } from '../../../../../test/integration/helpers/sectionCenterIsColor'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
-import { HoundazzleExpectSectionParams } from './types'
-
-interface ExpectSolidParams {
-	areaOrigin: Coordinate,
-	areaSize: Unit,
-	sectionDefiningColor: Color,
-}
-
-interface ExpectDiagonalParams extends ExpectSolidParams {
-	otherColor: Color,
-}
-
-interface ExpectParams extends ExpectSolidParams {
-	otherColor?: Color,
-}
-
-interface SolidExpectation {
-	areaOrigin: Coordinate,
-	areaSize: Unit,
-	color: Color,
-}
-
-interface DiagonalExpectation {
-	areaOrigin: Coordinate,
-	areaSize: Unit,
-	colors: Color[],
-}
+import {
+	DiagonalExpectation,
+	ExpectDiagonalParams,
+	ExpectParams,
+	ExpectSolidParams,
+	HoundazzleExpectSectionParams,
+	SolidExpectation,
+} from './types'
 
 // tslint:disable-next-line:no-any
 const expectByDiagonal: { [index: string]: (p: ExpectParams) => void } = {
-	['solid']: ({ areaOrigin, areaSize, sectionDefiningColor }: ExpectSolidParams) => {
+	['solid']: ({ areaOrigin, areaSize, sectionDefiningColor }: ExpectSolidParams): void => {
 		expectSolidSection({ areaOrigin, areaSize, color: sectionDefiningColor })
 	},
-	['solidButTestMinorToAvoidSeam']: ({ areaOrigin, areaSize, sectionDefiningColor }: ExpectSolidParams) => {
+	['solidButTestMinorToAvoidSeam']: ({ areaOrigin, areaSize, sectionDefiningColor }: ExpectSolidParams): void => {
 		expectMinorDiagonalDividedSection({
 			areaOrigin,
 			areaSize,
 			colors: [ sectionDefiningColor, sectionDefiningColor ],
 		})
 	},
-	['minor']: ({ areaOrigin, areaSize, sectionDefiningColor, otherColor }: ExpectDiagonalParams) => {
+	['minor']: ({ areaOrigin, areaSize, sectionDefiningColor, otherColor }: ExpectDiagonalParams): void => {
 		expectMinorDiagonalDividedSection({ areaOrigin, areaSize, colors: [ sectionDefiningColor, otherColor ] })
 	},
 }

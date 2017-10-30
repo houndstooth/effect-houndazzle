@@ -5,6 +5,7 @@ import * as to from '../../../../../../src/utilities/to'
 import * as substripe from '../../../../src/components/substripe'
 import { substripeTexture } from '../../../../src/components/substripeTexture'
 import Spy = jasmine.Spy
+import { SubstripeParams } from '../../../../src/components/types'
 
 describe('substripe texture', () => {
 	const shapeColorCount: number = 3
@@ -26,13 +27,15 @@ describe('substripe texture', () => {
 	})
 
 	it('gets the substripe outline with the correct arguments', () => {
-		substripeCalls.forEach((call, callIndex) => {
-			expect(call.args[0].tileOrigin).toBe(tileOrigin)
-			expect(call.args[0].tileSize).toBe(tileSize)
-			expect(call.args[0].shapeColorIndex).toBe(shapeColorIndex)
-			expect(call.args[0].substripeIndex).toBe(callIndex)
-			expect(call.args[0].substripeCount).toBe(32)
-			expect(call.args[0].shapeColorCount).toBe(3)
+		substripeCalls.forEach((call: CallInfo, callIndex: number): void => {
+			const calls: SubstripeParams[] = call.args
+
+			expect(calls[0].tileOrigin).toBe(tileOrigin)
+			expect(calls[0].tileSize).toBe(tileSize)
+			expect(calls[0].shapeColorIndex).toBe(shapeColorIndex)
+			expect(calls[0].substripeIndex).toBe(callIndex)
+			expect(calls[0].substripeCount).toBe(32)
+			expect(calls[0].shapeColorCount).toBe(3)
 		})
 	})
 })

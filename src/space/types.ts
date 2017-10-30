@@ -1,4 +1,4 @@
-import { TileOriginAndSize } from '../../../../../src'
+import { TileOriginAndSize } from '../../../../src'
 
 interface SubstripeOutlineParams extends TileOriginAndSize {
 	substripeCount: number,

@@ -1,19 +1,18 @@
-import { Address, Unit } from '../../../../../src/components'
 import { Coordinate } from '../../../../../src/space'
 import * as from from '../../../../../src/utilities/from'
 import * as to from '../../../../../src/utilities/to'
+import { AreaOriginParams } from './types'
 
-const calculateAreaOrigin: (_: {
-	gridAddress: Address, sectionAddress: Address, sectionResolution: number, tileSize: Unit,
-}) => Coordinate = ({ gridAddress, sectionAddress, sectionResolution, tileSize }) => {
-	const [ gridX, gridY ] = from.Address(gridAddress)
-	const [ sectionX, sectionY ] = from.Address(sectionAddress)
-	const size = from.Unit(tileSize)
+const calculateAreaOrigin: (_: AreaOriginParams) => Coordinate =
+	({ gridAddress, sectionAddress, sectionResolution, tileSize }: AreaOriginParams): Coordinate => {
+		const [ gridX, gridY ]: number[] = from.Address(gridAddress)
+		const [ sectionX, sectionY ]: number[] = from.Address(sectionAddress)
+		const size: number = from.Unit(tileSize)
 
-	return to.Coordinate([
-		gridX * size + sectionX * size / sectionResolution,
-		gridY * size + sectionY * size / sectionResolution,
-	])
-}
+		return to.Coordinate([
+			gridX * size + sectionX * size / sectionResolution,
+			gridY * size + sectionY * size / sectionResolution,
+		])
+	}
 
 export { calculateAreaOrigin }
