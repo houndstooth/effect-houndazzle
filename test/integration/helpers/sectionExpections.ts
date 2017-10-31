@@ -6,37 +6,29 @@ import { sectionCenterIsColor } from '../../../../../test/integration/helpers/se
 import { Diagonal } from '../../../../../test/integration/helpers/types'
 import {
 	DiagonalExpectation,
-	ExpectDiagonalParams,
-	ExpectParams,
-	ExpectSolidParams,
 	HoundazzleExpectSectionParams,
 	SolidExpectation,
 } from './types'
-
-// tslint:disable-next-line:no-any
-const expectByDiagonal: { [index: string]: (p: ExpectParams) => void } = {
-	['solid']: ({ areaOrigin, areaSize, sectionDefiningColor }: ExpectSolidParams): void => {
-		expectSolidSection({ areaOrigin, areaSize, color: sectionDefiningColor })
-	},
-	['solidButTestMinorToAvoidSeam']: ({ areaOrigin, areaSize, sectionDefiningColor }: ExpectSolidParams): void => {
-		expectMinorDiagonalDividedSection({
-			areaOrigin,
-			areaSize,
-			colors: [ sectionDefiningColor, sectionDefiningColor ],
-		})
-	},
-	['minor']: ({ areaOrigin, areaSize, sectionDefiningColor, otherColor }: ExpectDiagonalParams): void => {
-		expectMinorDiagonalDividedSection({ areaOrigin, areaSize, colors: [ sectionDefiningColor, otherColor ] })
-	},
-}
 
 const expectSection: (_: HoundazzleExpectSectionParams) => void =
 	({ expectedSection, areaOrigin, areaSize }: HoundazzleExpectSectionParams): void => {
 		const diagonalType: Diagonal = expectedSection[ 0 ]
 		const sectionDefiningColor: Color = expectedSection[ 1 ] === 'black' ? BLACK : TRANSPARENT
 		const otherColor: Color = expectedSection[ 1 ] === 'black' ? BLACK : TRANSPARENT
-		const args: ExpectParams = { areaOrigin, areaSize, sectionDefiningColor, otherColor }
-		expectByDiagonal[ diagonalType ](args)
+
+		if (diagonalType === 'solid') {
+			expectSolidSection({ areaOrigin, areaSize, color: sectionDefiningColor })
+		}
+		else if (diagonalType === 'solidButTestMinorToAvoidSeam') {
+			expectMinorDiagonalDividedSection({
+				areaOrigin,
+				areaSize,
+				colors: [ sectionDefiningColor, sectionDefiningColor ],
+			})
+		}
+		else { // If (diagonalType === 'solidButTestMinorToAvoidSeam')
+			expectMinorDiagonalDividedSection({ areaOrigin, areaSize, colors: [ sectionDefiningColor, otherColor ] })
+		}
 	}
 
 const expectSolidSection: (_: SolidExpectation) => void =

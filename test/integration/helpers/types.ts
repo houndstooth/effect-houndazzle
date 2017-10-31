@@ -17,10 +17,6 @@ interface ExpectSolidParams {
 	sectionDefiningColor: Color,
 }
 
-interface ExpectDiagonalParams extends ExpectSolidParams {
-	otherColor: Color,
-}
-
 interface ExpectParams extends ExpectSolidParams {
 	otherColor?: Color,
 }
@@ -54,7 +50,6 @@ export {
 	DiagonalExpectation,
 	ExpectParams,
 	ExpectSolidParams,
-	ExpectDiagonalParams,
 	HoundazzleSectionExpectation,
 	HoundazzleExpectSectionParams,
 	SolidExpectation,
