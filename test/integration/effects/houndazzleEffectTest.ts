@@ -9,7 +9,8 @@ import { expectSection } from '../helpers/sectionExpections'
 import { HoundazzleSectionExpectation } from '../helpers/types'
 
 describe('houndazzle effect', () => {
-	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', () => {
+	// tslint:disable-next-line:max-line-length
+	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', async (done: DoneFn) => {
 		state.selectedHoundstoothEffects = [ houndazzleEffect ]
 		const tileSize: Unit = to.Unit(200)
 		const houndstoothOverrides: Effect = {
@@ -27,7 +28,7 @@ describe('houndazzle effect', () => {
 		}
 		activateTestMarkerCanvas()
 
-		executeSelectedHoundstoothEffects({ houndstoothOverrides })
+		await executeSelectedHoundstoothEffects({ houndstoothOverrides })
 
 		const partA: HoundazzleSectionExpectation[][] = [
 			[
@@ -359,5 +360,7 @@ describe('houndazzle effect', () => {
 				})
 			})
 		})
+
+		done()
 	})
 })
