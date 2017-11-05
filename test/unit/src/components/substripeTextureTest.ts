@@ -8,7 +8,6 @@ import Spy = jasmine.Spy
 import { SubstripeParams } from '../../../../src/components/types'
 
 describe('substripe texture', () => {
-	const shapeColorCount: number = 3
 	const tileOrigin: Coordinate = to.Coordinate([ 11, 17 ])
 	const tileSize: Unit = to.Unit(13)
 	const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(1)
@@ -17,7 +16,7 @@ describe('substripe texture', () => {
 	beforeEach(() => {
 		const substripeSpy: Spy = spyOn(substripe, 'substripe')
 
-		substripeTexture({ shapeColorCount, tileOrigin, tileSize, shapeColorIndex })
+		substripeTexture({ tileOrigin, tileSize, shapeColorIndex })
 
 		substripeCalls = substripeSpy.calls.all()
 	})
@@ -35,7 +34,6 @@ describe('substripe texture', () => {
 			expect(calls[0].shapeColorIndex).toBe(shapeColorIndex)
 			expect(calls[0].substripeIndex).toBe(callIndex)
 			expect(calls[0].substripeCount).toBe(32)
-			expect(calls[0].shapeColorCount).toBe(3)
 		})
 	})
 })
