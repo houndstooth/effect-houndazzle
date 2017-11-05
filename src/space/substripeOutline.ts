@@ -1,7 +1,7 @@
 import { from, Outline, to, Unit } from '../../../../src'
+import { getFromBaseOrDefaultPattern } from '../../../../src/store/getFromBaseOrDefaultPattern'
 import { SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
 import { SubstripeOutlineParams } from './types'
-import { getFromBaseOrDefaultPattern } from '../../../../src/store/getFromBaseOrDefaultPattern'
 
 const BOTH_DIRECTIONS: number = 2
 const TILE_WIDTH_CONSTANT: number = 1
@@ -9,7 +9,7 @@ const SLACK_FACTOR: number = (SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE - TIL
 
 const substripeOutline: (_: SubstripeOutlineParams) => Outline =
 	({ substripeCount, substripeIndex, tileSize }: SubstripeOutlineParams): Outline => {
-		const gridSize = getGridSize({ tileSize })
+		const gridSize: Unit = getGridSize({ tileSize })
 		const substripeWidth: Unit = to.Unit(
 			from.Unit(gridSize) * SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE / substripeCount,
 		)
@@ -38,6 +38,5 @@ const substripeOutline: (_: SubstripeOutlineParams) => Outline =
 const getGridSize: (_: { tileSize: Unit }) => Unit =
 	({ tileSize }: { tileSize: Unit }): Unit =>
 		to.Unit(from.Unit(tileSize) * getFromBaseOrDefaultPattern('tileResolution'))
-
 
 export { substripeOutline }

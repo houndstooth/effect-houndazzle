@@ -363,6 +363,4 @@ describe('houndazzle effect', () => {
 
 		done()
 	})
-
-	it('', () => {})
 })
