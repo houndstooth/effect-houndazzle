@@ -4,9 +4,9 @@ import { SubstripeParams } from './types'
 
 const substripe: (_: SubstripeParams) => void =
 	(params: SubstripeParams): void => {
-		const { tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount } = params
-		let outline: Outline = substripeOutline({ tileOrigin, tileSize, substripeIndex, substripeCount })
-		outline = orientSubstripeOutline({ shapeColorIndex, outline, tileOrigin, tileSize })
+		const { tileSize, shapeColorIndex, substripeIndex, substripeCount } = params
+		let outline: Outline = substripeOutline({ tileSize, substripeIndex, substripeCount })
+		outline = orientSubstripeOutline({ shapeColorIndex, outline })
 		solid({ outline, shapeColorIndex: to.ShapeColorIndex(substripeIndex) })
 	}
 

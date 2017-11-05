@@ -1,6 +1,7 @@
-import { TileOriginAndSize } from '../../../../src'
+import { Unit } from '../../../../src/components/types'
 
-interface SubstripeOutlineParams extends TileOriginAndSize {
+interface SubstripeOutlineParams {
+	tileSize: Unit,
 	substripeCount: number,
 	substripeIndex: number,
 }

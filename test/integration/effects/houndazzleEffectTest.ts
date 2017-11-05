@@ -16,7 +16,7 @@ describe('houndazzle effect', () => {
 		const houndstoothOverrides: Effect = {
 			basePattern: {
 				gridSettings: {
-					gridSize: 4,
+					tileResolution: 4,
 				},
 				tileSettings: {
 					tileSize,
@@ -363,4 +363,6 @@ describe('houndazzle effect', () => {
 
 		done()
 	})
+
+	it('', () => {})
 })

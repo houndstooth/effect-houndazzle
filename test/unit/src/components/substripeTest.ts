@@ -2,12 +2,10 @@ import { to } from '../../../../../../src'
 import { ShapeColorIndex, Unit } from '../../../../../../src/components/types'
 import * as src from '../../../../../../src/index'
 import { Outline } from '../../../../../../src/space'
-import { Coordinate } from '../../../../../../src/space/types'
 import { substripe } from '../../../../src/components/substripe'
 import * as space from '../../../../src/space/index'
 
 describe('substripe', () => {
-	const tileOrigin: Coordinate = to.Coordinate([ 11, 17 ])
 	const tileSize: Unit = to.Unit(13)
 	const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(1)
 	const substripeIndex: number = 5
@@ -21,14 +19,13 @@ describe('substripe', () => {
 		spyOn(space, 'orientSubstripeOutline').and.returnValue(orientedOutline)
 		spyOn(src, 'solid')
 
-		substripe({ tileOrigin, tileSize, shapeColorIndex, substripeIndex, substripeCount })
+		substripe({ tileSize, shapeColorIndex, substripeIndex, substripeCount })
 	})
 
 	it('gets the substripe outline', () => {
 		expect(space.substripeOutline).toHaveBeenCalledWith({
 			substripeCount,
 			substripeIndex,
-			tileOrigin,
 			tileSize,
 		})
 	})
@@ -37,8 +34,6 @@ describe('substripe', () => {
 		expect(space.orientSubstripeOutline).toHaveBeenCalledWith({
 			outline,
 			shapeColorIndex,
-			tileOrigin,
-			tileSize,
 		})
 	})
 
