@@ -1,7 +1,7 @@
 import { BLACK, TRANSPARENT } from '../../../../../src/constants'
-import { Color } from '../../../../../src/render'
-import * as from from '../../../../../src/utilities/from'
-import * as to from '../../../../../src/utilities/to'
+import * as from from '../../../../../src/from'
+import { Color } from '../../../../../src/pattern/color/types'
+import * as to from '../../../../../src/to'
 import { sectionCenterIsColor } from '../../../../../test/integration/helpers/sectionCenterIsColor'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
 import {

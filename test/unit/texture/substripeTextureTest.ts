@@ -1,11 +1,12 @@
-import { ShapeColorIndex, Unit } from '../../../../../../src/components/types'
-import { setSetting } from '../../../../../../src/store/setSetting'
-import CallInfo = jasmine.CallInfo
-import * as to from '../../../../../../src/utilities/to'
-import * as substripe from '../../../../src/components/substripe'
-import { substripeTexture } from '../../../../src/components/substripeTexture'
+import { setSetting } from '../../../../../src/app/store/setSetting'
+import { ShapeColorIndex } from '../../../../../src/pattern/color/types'
 import Spy = jasmine.Spy
-import { SubstripeParams } from '../../../../src/components/types'
+import { Unit } from '../../../../../src/pattern/grid/types'
+import CallInfo = jasmine.CallInfo
+import * as to from '../../../../../src/to'
+import * as substripe from '../../../pattern/texture/substripe'
+import { substripeTexture } from '../../../pattern/texture/substripeTexture'
+import { SubstripeParams } from '../../../pattern/texture/types'
 
 describe('substripe texture', () => {
 	const tileSize: Unit = to.Unit(13)

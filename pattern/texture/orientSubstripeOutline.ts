@@ -1,15 +1,15 @@
 import {
 	ComponentParams,
+	constants,
 	Coordinate,
-	from,
 	Outline,
 	Radian,
 	rotateCoordinate,
-	to,
+	Unit,
 } from '../../../../src'
-import { Unit } from '../../../../src/components/types'
-import { HALF } from '../../../../src/constants'
-import { getFromBaseOrDefaultPattern } from '../../../../src/store/getFromBaseOrDefaultPattern'
+import { getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
+import * as from from '../../../../src/from'
+import * as to from '../../../../src/to'
 
 const orientSubstripeOutline: (_: ComponentParams) => Outline =
 	({ outline, shapeColorIndex }: ComponentParams): Outline => {
@@ -28,7 +28,7 @@ const gridCenter: () => Coordinate =
 	(): Coordinate => {
 		const tileResolution: number = getFromBaseOrDefaultPattern('tileResolution')
 		const tileSize: Unit = getFromBaseOrDefaultPattern('tileSize')
-		const aDimension: number = from.Unit(tileSize) * tileResolution * HALF
+		const aDimension: number = from.Unit(tileSize) * tileResolution * constants.HALF
 
 		return to.Coordinate([ aDimension, aDimension ])
 	}

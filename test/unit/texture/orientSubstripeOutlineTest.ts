@@ -1,13 +1,13 @@
 // tslint:disable:no-unsafe-any
 
-import * as src from '../../../../../../src'
-import { ShapeColorIndex } from '../../../../../../src/components/types'
-import { Coordinate, Outline } from '../../../../../../src/space/types'
-import { setSetting } from '../../../../../../src/store/setSetting'
-import * as to from '../../../../../../src/utilities/to'
+import * as src from '../../../../../src'
+import { setSetting } from '../../../../../src/app/store/setSetting'
+import { ShapeColorIndex } from '../../../../../src/pattern/color/types'
+import { Coordinate, Outline } from '../../../../../src/pattern/stripe/types'
+import * as to from '../../../../../src/to'
 import Spy = jasmine.Spy
-import { isCloseTo } from '../../../../../../test/helpers/isCloseTo'
-import { orientSubstripeOutline } from '../../../../src/space/orientSubstripeOutline'
+import { isCloseTo } from '../../../../../test/helpers/isCloseTo'
+import { orientSubstripeOutline } from '../../../pattern/texture/orientSubstripeOutline'
 
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {

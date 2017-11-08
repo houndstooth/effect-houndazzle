@@ -1,5 +1,5 @@
-import { Effect } from '../../../src/store'
-import { substripeTexture } from '../src'
+import { Effect } from '../../../src'
+import { substripeTexture } from '../pattern'
 
 const houndazzleEffect: Effect = {
 	basePattern: {

@@ -1,8 +1,8 @@
-import { to } from '../../../../../../src'
-import { Unit } from '../../../../../../src/components/types'
-import { Outline } from '../../../../../../src/space/types'
-import { setSetting } from '../../../../../../src/store/setSetting'
-import { substripeOutline } from '../../../../src/space/substripeOutline'
+import { setSetting } from '../../../../../src/app/store/setSetting'
+import { Unit } from '../../../../../src/pattern/grid/types'
+import { Outline } from '../../../../../src/pattern/stripe/types'
+import * as to from '../../../../../src/to'
+import { substripeOutline } from '../../../pattern/texture/substripeOutline'
 
 describe('substripe outline', () => {
 	it('calculates the outline of a substripe', () => {

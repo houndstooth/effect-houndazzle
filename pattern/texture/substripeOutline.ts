@@ -1,5 +1,7 @@
-import { from, Outline, to, Unit } from '../../../../src'
-import { getFromBaseOrDefaultPattern } from '../../../../src/store/getFromBaseOrDefaultPattern'
+import { Outline, Unit } from '../../../../src'
+import { getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
+import * as from from '../../../../src/from'
+import * as to from '../../../../src/to'
 import { SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
 import { SubstripeOutlineParams } from './types'
 

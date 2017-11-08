@@ -1,14 +1,13 @@
-import { Unit } from '../../../../../src/components'
-import { Address } from '../../../../../src/components/types'
-import { Color } from '../../../../../src/render/types'
-import { Coordinate } from '../../../../../src/space'
+import { Color } from '../../../../../src/pattern/color/types'
+import { Address, Unit } from '../../../../../src/pattern/grid/types'
+import { Coordinate } from '../../../../../src/pattern/stripe'
 import { Diagonal } from '../../../../../test/integration/helpers/types'
 
 interface AreaOriginParams {
 	gridAddress: Address,
 	sectionAddress: Address,
 	sectionResolution: number,
-	tileSize: Unit
+	tileSize: Unit,
 }
 
 interface ExpectSolidParams {
