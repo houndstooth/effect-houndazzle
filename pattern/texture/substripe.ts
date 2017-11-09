@@ -1,5 +1,4 @@
-import { Outline, solid } from '../../../../src'
-import * as to from '../../../../src/to'
+import { Outline, solid, to } from '../../../../src'
 import { orientSubstripeOutline } from './orientSubstripeOutline'
 import { substripeOutline } from './substripeOutline'
 import { SubstripeParams } from './types'

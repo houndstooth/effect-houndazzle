@@ -2,14 +2,14 @@ import {
 	ComponentParams,
 	constants,
 	Coordinate,
+	from,
 	Outline,
 	Radian,
 	rotateCoordinate,
+	to,
 	Unit,
 } from '../../../../src'
 import { getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
-import * as from from '../../../../src/from'
-import * as to from '../../../../src/to'
 
 const orientSubstripeOutline: (_: ComponentParams) => Outline =
 	({ outline, shapeColorIndex }: ComponentParams): Outline => {
