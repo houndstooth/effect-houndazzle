@@ -9,6 +9,7 @@ import {
 	to,
 	Unit,
 } from '../../../../src'
+// tslint:disable-next-line:no-reaching-imports
 import { getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
 
 const orientSubstripeOutline: (_: ComponentParams) => Outline =

@@ -1,4 +1,5 @@
 import { codeUtilities, ExecuteTextureParams } from '../../../../src'
+// tslint:disable-next-line:no-reaching-imports
 import { getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
 import { SUBSTRIPE_COUNT, SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
 import { substripe } from './substripe'
