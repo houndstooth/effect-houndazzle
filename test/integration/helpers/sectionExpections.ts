@@ -1,5 +1,5 @@
-import { constants, from, to, Color } from '../../../../../src'
-import { sectionCenterIsColor, Diagonal } from '../../../../../test'
+import { Color, constants, from, to } from '../../../../../src'
+import { Diagonal, sectionCenterIsColor } from '../../../../../test'
 import {
 	DiagonalExpectation,
 	HoundazzleExpectSectionParams,

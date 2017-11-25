@@ -1,6 +1,4 @@
-import { Color } from '../../../../../src'
-import { Address, Unit } from '../../../../../src'
-import { Coordinate } from '../../../../../src'
+import { Address, Color, Coordinate, Unit } from '../../../../../src'
 import { Diagonal } from '../../../../../test'
 
 interface AreaOriginParams {

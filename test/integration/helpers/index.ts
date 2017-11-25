@@ -1,6 +1,6 @@
 import { calculateAreaOrigin } from './calculateAreaOrigin'
-import { HoundazzleSectionExpectation } from './types'
 import { expectSection } from './sectionExpections'
+import { HoundazzleSectionExpectation } from './types'
 
 export {
 	calculateAreaOrigin,

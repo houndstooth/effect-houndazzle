@@ -1,7 +1,7 @@
-import { executeSelectedHoundstoothEffects, state, to, Effect, Address, Unit, Coordinate } from '../../../../../src'
+import { Address, Coordinate, Effect, executeSelectedHoundstoothEffects, state, to, Unit } from '../../../../../src'
 import { activateTestMarkerCanvas } from '../../../../../test'
 import { houndazzleEffect } from '../../../effects'
-import { calculateAreaOrigin, HoundazzleSectionExpectation, expectSection } from '../helpers'
+import { calculateAreaOrigin, expectSection, HoundazzleSectionExpectation } from '../helpers'
 
 describe('houndazzle effect', () => {
 	// tslint:disable-next-line:max-line-length
@@ -358,6 +358,6 @@ describe('houndazzle effect', () => {
 			})
 
 			done()
-		},         1000)
+		},         0)
 	})
 })
