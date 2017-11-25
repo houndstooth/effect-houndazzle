@@ -1,6 +1,4 @@
-import * as from from '../../../../../src/from'
-import { Coordinate } from '../../../../../src/pattern/stripe'
-import * as to from '../../../../../src/to'
+import { from, to, Coordinate} from '../../../../../src'
 import { AreaOriginParams } from './types'
 
 const calculateAreaOrigin: (_: AreaOriginParams) => Coordinate =

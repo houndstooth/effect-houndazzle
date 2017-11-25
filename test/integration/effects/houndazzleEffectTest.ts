@@ -1,13 +1,7 @@
-import { executeSelectedHoundstoothEffects, state } from '../../../../../src'
-import { Effect } from '../../../../../src/pattern'
-import { Address, Unit } from '../../../../../src/pattern/grid/types'
-import { Coordinate } from '../../../../../src/pattern/stripe/types'
-import * as to from '../../../../../src/to'
-import { activateTestMarkerCanvas } from '../../../../../test/integration/helpers/activateTestMarkerCanvas'
-import { houndazzleEffect } from '../../../effects/houndazzleEffect'
-import { calculateAreaOrigin } from '../helpers/calculateAreaOrigin'
-import { expectSection } from '../helpers/sectionExpections'
-import { HoundazzleSectionExpectation } from '../helpers/types'
+import { executeSelectedHoundstoothEffects, state, to, Effect, Address, Unit, Coordinate } from '../../../../../src'
+import { activateTestMarkerCanvas } from '../../../../../test'
+import { houndazzleEffect } from '../../../effects'
+import { calculateAreaOrigin, HoundazzleSectionExpectation, expectSection } from '../helpers'
 
 describe('houndazzle effect', () => {
 	// tslint:disable-next-line:max-line-length
@@ -364,6 +358,6 @@ describe('houndazzle effect', () => {
 			})
 
 			done()
-		},         0)
+		},         1000)
 	})
 })

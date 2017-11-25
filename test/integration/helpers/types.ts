@@ -1,7 +1,7 @@
-import { Color } from '../../../../../src/pattern/color/types'
-import { Address, Unit } from '../../../../../src/pattern/grid/types'
-import { Coordinate } from '../../../../../src/pattern/stripe'
-import { Diagonal } from '../../../../../test/integration/helpers/types'
+import { Color } from '../../../../../src'
+import { Address, Unit } from '../../../../../src'
+import { Coordinate } from '../../../../../src'
+import { Diagonal } from '../../../../../test'
 
 interface AreaOriginParams {
 	gridAddress: Address,
