@@ -1,12 +1,7 @@
-import { setSetting } from '../../../../../src/app/store/setSetting'
-import { ShapeColorIndex } from '../../../../../src/pattern/color/types'
+import { setSetting, ShapeColorIndex, to, Unit } from '../../../../../src'
 import Spy = jasmine.Spy
-import { Unit } from '../../../../../src/pattern/grid/types'
 import CallInfo = jasmine.CallInfo
-import * as to from '../../../../../src/to'
-import * as substripe from '../../../pattern/texture/substripe'
-import { substripeTexture } from '../../../pattern/texture/substripeTexture'
-import { SubstripeParams } from '../../../pattern/texture/types'
+import { substripe, SubstripeParams, substripeTexture } from '../../../pattern'
 
 describe('substripe texture', () => {
 	const tileSize: Unit = to.Unit(13)
@@ -14,11 +9,11 @@ describe('substripe texture', () => {
 
 	let substripeCalls: CallInfo[]
 	beforeEach(() => {
-		setSetting('tileResolution', 2)
+		setSetting.main('tileResolution', 2)
 
-		const substripeSpy: Spy = spyOn(substripe, 'substripe')
+		const substripeSpy: Spy = spyOn(substripe, 'main')
 
-		substripeTexture({ tileSize, shapeColorIndex })
+		substripeTexture.main({ tileSize, shapeColorIndex })
 
 		substripeCalls = substripeSpy.calls.all()
 	})

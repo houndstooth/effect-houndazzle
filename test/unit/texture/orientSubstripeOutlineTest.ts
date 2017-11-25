@@ -1,29 +1,25 @@
 // tslint:disable:no-unsafe-any
 
-import * as src from '../../../../../src'
-import { setSetting } from '../../../../../src/app/store/setSetting'
-import { ShapeColorIndex } from '../../../../../src/pattern/color/types'
-import { Coordinate, Outline } from '../../../../../src/pattern/stripe/types'
-import * as to from '../../../../../src/to'
+import { Coordinate, Outline, rotateCoordinate, setSetting, ShapeColorIndex, to } from '../../../../../src'
 import Spy = jasmine.Spy
-import { isCloseTo } from '../../../../../test/helpers/isCloseTo'
-import { orientSubstripeOutline } from '../../../pattern/texture/orientSubstripeOutline'
+import { isCloseTo } from '../../../../../test'
+import { orientSubstripeOutline } from '../../../pattern'
 
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {
 		const rotatedCoordinate: Coordinate = to.Coordinate([])
-		const rotateCoordinateSpy: Spy = spyOn(src, 'rotateCoordinate').and.returnValue(rotatedCoordinate)
+		const rotateCoordinateSpy: Spy = spyOn(rotateCoordinate, 'main').and.returnValue(rotatedCoordinate)
 
-		setSetting('tileResolution', 3)
-		setSetting('tileSize', to.Unit(5))
+		setSetting.main('tileResolution', 3)
+		setSetting.main('tileSize', to.Unit(5))
 
 		const coordinate: Coordinate = to.Coordinate([])
 
-		setSetting('colorSet', to.ColorSet([ { a: 0 }, { a: 0 } ]))
+		setSetting.main('colorSet', to.ColorSet([ { a: 0 }, { a: 0 } ]))
 		const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(7)
 		const outline: Outline = to.Outline([ coordinate ])
 
-		const actualOutline: Outline = orientSubstripeOutline({
+		const actualOutline: Outline = orientSubstripeOutline.main({
 			outline,
 			shapeColorIndex,
 		})

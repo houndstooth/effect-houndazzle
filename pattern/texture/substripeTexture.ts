@@ -1,8 +1,8 @@
 import { codeUtilities, ExecuteTextureParams } from '../../../../src'
 // tslint:disable-next-line:no-reaching-imports
-import { getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
+import { main as getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
 import { SUBSTRIPE_COUNT, SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
-import { substripe } from './substripe'
+import { main as substripe } from './substripe'
 
 const substripeTexture: (_: ExecuteTextureParams) => void =
 	({ shapeColorIndex, tileSize }: ExecuteTextureParams): void => {
@@ -19,4 +19,4 @@ const substripeTexture: (_: ExecuteTextureParams) => void =
 		})
 	}
 
-export { substripeTexture }
+export { substripeTexture as main }

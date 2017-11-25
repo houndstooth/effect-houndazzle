@@ -4,7 +4,7 @@ import { substripeTexture } from '../pattern'
 const houndazzleEffect: Effect = {
 	basePattern: {
 		textureSettings: {
-			executeTexture: substripeTexture,
+			executeTexture: substripeTexture.main,
 		},
 	},
 	name: 'houndazzle',

@@ -1,6 +1,6 @@
 import { from, Outline, to, Unit } from '../../../../src'
 // tslint:disable-next-line:no-reaching-imports
-import { getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
+import { main as getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
 import { SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
 import { SubstripeOutlineParams } from './types'
 
@@ -40,4 +40,4 @@ const getGridSize: (_: { tileSize: Unit }) => Unit =
 	({ tileSize }: { tileSize: Unit }): Unit =>
 		to.Unit(from.Unit(tileSize) * getFromBaseOrDefaultPattern('tileResolution'))
 
-export { substripeOutline }
+export { substripeOutline as main }

@@ -1,3 +1,1 @@
-import { houndazzleEffect } from './houndazzleEffect'
-
-export { houndazzleEffect }
+export { houndazzleEffect } from './houndazzleEffect'

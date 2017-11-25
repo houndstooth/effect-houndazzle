@@ -1,3 +1,1 @@
-import { substripeTexture } from './texture'
-
-export { substripeTexture }
+export { substripeTexture, orientSubstripeOutline, substripeOutline, substripe, SubstripeParams } from './texture'

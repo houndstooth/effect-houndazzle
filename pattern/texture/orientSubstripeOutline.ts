@@ -10,7 +10,7 @@ import {
 	Unit,
 } from '../../../../src'
 // tslint:disable-next-line:no-reaching-imports
-import { getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
+import { main as getFromBaseOrDefaultPattern } from '../../../../src/app/store/getFromBaseOrDefaultPattern'
 
 const orientSubstripeOutline: (_: ComponentParams) => Outline =
 	({ outline, shapeColorIndex }: ComponentParams): Outline => {
@@ -18,7 +18,7 @@ const orientSubstripeOutline: (_: ComponentParams) => Outline =
 		const rotationUnit: number = Math.PI / tileColorCount
 		const rotation: Radian = to.Radian(rotationUnit * from.ShapeColorIndex(shapeColorIndex))
 
-		return outline.map((coordinate: Coordinate) => rotateCoordinate({
+		return outline.map((coordinate: Coordinate) => rotateCoordinate.main({
 			coordinate,
 			fixedCoordinate: gridCenter(),
 			rotation,
@@ -34,4 +34,4 @@ const gridCenter: () => Coordinate =
 		return to.Coordinate([ aDimension, aDimension ])
 	}
 
-export { orientSubstripeOutline }
+export { orientSubstripeOutline as main }
