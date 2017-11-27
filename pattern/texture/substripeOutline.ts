@@ -1,4 +1,4 @@
-import { from, getFromBaseOrDefaultPattern, Outline, to, Unit } from '../../../../src'
+import { from, getSetting, Outline, to, Unit } from '../../../../src'
 import { SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
 import { SubstripeOutlineParams } from './types'
 
@@ -36,6 +36,6 @@ const substripeOutline: (_: SubstripeOutlineParams) => Outline =
 
 const getGridSize: (_: { tileSize: Unit }) => Unit =
 	({ tileSize }: { tileSize: Unit }): Unit =>
-		to.Unit(from.Unit(tileSize) * getFromBaseOrDefaultPattern.main('tileResolution'))
+		to.Unit(from.Unit(tileSize) * getSetting.main('tileResolution'))
 
 export { substripeOutline as main }
