@@ -1,10 +1,10 @@
 import { codeUtilities, ExecuteTextureParams, getSetting } from '../../../../src'
 import { SUBSTRIPE_COUNT, SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
-import { main as substripe } from './substripe'
+import substripe from './substripe'
 
 const substripeTexture: (_: ExecuteTextureParams) => void =
 	({ shapeColorIndex, tileSize }: ExecuteTextureParams): void => {
-		const tileResolution: number = getSetting.main('tileResolution')
+		const tileResolution: number = getSetting.default('tileResolution')
 		const substripeCount: number = SUBSTRIPE_COUNT * SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE * tileResolution
 
 		codeUtilities.iterator(substripeCount).forEach((substripeIndex: number) => {
@@ -17,4 +17,4 @@ const substripeTexture: (_: ExecuteTextureParams) => void =
 		})
 	}
 
-export { substripeTexture as main }
+export default substripeTexture

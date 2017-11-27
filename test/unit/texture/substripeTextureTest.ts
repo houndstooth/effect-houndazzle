@@ -9,11 +9,11 @@ describe('substripe texture', () => {
 
 	let substripeCalls: CallInfo[]
 	beforeEach(() => {
-		setSetting.main('tileResolution', 2)
+		setSetting.default('tileResolution', 2)
 
-		const substripeSpy: Spy = spyOn(substripe, 'main')
+		const substripeSpy: Spy = spyOn(substripe, 'default')
 
-		substripeTexture.main({ tileSize, shapeColorIndex })
+		substripeTexture.default({ tileSize, shapeColorIndex })
 
 		substripeCalls = substripeSpy.calls.all()
 	})

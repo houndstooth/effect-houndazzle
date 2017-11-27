@@ -11,15 +11,15 @@ describe('substripe', () => {
 	const orientedOutline: Outline = []
 
 	beforeEach(() => {
-		spyOn(substripeOutline, 'main').and.returnValue(outline)
-		spyOn(orientSubstripeOutline, 'main').and.returnValue(orientedOutline)
-		spyOn(solid, 'main')
+		spyOn(substripeOutline, 'default').and.returnValue(outline)
+		spyOn(orientSubstripeOutline, 'default').and.returnValue(orientedOutline)
+		spyOn(solid, 'default')
 
-		substripe.main({ tileSize, shapeColorIndex, substripeIndex, substripeCount })
+		substripe.default({ tileSize, shapeColorIndex, substripeIndex, substripeCount })
 	})
 
 	it('gets the substripe outline', () => {
-		expect(substripeOutline.main).toHaveBeenCalledWith({
+		expect(substripeOutline.default).toHaveBeenCalledWith({
 			substripeCount,
 			substripeIndex,
 			tileSize,
@@ -27,14 +27,14 @@ describe('substripe', () => {
 	})
 
 	it('orients the outline', () => {
-		expect(orientSubstripeOutline.main).toHaveBeenCalledWith({
+		expect(orientSubstripeOutline.default).toHaveBeenCalledWith({
 			outline,
 			shapeColorIndex,
 		})
 	})
 
 	it('sends the result to be rendered as a solid filled path', () => {
-		expect(solid.main).toHaveBeenCalledWith({
+		expect(solid.default).toHaveBeenCalledWith({
 			outline: orientedOutline,
 			shapeColorIndex: substripeIndex,
 		})

@@ -23,7 +23,7 @@ describe('houndazzle effect', () => {
 		}
 		activateTestMarkerCanvas()
 
-		executeSelectedHoundstoothEffects.main({ houndstoothOverrides })
+		executeSelectedHoundstoothEffects.default({ houndstoothOverrides })
 
 		setTimeout(() => {
 			const partA: HoundazzleSectionExpectation[][] = [

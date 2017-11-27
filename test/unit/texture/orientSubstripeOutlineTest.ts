@@ -8,18 +8,18 @@ import { orientSubstripeOutline } from '../../../pattern'
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {
 		const rotatedCoordinate: Coordinate = to.Coordinate([])
-		const rotateCoordinateSpy: Spy = spyOn(rotateCoordinate, 'main').and.returnValue(rotatedCoordinate)
+		const rotateCoordinateSpy: Spy = spyOn(rotateCoordinate, 'default').and.returnValue(rotatedCoordinate)
 
-		setSetting.main('tileResolution', 3)
-		setSetting.main('tileSize', to.Unit(5))
+		setSetting.default('tileResolution', 3)
+		setSetting.default('tileSize', to.Unit(5))
 
 		const coordinate: Coordinate = to.Coordinate([])
 
-		setSetting.main('colorSet', to.ColorSet([ { a: 0 }, { a: 0 } ]))
+		setSetting.default('colorSet', to.ColorSet([ { a: 0 }, { a: 0 } ]))
 		const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(7)
 		const outline: Outline = to.Outline([ coordinate ])
 
-		const actualOutline: Outline = orientSubstripeOutline.main({
+		const actualOutline: Outline = orientSubstripeOutline.default({
 			outline,
 			shapeColorIndex,
 		})
