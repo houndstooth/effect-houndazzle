@@ -58,6 +58,4 @@ const expectMinorDiagonalDividedSection: (_: DiagonalExpectation) => void =
 		})).toBe(true)
 	}
 
-export {
-	expectSection,
-}
+export default expectSection

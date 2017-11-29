@@ -13,4 +13,4 @@ const calculateAreaOrigin: (_: AreaOriginParams) => Coordinate =
 		])
 	}
 
-export { calculateAreaOrigin }
+export default calculateAreaOrigin
