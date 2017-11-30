@@ -1,5 +1,4 @@
 import { Address, Coordinate, Effect, executeSelectedHoundstoothEffects, state, to, Unit } from '../../../../../src'
-import { activateTestMarkerCanvas } from '../../../../../test'
 import { houndazzleEffect } from '../../../effects'
 import { calculateAreaOrigin, expectSection, HoundazzleSectionExpectation } from '../helpers'
 
@@ -21,7 +20,6 @@ describe('houndazzle effect', () => {
 				},
 			},
 		}
-		activateTestMarkerCanvas()
 
 		executeSelectedHoundstoothEffects.default({ houndstoothOverrides })
 
