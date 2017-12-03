@@ -1,7 +1,7 @@
-import { Effect } from '../../../src'
+import { NamedEffect } from '../../../src'
 import { substripeTexture } from '../pattern'
 
-const houndazzleEffect: Effect = {
+const houndazzleEffect: NamedEffect = {
 	basePattern: {
 		textureSettings: {
 			executeTexture: substripeTexture.default,
