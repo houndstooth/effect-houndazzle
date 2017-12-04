@@ -5,7 +5,7 @@ import { calculateAreaOrigin, expectSection, HoundazzleSectionExpectation } from
 describe('houndazzle effect', () => {
 	// tslint:disable-next-line:max-line-length
 	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', async (done: DoneFn) => {
-		state.selectedHoundstoothEffects = [ houndazzleEffect ]
+		state.controls.selectedHoundstoothEffects = [ houndazzleEffect ]
 		const tileSize: Unit = to.Unit(200)
 		const houndstoothOverrides: Effect = {
 			basePattern: {
