@@ -1,9 +1,10 @@
-import { Outline, setSetting, to, Unit } from '../../../../../src'
+import { Outline, to, Unit } from '../../../../../src'
+import { setPatternStateForTest } from '../../../../../test'
 import { substripeOutline } from '../../../pattern'
 
 describe('substripe outline', () => {
 	it('calculates the outline of a substripe', () => {
-		setSetting.default('tileResolution', 13)
+		setPatternStateForTest('tileResolution', 13)
 		const tileSize: Unit = to.Unit(1)
 		const substripeIndex: number = 1
 		const substripeCount: number = 7

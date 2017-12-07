@@ -1,8 +1,8 @@
 // tslint:disable:no-unsafe-any
 
-import { Coordinate, Outline, rotateCoordinate, setSetting, ShapeColorIndex, to } from '../../../../../src'
+import { Coordinate, Outline, rotateCoordinate, ShapeColorIndex, to } from '../../../../../src'
 import Spy = jasmine.Spy
-import { isCloseTo } from '../../../../../test'
+import { isCloseTo, setPatternStateForTest } from '../../../../../test'
 import { orientSubstripeOutline } from '../../../pattern'
 
 describe('orient substripe outline', () => {
@@ -10,12 +10,12 @@ describe('orient substripe outline', () => {
 		const rotatedCoordinate: Coordinate = to.Coordinate([])
 		const rotateCoordinateSpy: Spy = spyOn(rotateCoordinate, 'default').and.returnValue(rotatedCoordinate)
 
-		setSetting.default('tileResolution', 3)
-		setSetting.default('tileSize', to.Unit(5))
+		setPatternStateForTest('tileResolution', 3)
+		setPatternStateForTest('tileSize', to.Unit(5))
 
 		const coordinate: Coordinate = to.Coordinate([])
 
-		setSetting.default('colorSet', to.ColorSet([ { a: 0 }, { a: 0 } ]))
+		setPatternStateForTest('colorSet', to.ColorSet([ { a: 0 }, { a: 0 } ]))
 		const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(7)
 		const outline: Outline = to.Outline([ coordinate ])
 
