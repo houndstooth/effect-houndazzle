@@ -1,13 +1,13 @@
-import { Address, appState, Coordinate, Effect, executeSelectedHoundstoothEffects, to, Unit } from '../../../../../src'
+import { Address, appState, Coordinate, Effect, executeSelectedEffects, to, Unit } from '../../../../../src'
 import { houndazzleEffect } from '../../../effects'
 import { calculateAreaOrigin, expectSection, HoundazzleSectionExpectation } from '../helpers'
 
 describe('houndazzle effect', () => {
 	// tslint:disable-next-line:max-line-length
 	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', async (done: DoneFn) => {
-		appState.controls.selectedHoundstoothEffects = [ houndazzleEffect ]
+		appState.controls.selectedEffects = [ houndazzleEffect ]
 		const tileSize: Unit = to.Unit(200)
-		const houndstoothOverrides: Effect = {
+		const overrides: Effect = {
 			basePattern: {
 				gridSettings: {
 					tileResolution: 4,
@@ -18,7 +18,7 @@ describe('houndazzle effect', () => {
 			},
 		}
 
-		executeSelectedHoundstoothEffects.default({ houndstoothOverrides })
+		executeSelectedEffects.default({ overrides })
 
 		setTimeout(() => {
 			const partA: HoundazzleSectionExpectation[][] = [
