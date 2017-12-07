@@ -1,9 +1,11 @@
 // tslint:disable:no-unsafe-any
 
-import { Coordinate, Outline, rotateCoordinate, ShapeColorIndex, to } from '../../../../../src'
+import { ComponentParams, Coordinate, Outline, rotateCoordinate, ShapeColorIndex, to } from '../../../../../src'
 import Spy = jasmine.Spy
 import { isCloseTo, setPatternStateForTest } from '../../../../../test'
 import { orientSubstripeOutline } from '../../../pattern'
+
+const subject: (_: ComponentParams) => Outline = orientSubstripeOutline.default
 
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {
@@ -19,7 +21,7 @@ describe('orient substripe outline', () => {
 		const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(7)
 		const outline: Outline = to.Outline([ coordinate ])
 
-		const actualOutline: Outline = orientSubstripeOutline.default({
+		const actualOutline: Outline = subject({
 			outline,
 			shapeColorIndex,
 		})

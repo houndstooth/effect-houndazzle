@@ -1,5 +1,7 @@
 import { Outline, ShapeColorIndex, solid, to, Unit } from '../../../../../src'
-import { orientSubstripeOutline, substripe, substripeOutline } from '../../../pattern'
+import { orientSubstripeOutline, substripe, substripeOutline, SubstripeParams } from '../../../pattern'
+
+const subject: (_: SubstripeParams) => void = substripe.default
 
 describe('substripe', () => {
 	const tileSize: Unit = to.Unit(13)
@@ -15,7 +17,7 @@ describe('substripe', () => {
 		spyOn(orientSubstripeOutline, 'default').and.returnValue(orientedOutline)
 		spyOn(solid, 'default')
 
-		substripe.default({ tileSize, shapeColorIndex, substripeIndex, substripeCount })
+		subject({ tileSize, shapeColorIndex, substripeIndex, substripeCount })
 	})
 
 	it('gets the substripe outline', () => {

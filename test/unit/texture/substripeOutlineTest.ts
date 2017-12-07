@@ -1,6 +1,8 @@
 import { Outline, to, Unit } from '../../../../../src'
 import { setPatternStateForTest } from '../../../../../test'
-import { substripeOutline } from '../../../pattern'
+import { substripeOutline, SubstripeOutlineParams } from '../../../pattern'
+
+const subject: (_: SubstripeOutlineParams) => Outline = substripeOutline.default
 
 describe('substripe outline', () => {
 	it('calculates the outline of a substripe', () => {
@@ -16,7 +18,7 @@ describe('substripe outline', () => {
 			[ 0 - 13 / 2, 0 - 13 / 2 + 13 / 7 * 2 + 13 / 7 * 2  ],
 		])
 
-		const outline: Outline = substripeOutline.default({ tileSize, substripeIndex, substripeCount })
+		const outline: Outline = subject({ tileSize, substripeIndex, substripeCount })
 
 		expect(outline).toEqual(expectedOutline)
 	})

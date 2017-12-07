@@ -1,8 +1,10 @@
-import { ShapeColorIndex, to, Unit } from '../../../../../src'
+import { ExecuteTextureParams, ShapeColorIndex, to, Unit } from '../../../../../src'
 import { setPatternStateForTest } from '../../../../../test'
 import Spy = jasmine.Spy
 import CallInfo = jasmine.CallInfo
 import { substripe, SubstripeParams, substripeTexture } from '../../../pattern'
+
+const subject: (_: ExecuteTextureParams) => void = substripeTexture.default
 
 describe('substripe texture', () => {
 	const tileSize: Unit = to.Unit(13)
@@ -14,7 +16,7 @@ describe('substripe texture', () => {
 
 		const substripeSpy: Spy = spyOn(substripe, 'default')
 
-		substripeTexture.default({ tileSize, shapeColorIndex })
+		subject({ tileSize, shapeColorIndex })
 
 		substripeCalls = substripeSpy.calls.all()
 	})
