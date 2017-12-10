@@ -2,7 +2,7 @@
 
 import { ComponentParams, Coordinate, Outline, rotateCoordinate, ShapeColorIndex, to } from '../../../../../src'
 import Spy = jasmine.Spy
-import { isCloseTo, setPatternStateForTest } from '../../../../../test'
+import { isCloseTo, setPatternSettingForTest } from '../../../../../test'
 import { orientSubstripeOutline } from '../../../pattern'
 
 const subject: (_: ComponentParams) => Outline = orientSubstripeOutline.default
@@ -12,12 +12,12 @@ describe('orient substripe outline', () => {
 		const rotatedCoordinate: Coordinate = to.Coordinate([])
 		const rotateCoordinateSpy: Spy = spyOn(rotateCoordinate, 'default').and.returnValue(rotatedCoordinate)
 
-		setPatternStateForTest('tileResolution', 3)
-		setPatternStateForTest('tileSize', to.Unit(5))
+		setPatternSettingForTest('tileResolution', 3)
+		setPatternSettingForTest('tileSize', to.Unit(5))
 
 		const coordinate: Coordinate = to.Coordinate([])
 
-		setPatternStateForTest('colorSet', to.ColorSet([ { a: 0 }, { a: 0 } ]))
+		setPatternSettingForTest('colorSet', to.ColorSet([ { a: 0 }, { a: 0 } ]))
 		const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(7)
 		const outline: Outline = to.Outline([ coordinate ])
 
