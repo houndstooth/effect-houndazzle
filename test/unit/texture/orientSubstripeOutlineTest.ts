@@ -1,6 +1,6 @@
 // tslint:disable:no-unsafe-any
 
-import { ComponentParams, Coordinate, Outline, rotateCoordinate, ShapeColorIndex, to } from '../../../../../src'
+import { ComponentParams, Coordinate, Outline, rotateCoordinate, ShapeColorIndex, to } from '../../../../../src/indexForTest'
 import Spy = jasmine.Spy
 import { isCloseTo, setPatternSettingForTest } from '../../../../../test'
 import { orientSubstripeOutline } from '../../../pattern'

@@ -1,4 +1,4 @@
-import { Address, appState, Coordinate, Effect, executeSelectedEffects, to, Unit } from '../../../../../src'
+import { Address, appState, Coordinate, Effect, executeSelectedEffects, to, Unit } from '../../../../../src/indexForTest'
 import { houndazzleEffect } from '../../../effects'
 import { calculateAreaOrigin, expectSection, HoundazzleSectionExpectation } from '../helpers'
 

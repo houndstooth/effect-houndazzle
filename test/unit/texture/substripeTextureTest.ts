@@ -1,4 +1,4 @@
-import { ExecuteTextureParams, ShapeColorIndex, to, Unit } from '../../../../../src'
+import { ExecuteTextureParams, ShapeColorIndex, to, Unit } from '../../../../../src/indexForTest'
 import { setPatternSettingForTest } from '../../../../../test'
 import Spy = jasmine.Spy
 import CallInfo = jasmine.CallInfo

@@ -1,4 +1,4 @@
-import { Color, constants, from, to } from '../../../../../src'
+import { Color, constants, from, to } from '../../../../../src/indexForTest'
 import { Diagonal, sectionCenterIsColor } from '../../../../../test'
 import {
 	DiagonalExpectation,

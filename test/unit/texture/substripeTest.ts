@@ -1,4 +1,4 @@
-import { Outline, ShapeColorIndex, solid, to, Unit } from '../../../../../src'
+import { Outline, ShapeColorIndex, solid, to, Unit } from '../../../../../src/indexForTest'
 import { orientSubstripeOutline, substripe, substripeOutline, SubstripeParams } from '../../../pattern'
 
 const subject: (_: SubstripeParams) => void = substripe.default

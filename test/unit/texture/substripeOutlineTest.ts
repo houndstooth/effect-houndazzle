@@ -1,4 +1,4 @@
-import { Outline, to, Unit } from '../../../../../src'
+import { Outline, to, Unit } from '../../../../../src/indexForTest'
 import { setPatternSettingForTest } from '../../../../../test'
 import { substripeOutline, SubstripeOutlineParams } from '../../../pattern'
 
