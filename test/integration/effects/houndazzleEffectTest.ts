@@ -1,7 +1,7 @@
 import { Address, Coordinate, Effect, executeSelectedEffects, to, Unit } from '../../../../../src/indexForTest'
+import { setAppStateForEffectTests } from '../../../../../test'
 import { houndazzleEffect } from '../../../effects'
 import { calculateAreaOrigin, expectSection, HoundazzleSectionExpectation } from '../helpers'
-import { setAppStateForEffectTests } from '../../../../../test'
 
 describe('houndazzle effect', () => {
 	// tslint:disable-next-line:max-line-length
