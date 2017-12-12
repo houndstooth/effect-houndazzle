@@ -1,12 +1,12 @@
 import { Outline, to, Unit } from '../../../../../src/indexForTest'
-import { setPatternSettingForTest } from '../../../../../test'
+import { patternState } from '../../../../../src/pattern/patternState'
 import { substripeOutline, SubstripeOutlineParams } from '../../../pattern'
 
 const subject: (_: SubstripeOutlineParams) => Outline = substripeOutline.default
 
 describe('substripe outline', () => {
 	it('calculates the outline of a substripe', () => {
-		setPatternSettingForTest('tileResolution', 13)
+		patternState.gridSettings.tileResolution = 13
 		const tileSize: Unit = to.Unit(1)
 		const substripeIndex: number = 1
 		const substripeCount: number = 7

@@ -13,7 +13,7 @@ import {
 
 const orientSubstripeOutline: (_: ComponentParams) => Outline =
 	({ outline, shapeColorIndex }: ComponentParams): Outline => {
-		const tileColorCount: number = patternState.get('colorSet').length
+		const tileColorCount: number = patternState.colorSettings.colorSet.length
 		const rotationUnit: number = Math.PI / tileColorCount
 		const rotation: Radian = to.Radian(rotationUnit * from.ShapeColorIndex(shapeColorIndex))
 
@@ -26,8 +26,8 @@ const orientSubstripeOutline: (_: ComponentParams) => Outline =
 
 const gridCenter: () => Coordinate =
 	(): Coordinate => {
-		const tileResolution: number = patternState.get('tileResolution')
-		const tileSize: Unit = patternState.get('tileSize')
+		const tileResolution: number = patternState.gridSettings.tileResolution
+		const tileSize: Unit = patternState.tileSettings.tileSize
 		const aDimension: number = from.Unit(tileSize) * tileResolution * constants.HALF
 
 		return to.Coordinate([ aDimension, aDimension ])

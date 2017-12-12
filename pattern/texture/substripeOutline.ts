@@ -36,6 +36,6 @@ const substripeOutline: (_: SubstripeOutlineParams) => Outline =
 
 const getGridSize: (_: { tileSize: Unit }) => Unit =
 	({ tileSize }: { tileSize: Unit }): Unit =>
-		to.Unit(from.Unit(tileSize) * patternState.get('tileResolution'))
+		to.Unit(from.Unit(tileSize) * patternState.gridSettings.tileResolution)
 
 export default substripeOutline

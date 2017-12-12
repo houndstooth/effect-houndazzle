@@ -1,5 +1,4 @@
-import { ExecuteTextureParams, ShapeColorIndex, to, Unit } from '../../../../../src/indexForTest'
-import { setPatternSettingForTest } from '../../../../../test'
+import { ExecuteTextureParams, patternState, ShapeColorIndex, to, Unit } from '../../../../../src/indexForTest'
 import Spy = jasmine.Spy
 import CallInfo = jasmine.CallInfo
 import { substripe, SubstripeParams, substripeTexture } from '../../../pattern'
@@ -12,7 +11,7 @@ describe('substripe texture', () => {
 
 	let substripeCalls: CallInfo[]
 	beforeEach(() => {
-		setPatternSettingForTest('tileResolution', 2)
+		patternState.gridSettings.tileResolution = 2
 
 		const substripeSpy: Spy = spyOn(substripe, 'default')
 

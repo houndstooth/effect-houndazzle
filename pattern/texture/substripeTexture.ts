@@ -4,7 +4,7 @@ import substripe from './substripe'
 
 const substripeTexture: (_: ExecuteTextureParams) => void =
 	({ shapeColorIndex, tileSize }: ExecuteTextureParams): void => {
-		const tileResolution: number = patternState.get('tileResolution')
+		const tileResolution: number = patternState.gridSettings.tileResolution
 		const substripeCount: number = SUBSTRIPE_COUNT * SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE * tileResolution
 
 		codeUtilities.iterator(substripeCount).forEach((substripeIndex: number) => {
