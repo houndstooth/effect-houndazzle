@@ -1,6 +1,8 @@
 import { codeUtilities, ExecuteTextureParams, patternState } from '../../../../src'
-import { SUBSTRIPE_COUNT, SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
+import { SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
 import substripe from './substripe'
+
+const SUBSTRIPE_COUNT: number = 16
 
 const substripeTexture: (_: ExecuteTextureParams) => void =
 	({ shapeColorIndex, tileSize }: ExecuteTextureParams): void => {

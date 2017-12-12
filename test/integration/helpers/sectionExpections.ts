@@ -1,12 +1,10 @@
-import { Color, constants, from, to } from '../../../../../src/indexForTest'
+import { BLACK, Color, from, to, TRANSPARENT } from '../../../../../src/indexForTest'
 import { Diagonal, sectionCenterIsColor } from '../../../../../test'
 import {
 	DiagonalExpectation,
 	HoundazzleExpectSectionParams,
 	SolidExpectation,
 } from './types'
-
-const { BLACK, TRANSPARENT } = constants
 
 const expectSection: (_: HoundazzleExpectSectionParams) => void =
 	({ expectedSection, areaOrigin, areaSize }: HoundazzleExpectSectionParams): void => {

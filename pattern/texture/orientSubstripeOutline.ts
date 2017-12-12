@@ -1,8 +1,8 @@
 import {
 	ComponentParams,
-	constants,
 	Coordinate,
 	from,
+	HALF,
 	Outline,
 	patternState,
 	Radian,
@@ -28,7 +28,7 @@ const gridCenter: () => Coordinate =
 	(): Coordinate => {
 		const tileResolution: number = patternState.gridSettings.tileResolution
 		const tileSize: Unit = patternState.tileSettings.tileSize
-		const aDimension: number = from.Unit(tileSize) * tileResolution * constants.HALF
+		const aDimension: number = from.Unit(tileSize) * tileResolution * HALF
 
 		return to.Coordinate([ aDimension, aDimension ])
 	}
