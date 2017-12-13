@@ -338,11 +338,11 @@ describe('houndazzle effect', () => {
 				[ bottomLeftTile, to.Address([ 0, 1 ]) ],
 				[ bottomRightTile, to.Address([ 1, 1 ]) ],
 			]
-			expectations.forEach(([ expectTile, gridAddress ]: [ HoundazzleSectionExpectation[][], Address ]) => {
+			expectations.forEach(([ expectTile, address ]: [ HoundazzleSectionExpectation[][], Address ]) => {
 				expectTile.forEach((expectedSectionRows: HoundazzleSectionExpectation[], row: number) => {
 					expectedSectionRows.forEach((expectedSection: HoundazzleSectionExpectation, col: number) => {
 						const areaOrigin: Coordinate = calculateAreaOrigin({
-							gridAddress,
+							address,
 							sectionAddress: to.Address([ col, row ]),
 							sectionResolution: 16,
 							tileSize,

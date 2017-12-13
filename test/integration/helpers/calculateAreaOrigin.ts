@@ -2,8 +2,8 @@ import { Coordinate, from, to } from '../../../../../src/indexForTest'
 import { AreaOriginParams } from './types'
 
 const calculateAreaOrigin: (_: AreaOriginParams) => Coordinate =
-	({ gridAddress, sectionAddress, sectionResolution, tileSize }: AreaOriginParams): Coordinate => {
-		const [ gridX, gridY ]: number[] = from.Address(gridAddress)
+	({ address, sectionAddress, sectionResolution, tileSize }: AreaOriginParams): Coordinate => {
+		const [ gridX, gridY ]: number[] = from.Address(address)
 		const [ sectionX, sectionY ]: number[] = from.Address(sectionAddress)
 		const size: number = from.Unit(tileSize)
 

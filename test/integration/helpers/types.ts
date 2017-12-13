@@ -2,7 +2,7 @@ import { Address, Color, Coordinate, Unit } from '../../../../../src/indexForTes
 import { Diagonal } from '../../../../../test'
 
 interface AreaOriginParams {
-	gridAddress: Address,
+	address: Address,
 	sectionAddress: Address,
 	sectionResolution: number,
 	tileSize: Unit,
