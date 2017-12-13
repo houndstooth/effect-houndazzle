@@ -3,14 +3,15 @@ import Spy = jasmine.Spy
 import CallInfo = jasmine.CallInfo
 import { substripe, SubstripeParams, substripeTexture } from '../../../pattern'
 
-const subject: (_: ExecuteTextureParams) => void = substripeTexture.default
-
 describe('substripe texture', () => {
-	const tileSize: Unit = to.Unit(13)
-	const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(1)
-
+	let tileSize: Unit
+	let shapeColorIndex: ShapeColorIndex
+	let subject: (_: ExecuteTextureParams) => void
 	let substripeCalls: CallInfo[]
 	beforeEach(() => {
+		subject = substripeTexture.default
+		tileSize = to.Unit(13)
+		shapeColorIndex = to.ShapeColorIndex(1)
 		patternState.gridSettings.tileResolution = 2
 
 		const substripeSpy: Spy = spyOn(substripe, 'default')

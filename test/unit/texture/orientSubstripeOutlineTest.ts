@@ -13,10 +13,9 @@ import Spy = jasmine.Spy
 import { isCloseTo } from '../../../../../test'
 import { orientSubstripeOutline } from '../../../pattern'
 
-const subject: (_: ComponentParams) => Outline = orientSubstripeOutline.default
-
 describe('orient substripe outline', () => {
 	it('orients the substripe outline according to the index of the solid color it would have been', () => {
+		const subject: (_: ComponentParams) => Outline = orientSubstripeOutline.default
 		const rotatedCoordinate: Coordinate = to.Coordinate([])
 		const rotateCoordinateSpy: Spy = spyOn(rotateCoordinate, 'default').and.returnValue(rotatedCoordinate)
 

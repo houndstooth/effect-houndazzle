@@ -1,18 +1,20 @@
 import { Outline, ShapeColorIndex, solid, to, Unit } from '../../../../../src/indexForTest'
 import { orientSubstripeOutline, substripe, substripeOutline, SubstripeParams } from '../../../pattern'
 
-const subject: (_: SubstripeParams) => void = substripe.default
-
 describe('substripe', () => {
-	const tileSize: Unit = to.Unit(13)
-	const shapeColorIndex: ShapeColorIndex = to.ShapeColorIndex(1)
+	let tileSize: Unit
+	let shapeColorIndex: ShapeColorIndex
 	const substripeIndex: number = 5
 	const substripeCount: number = 17
 
 	const outline: Outline = []
 	const orientedOutline: Outline = []
 
+	let subject: (_: SubstripeParams) => void
 	beforeEach(() => {
+		tileSize = to.Unit(13)
+		shapeColorIndex = to.ShapeColorIndex(1)
+		subject = substripe.default
 		spyOn(substripeOutline, 'default').and.returnValue(outline)
 		spyOn(orientSubstripeOutline, 'default').and.returnValue(orientedOutline)
 		spyOn(solid, 'default')
