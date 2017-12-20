@@ -1,4 +1,4 @@
-import { Address, Coordinate, executeSelectedEffects, to, Unit } from '../../../../../src/indexForTest'
+import { Address, Coordinate, executePattern, to, Unit } from '../../../../../src/indexForTest'
 import { setAppStateForEffectTests } from '../../../../../test'
 import { houndazzleEffect } from '../../../effects'
 import { calculateAreaOrigin, expectSection, HoundazzleSectionExpectation } from '../helpers'
@@ -20,7 +20,7 @@ describe('houndazzle effect', () => {
 			},
 		})
 
-		executeSelectedEffects.default()
+		executePattern.default()
 
 		setTimeout(() => {
 			const partA: HoundazzleSectionExpectation[][] = [
