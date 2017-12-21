@@ -1,5 +1,4 @@
-import { Outline, to, Unit } from '../../../../../src/indexForTest'
-import { patternState } from '../../../../../src/pattern/patternState'
+import { Outline, patternState, to, Unit } from '../../../../../src/indexForTest'
 import { substripeOutline, SubstripeOutlineParams } from '../../../pattern'
 
 describe('substripe outline', () => {
