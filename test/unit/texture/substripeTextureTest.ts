@@ -7,6 +7,7 @@ describe('substripe texture', () => {
 	let tileSize: Unit
 	let shapeColorIndex: ShapeColorIndex
 	let subject: (_: ExecuteTextureParams) => void
+	// @ts-ignore
 	let substripeCalls: CallInfo[]
 	beforeEach(() => {
 		subject = substripeTexture.default
@@ -18,6 +19,7 @@ describe('substripe texture', () => {
 
 		subject({ tileSize, shapeColorIndex })
 
+		// @ts-ignore
 		substripeCalls = substripeSpy.calls.all()
 	})
 
@@ -27,6 +29,7 @@ describe('substripe texture', () => {
 	})
 
 	it('gets the substripe outline with the correct arguments', () => {
+		// @ts-ignore
 		substripeCalls.forEach((call: CallInfo, callIndex: number): void => {
 			const calls: SubstripeParams[] = call.args
 

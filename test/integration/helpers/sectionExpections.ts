@@ -1,5 +1,6 @@
 import { BLACK, Color, from, to, TRANSPARENT } from '../../../../../src/indexForTest'
 import { Diagonal, sectionCenterIsColor } from '../../../../../test'
+
 import {
 	DiagonalExpectation,
 	HoundazzleExpectSectionParams,

@@ -1,4 +1,5 @@
 import { Coordinate, from, to } from '../../../../../src/indexForTest'
+
 import { AreaOriginParams } from './types'
 
 const calculateAreaOrigin: (_: AreaOriginParams) => Coordinate =

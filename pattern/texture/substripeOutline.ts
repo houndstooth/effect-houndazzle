@@ -1,5 +1,6 @@
 import { from, Outline, patternState, to, Unit } from '../../../../src'
 import { SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
+
 import { SubstripeOutlineParams } from './types'
 
 const BOTH_DIRECTIONS: number = 2

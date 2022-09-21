@@ -5,7 +5,7 @@ import { calculateAreaOrigin, expectSection, HoundazzleSectionExpectation } from
 
 describe('houndazzle effect', () => {
 	// tslint:disable-next-line:max-line-length
-	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', async (done: DoneFn) => {
+	it('does houndstooth w/ horizontal against vertical striped textures, not simply black against white', (done: DoneFn) => {
 		setAppStateForEffectTests.setAvailableEffects({ houndazzle: houndazzleEffect })
 		setAppStateForEffectTests.setSelectedEffects([ 'houndazzle' ])
 		const tileSize: Unit = to.Unit(200)

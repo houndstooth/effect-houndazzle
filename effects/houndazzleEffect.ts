@@ -1,5 +1,6 @@
 import { NamedEffect } from '../../../src'
 import { substripeTexture } from '../pattern'
+
 import HOUNDAZZLE_DESCRIPTION from './houndazzleDescription'
 
 const houndazzleEffect: NamedEffect = {

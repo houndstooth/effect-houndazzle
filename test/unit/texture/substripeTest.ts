@@ -40,6 +40,7 @@ describe('substripe', () => {
 	it('sends the result to be rendered as a solid filled path', () => {
 		expect(solid.default).toHaveBeenCalledWith({
 			outline: orientedOutline,
+		// @ts-ignore
 			shapeColorIndex: substripeIndex,
 		})
 	})

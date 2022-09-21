@@ -1,4 +1,5 @@
 import { Outline, solid, to } from '../../../../src'
+
 import orientSubstripeOutline from './orientSubstripeOutline'
 import substripeOutline from './substripeOutline'
 import { SubstripeParams } from './types'

@@ -1,5 +1,6 @@
 import { codeUtilities, ExecuteTextureParams, patternState } from '../../../../src'
 import { SUFFICIENT_FACTOR_TO_GUARANTEE_TILE_COVERAGE } from '../constants'
+
 import substripe from './substripe'
 
 const SUBSTRIPE_COUNT: number = 16
